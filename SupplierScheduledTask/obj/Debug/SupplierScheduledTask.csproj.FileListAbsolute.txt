@@ -1,1 +1,2 @@
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\SupplierScheduledTask.exe.config
+F:\job proj\enhancements\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\SupplierScheduledTask.exe.config

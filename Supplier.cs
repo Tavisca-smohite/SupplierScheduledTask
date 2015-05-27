@@ -8,5 +8,7 @@ public class Supplier
 
     public int SupplierId { get; set; }
     public string ProductType { get; set; }
-    public string  { get; set; }
+    public string CallType { get; set; }
+    public int ThreshholdValue { get; set; }
+
 }
