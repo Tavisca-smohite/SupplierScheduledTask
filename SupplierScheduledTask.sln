@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplierScheduledTask", "SupplierScheduledTask\SupplierScheduledTask.csproj", "{48AD595C-A3E9-469B-A410-79C9BB4F6162}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Host", "1.Host", "{9D88A42F-F7F2-4741-B664-629678E1B30C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.SolutionItems", "0.SolutionItems", "{0F5EF886-0B8D-49B2-A113-2D02F126C25E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysisRuleset", "CodeAnalysisRuleset", "{AD405D5B-7F63-4E9B-AE1A-51E4C76FC366}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysisRuleset\TaviscaCodingPractices.ruleset = CodeAnalysisRuleset\TaviscaCodingPractices.ruleset
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonAssemblies", "CommonAssemblies", "{ADE987B0-58D0-43F7-A382-B5DDC5E9CA48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Data Layer", "2.Data Layer", "{966EE3B6-30FA-4598-BD98-A3EBB9A05CAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Business Layer", "3.Business Layer", "{AEB26CE1-D2E7-4CFF-A398-6C8FD25E62AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Entitites", "1.Entitites", "{0356622F-B97A-4515-A786-9705EC507B45}"
+	ProjectSection(SolutionItems) = preProject
+		Supplier.cs = Supplier.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48AD595C-A3E9-469B-A410-79C9BB4F6162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AD595C-A3E9-469B-A410-79C9BB4F6162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AD595C-A3E9-469B-A410-79C9BB4F6162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AD595C-A3E9-469B-A410-79C9BB4F6162}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48AD595C-A3E9-469B-A410-79C9BB4F6162} = {9D88A42F-F7F2-4741-B664-629678E1B30C}
+		{AD405D5B-7F63-4E9B-AE1A-51E4C76FC366} = {0F5EF886-0B8D-49B2-A113-2D02F126C25E}
+		{ADE987B0-58D0-43F7-A382-B5DDC5E9CA48} = {0F5EF886-0B8D-49B2-A113-2D02F126C25E}
+		{0356622F-B97A-4515-A786-9705EC507B45} = {AEB26CE1-D2E7-4CFF-A398-6C8FD25E62AD}
+	EndGlobalSection
+EndGlobal
