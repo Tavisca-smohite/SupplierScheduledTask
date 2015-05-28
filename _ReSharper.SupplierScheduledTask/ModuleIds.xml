@@ -1,3 +1,6 @@
 <Modules>
   <Module PersistentId="48AD595C-A3E9-469B-A410-79C9BB4F6162" ModuleId="SupplierScheduledTask" />
+  <Module PersistentId="CDE780F5-ACE7-4071-9E20-06A989377634" ModuleId="ClassLibrary1" />
+  <Module PersistentId="0FC51935-5832-47D1-94CF-C141B83A82AE" ModuleId="Entities" />
+  <Module PersistentId="EE253154-D3C3-4F29-9DF2-A343A69E17EE" ModuleId="ScheduledTask.Test" />
 </Modules>
