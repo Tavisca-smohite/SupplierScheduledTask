@@ -1,12 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.375" name="SupplierDataManager">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SupplierDataManager">
   <DataContextMoniker Name="/SupplierDataManagerDataContext" />
-  <nestedChildShapes>
-    <classShape Id="76a63fda-1338-4729-a0c3-91948804acf8" absoluteBounds="5.25, 4.875, 2, 5.2323225911458326">
-      <DataClassMoniker Name="/SupplierDataManagerDataContext/Log" />
-      <nestedChildShapes>
-        <elementListCompartment Id="376d77ae-8478-4014-97b8-fb73f1347f81" absoluteBounds="5.265, 5.335, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-  </nestedChildShapes>
 </ordesignerObjectsDiagram>

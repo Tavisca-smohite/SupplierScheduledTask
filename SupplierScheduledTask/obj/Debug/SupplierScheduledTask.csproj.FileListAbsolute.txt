@@ -1,11 +1,11 @@
 F:\job proj\enhancements\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\SupplierScheduledTask.exe.config
-D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\obj\Debug\SupplierScheduledTask.csprojResolveAssemblyReference.cache
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\SupplierScheduledTask.exe.config
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\SupplierScheduledTask.exe
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\SupplierScheduledTask.pdb
-D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\DataAccessLAyer.dll
+D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\DataAccessLayer.dll
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\Entities.dll
-D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\DataAccessLAyer.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\DataAccessLayer.pdb
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\Entities.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\obj\Debug\SupplierScheduledTask.csprojResolveAssemblyReference.cache
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\obj\Debug\SupplierScheduledTask.exe
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\obj\Debug\SupplierScheduledTask.pdb

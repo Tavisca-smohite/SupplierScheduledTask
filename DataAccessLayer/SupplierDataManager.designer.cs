@@ -30,9 +30,6 @@ namespace DataAccessLayer
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertLog(Log instance);
-    partial void UpdateLog(Log instance);
-    partial void DeleteLog(Log instance);
     #endregion
 		
 		public SupplierDataManagerDataContext() : 
@@ -65,392 +62,68 @@ namespace DataAccessLayer
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Log> Logs
-		{
-			get
-			{
-				return this.GetTable<Log>();
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spGetLogBasedOnCallType")]
-		public int spGetLogBasedOnCallType([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CallType", DbType="NVarChar(32)")] string callType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierId", DbType="Int")] System.Nullable<int> supplierId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeDiff", DbType="Int")] System.Nullable<int> timeDiff, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierName", DbType="NVarChar(64)")] string supplierName)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spGetLogBasedOnCallType2")]
+		public ISingleResult<spGetLogBasedOnCallType2Result> spGetLogBasedOnCallType2([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CallType", DbType="NVarChar(32)")] string callType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierId", DbType="Int")] System.Nullable<int> supplierId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeDiff", DbType="Int")] System.Nullable<int> timeDiff, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierName", DbType="NVarChar(64)")] string supplierName)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), callType, supplierId, timeDiff, supplierName);
-			return ((int)(result.ReturnValue));
+			return ((ISingleResult<spGetLogBasedOnCallType2Result>)(result.ReturnValue));
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Log]")]
-	public partial class Log : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class spGetLogBasedOnCallType2Result
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		private string _ProviderId;
 		
-		private int _LogID;
-		
-		private int _Priority;
-		
-		private string _Severity;
-		
-		private string _Title;
-		
-		private System.DateTime _Timestamp;
-		
-		private string _MachineName;
-		
-		private string _AppDomainName;
-		
-		private string _ProcessID;
-		
-		private string _ProcessName;
-		
-		private string _ThreadName;
-		
-		private string _Win32ThreadId;
-		
-		private string _Message;
-		
-		private System.Nullable<System.Guid> _SessionId;
+		private string _Supplier;
 		
 		private string _CallType;
 		
-		private System.Nullable<int> _ProviderId;
+		private string _Success;
 		
-		private string _Status;
+		private string _Failure;
 		
-		private System.Nullable<double> _TimeTaken;
+		private string _PerSuccess;
 		
-		private string _UsersessionId;
+		private string _PerFailure;
 		
-		private string _UserIdentifier;
-		
-		private string _ApplicationName;
-		
-		private string _ContextIdentifier;
-		
-		private string _IpAddress;
-		
-		private System.Nullable<System.Guid> _CallId;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLogIDChanging(int value);
-    partial void OnLogIDChanged();
-    partial void OnPriorityChanging(int value);
-    partial void OnPriorityChanged();
-    partial void OnSeverityChanging(string value);
-    partial void OnSeverityChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnTimestampChanging(System.DateTime value);
-    partial void OnTimestampChanged();
-    partial void OnMachineNameChanging(string value);
-    partial void OnMachineNameChanged();
-    partial void OnAppDomainNameChanging(string value);
-    partial void OnAppDomainNameChanged();
-    partial void OnProcessIDChanging(string value);
-    partial void OnProcessIDChanged();
-    partial void OnProcessNameChanging(string value);
-    partial void OnProcessNameChanged();
-    partial void OnThreadNameChanging(string value);
-    partial void OnThreadNameChanged();
-    partial void OnWin32ThreadIdChanging(string value);
-    partial void OnWin32ThreadIdChanged();
-    partial void OnMessageChanging(string value);
-    partial void OnMessageChanged();
-    partial void OnSessionIdChanging(System.Nullable<System.Guid> value);
-    partial void OnSessionIdChanged();
-    partial void OnCallTypeChanging(string value);
-    partial void OnCallTypeChanged();
-    partial void OnProviderIdChanging(System.Nullable<int> value);
-    partial void OnProviderIdChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnTimeTakenChanging(System.Nullable<double> value);
-    partial void OnTimeTakenChanged();
-    partial void OnUsersessionIdChanging(string value);
-    partial void OnUsersessionIdChanged();
-    partial void OnUserIdentifierChanging(string value);
-    partial void OnUserIdentifierChanged();
-    partial void OnApplicationNameChanging(string value);
-    partial void OnApplicationNameChanged();
-    partial void OnContextIdentifierChanging(string value);
-    partial void OnContextIdentifierChanged();
-    partial void OnIpAddressChanging(string value);
-    partial void OnIpAddressChanged();
-    partial void OnCallIdChanging(System.Nullable<System.Guid> value);
-    partial void OnCallIdChanged();
-    #endregion
-		
-		public Log()
+		public spGetLogBasedOnCallType2Result()
 		{
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int LogID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderId", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string ProviderId
 		{
 			get
 			{
-				return this._LogID;
+				return this._ProviderId;
 			}
 			set
 			{
-				if ((this._LogID != value))
+				if ((this._ProviderId != value))
 				{
-					this.OnLogIDChanging(value);
-					this.SendPropertyChanging();
-					this._LogID = value;
-					this.SendPropertyChanged("LogID");
-					this.OnLogIDChanged();
+					this._ProviderId = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int NOT NULL")]
-		public int Priority
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Supplier", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Supplier
 		{
 			get
 			{
-				return this._Priority;
+				return this._Supplier;
 			}
 			set
 			{
-				if ((this._Priority != value))
+				if ((this._Supplier != value))
 				{
-					this.OnPriorityChanging(value);
-					this.SendPropertyChanging();
-					this._Priority = value;
-					this.SendPropertyChanged("Priority");
-					this.OnPriorityChanged();
+					this._Supplier = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Severity", DbType="NVarChar(32) NOT NULL", CanBeNull=false)]
-		public string Severity
-		{
-			get
-			{
-				return this._Severity;
-			}
-			set
-			{
-				if ((this._Severity != value))
-				{
-					this.OnSeverityChanging(value);
-					this.SendPropertyChanging();
-					this._Severity = value;
-					this.SendPropertyChanged("Severity");
-					this.OnSeverityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Timestamp", DbType="DateTime NOT NULL")]
-		public System.DateTime Timestamp
-		{
-			get
-			{
-				return this._Timestamp;
-			}
-			set
-			{
-				if ((this._Timestamp != value))
-				{
-					this.OnTimestampChanging(value);
-					this.SendPropertyChanging();
-					this._Timestamp = value;
-					this.SendPropertyChanged("Timestamp");
-					this.OnTimestampChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MachineName", DbType="NVarChar(32) NOT NULL", CanBeNull=false)]
-		public string MachineName
-		{
-			get
-			{
-				return this._MachineName;
-			}
-			set
-			{
-				if ((this._MachineName != value))
-				{
-					this.OnMachineNameChanging(value);
-					this.SendPropertyChanging();
-					this._MachineName = value;
-					this.SendPropertyChanged("MachineName");
-					this.OnMachineNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppDomainName", DbType="NVarChar(512) NOT NULL", CanBeNull=false)]
-		public string AppDomainName
-		{
-			get
-			{
-				return this._AppDomainName;
-			}
-			set
-			{
-				if ((this._AppDomainName != value))
-				{
-					this.OnAppDomainNameChanging(value);
-					this.SendPropertyChanging();
-					this._AppDomainName = value;
-					this.SendPropertyChanged("AppDomainName");
-					this.OnAppDomainNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProcessID", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
-		public string ProcessID
-		{
-			get
-			{
-				return this._ProcessID;
-			}
-			set
-			{
-				if ((this._ProcessID != value))
-				{
-					this.OnProcessIDChanging(value);
-					this.SendPropertyChanging();
-					this._ProcessID = value;
-					this.SendPropertyChanged("ProcessID");
-					this.OnProcessIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProcessName", DbType="NVarChar(512) NOT NULL", CanBeNull=false)]
-		public string ProcessName
-		{
-			get
-			{
-				return this._ProcessName;
-			}
-			set
-			{
-				if ((this._ProcessName != value))
-				{
-					this.OnProcessNameChanging(value);
-					this.SendPropertyChanging();
-					this._ProcessName = value;
-					this.SendPropertyChanged("ProcessName");
-					this.OnProcessNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThreadName", DbType="NVarChar(512)")]
-		public string ThreadName
-		{
-			get
-			{
-				return this._ThreadName;
-			}
-			set
-			{
-				if ((this._ThreadName != value))
-				{
-					this.OnThreadNameChanging(value);
-					this.SendPropertyChanging();
-					this._ThreadName = value;
-					this.SendPropertyChanged("ThreadName");
-					this.OnThreadNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Win32ThreadId", DbType="NVarChar(128)")]
-		public string Win32ThreadId
-		{
-			get
-			{
-				return this._Win32ThreadId;
-			}
-			set
-			{
-				if ((this._Win32ThreadId != value))
-				{
-					this.OnWin32ThreadIdChanging(value);
-					this.SendPropertyChanging();
-					this._Win32ThreadId = value;
-					this.SendPropertyChanged("Win32ThreadId");
-					this.OnWin32ThreadIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="NVarChar(2048)")]
-		public string Message
-		{
-			get
-			{
-				return this._Message;
-			}
-			set
-			{
-				if ((this._Message != value))
-				{
-					this.OnMessageChanging(value);
-					this.SendPropertyChanging();
-					this._Message = value;
-					this.SendPropertyChanged("Message");
-					this.OnMessageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionId", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> SessionId
-		{
-			get
-			{
-				return this._SessionId;
-			}
-			set
-			{
-				if ((this._SessionId != value))
-				{
-					this.OnSessionIdChanging(value);
-					this.SendPropertyChanging();
-					this._SessionId = value;
-					this.SendPropertyChanged("SessionId");
-					this.OnSessionIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CallType", DbType="NVarChar(128)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CallType", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
 		public string CallType
 		{
 			get
@@ -461,212 +134,72 @@ namespace DataAccessLayer
 			{
 				if ((this._CallType != value))
 				{
-					this.OnCallTypeChanging(value);
-					this.SendPropertyChanging();
 					this._CallType = value;
-					this.SendPropertyChanged("CallType");
-					this.OnCallTypeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderId", DbType="Int")]
-		public System.Nullable<int> ProviderId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Success", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Success
 		{
 			get
 			{
-				return this._ProviderId;
+				return this._Success;
 			}
 			set
 			{
-				if ((this._ProviderId != value))
+				if ((this._Success != value))
 				{
-					this.OnProviderIdChanging(value);
-					this.SendPropertyChanging();
-					this._ProviderId = value;
-					this.SendPropertyChanged("ProviderId");
-					this.OnProviderIdChanged();
+					this._Success = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(32)")]
-		public string Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Failure", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Failure
 		{
 			get
 			{
-				return this._Status;
+				return this._Failure;
 			}
 			set
 			{
-				if ((this._Status != value))
+				if ((this._Failure != value))
 				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
+					this._Failure = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeTaken", DbType="Float")]
-		public System.Nullable<double> TimeTaken
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PerSuccess", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string PerSuccess
 		{
 			get
 			{
-				return this._TimeTaken;
+				return this._PerSuccess;
 			}
 			set
 			{
-				if ((this._TimeTaken != value))
+				if ((this._PerSuccess != value))
 				{
-					this.OnTimeTakenChanging(value);
-					this.SendPropertyChanging();
-					this._TimeTaken = value;
-					this.SendPropertyChanged("TimeTaken");
-					this.OnTimeTakenChanged();
+					this._PerSuccess = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersessionId", DbType="NVarChar(256)")]
-		public string UsersessionId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PerFailure", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string PerFailure
 		{
 			get
 			{
-				return this._UsersessionId;
+				return this._PerFailure;
 			}
 			set
 			{
-				if ((this._UsersessionId != value))
+				if ((this._PerFailure != value))
 				{
-					this.OnUsersessionIdChanging(value);
-					this.SendPropertyChanging();
-					this._UsersessionId = value;
-					this.SendPropertyChanged("UsersessionId");
-					this.OnUsersessionIdChanged();
+					this._PerFailure = value;
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserIdentifier", DbType="NVarChar(256)")]
-		public string UserIdentifier
-		{
-			get
-			{
-				return this._UserIdentifier;
-			}
-			set
-			{
-				if ((this._UserIdentifier != value))
-				{
-					this.OnUserIdentifierChanging(value);
-					this.SendPropertyChanging();
-					this._UserIdentifier = value;
-					this.SendPropertyChanged("UserIdentifier");
-					this.OnUserIdentifierChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationName", DbType="NVarChar(256)")]
-		public string ApplicationName
-		{
-			get
-			{
-				return this._ApplicationName;
-			}
-			set
-			{
-				if ((this._ApplicationName != value))
-				{
-					this.OnApplicationNameChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationName = value;
-					this.SendPropertyChanged("ApplicationName");
-					this.OnApplicationNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContextIdentifier", DbType="NVarChar(128)")]
-		public string ContextIdentifier
-		{
-			get
-			{
-				return this._ContextIdentifier;
-			}
-			set
-			{
-				if ((this._ContextIdentifier != value))
-				{
-					this.OnContextIdentifierChanging(value);
-					this.SendPropertyChanging();
-					this._ContextIdentifier = value;
-					this.SendPropertyChanged("ContextIdentifier");
-					this.OnContextIdentifierChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IpAddress", DbType="NVarChar(256)")]
-		public string IpAddress
-		{
-			get
-			{
-				return this._IpAddress;
-			}
-			set
-			{
-				if ((this._IpAddress != value))
-				{
-					this.OnIpAddressChanging(value);
-					this.SendPropertyChanging();
-					this._IpAddress = value;
-					this.SendPropertyChanged("IpAddress");
-					this.OnIpAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CallId", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> CallId
-		{
-			get
-			{
-				return this._CallId;
-			}
-			set
-			{
-				if ((this._CallId != value))
-				{
-					this.OnCallIdChanging(value);
-					this.SendPropertyChanging();
-					this._CallId = value;
-					this.SendPropertyChanged("CallId");
-					this.OnCallIdChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

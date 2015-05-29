@@ -14,8 +14,9 @@ namespace SupplierScheduledTask
         {
             //var list = new XmlParser().ParseSuppliers();
             
-         new SupplierDataManagerDataContext().spGetLogBasedOnCallType("HotelMultiAvail", 9, 1000, "Pegasus");
+         var obj=new SupplierDataManagerDataContext().spGetLogBasedOnCallType2("HotelMultiAvail", 9, 1000, "Pegasus");
             //var data=SupplierData
+            
         }
     }
 }
