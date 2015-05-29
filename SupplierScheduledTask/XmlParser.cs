@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Xml.Linq;
-using System.Xml.Serialization;
+
 using Entities;
 
 namespace SupplierScheduledTask
@@ -21,7 +20,7 @@ namespace SupplierScheduledTask
            string path = Path.Combine(directoryPath, @"Suppliers.xml");
            var suppliersXml = XDocument.Load(path);
            
-           List<XElement> suppliersList = suppliersXml.Descendants().Where(arg => arg.Name.LocalName == "Supplier").ToList();   //paxFareProduct
+           List<XElement> suppliersList = suppliersXml.Descendants().Where(arg => arg.Name.LocalName == "Supplier").ToList();   
 
            return (from supplierNode in suppliersList
                    let id = supplierNode.Attribute("SupplierId")

@@ -8,7 +8,7 @@ namespace Entities.Interfaces
 {
     public interface IProductOperation
     {
-        void GetFailureRateForSuppliers();
+         List<Supplier> GetFailureRateForSuppliers(List<Supplier> suppliers);
         bool DisableSupplier();
         bool CompareThreshhold();
     }

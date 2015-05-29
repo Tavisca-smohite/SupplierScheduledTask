@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dLogging" Class="SupplierDataManagerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=agni;Initial Catalog=dLogging;Integrated Security=True" SettingsObjectName="DataAccessLayer.Properties.Settings" SettingsPropertyName="dLoggingConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[Log]" Member="Logs">
+    <Type Name="Log">
+      <Column Name="LogID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Severity" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MachineName" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="AppDomainName" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="ProcessID" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ProcessName" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="ThreadName" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="Win32ThreadId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+      <Column Name="SessionId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CallType" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="ProviderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="TimeTaken" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UsersessionId" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="UserIdentifier" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ApplicationName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ContextIdentifier" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IpAddress" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="CallId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spGetLogBasedOnCallType" Method="spGetLogBasedOnCallType">
+    <Parameter Name="CallType" Parameter="callType" Type="System.String" DbType="NVarChar(32)" />
+    <Parameter Name="SupplierId" Parameter="supplierId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TimeDiff" Parameter="timeDiff" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SupplierName" Parameter="supplierName" Type="System.String" DbType="NVarChar(64)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

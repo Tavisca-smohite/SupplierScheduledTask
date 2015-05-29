@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DataAccessLayer;
 using Entities.Interfaces;
 
 namespace Entities.Products
 {
     public class HotelProduct : IProductOperation
     {
-        public void GetFailureRateForSuppliers()
+        /// <summary>
+        /// for each supplier get success and failure rate
+        /// </summary>
+        /// <param name="suppliersList"></param>
+        /// <returns></returns>
+        public List<Supplier> GetFailureRateForSuppliers(List<Supplier> suppliersList)
         {
-            throw new NotImplementedException();
+            foreach (var supplier in suppliersList)
+            {
+                //var obj = new SupplierDataManagerDataContext().spGetLogBasedOnCallType(supplier.CallType,supplier.SupplierId, 1000, supplier.SupplierName);
+            }
+            
+            return null;
         }
 
         public bool DisableSupplier()

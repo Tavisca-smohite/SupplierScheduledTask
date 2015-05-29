@@ -2,4 +2,6 @@ D:\D\projects\enhancement\SupplierScheduledTask\Entities\bin\Debug\Entities.dll
 D:\D\projects\enhancement\SupplierScheduledTask\Entities\bin\Debug\Entities.pdb
 D:\D\projects\enhancement\SupplierScheduledTask\Entities\obj\Debug\Entities.dll
 D:\D\projects\enhancement\SupplierScheduledTask\Entities\obj\Debug\Entities.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\Entities\bin\Debug\DataAccessLAyer.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Entities\bin\Debug\DataAccessLAyer.pdb
 D:\D\projects\enhancement\SupplierScheduledTask\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache

@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Supplier : IEnumerable
+    public class Supplier 
     {     
         public int SupplierId { get; set; }
         public string SupplierName { get; set; }
         public string ProductType { get; set; }
         public string CallType { get; set; }
         public int ThreshholdValue { get; set; }
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public int FailureRate { get; set; }
     }
 
     
