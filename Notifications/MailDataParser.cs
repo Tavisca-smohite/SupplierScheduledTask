@@ -18,11 +18,11 @@ namespace Notifications
             directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
                                 ? directoryPath.Replace("\\bin\\Debug", "")
                                 : directoryPath;
-            string path = Path.Combine(directoryPath, @"Suppliers.xml");
-            var MailDataXml = XDocument.Load(path);
+            string path = Path.Combine(directoryPath, @"MailData.xml");
+            var mailDataXml = XDocument.Load(path);
 
             var mailData =
-                MailDataXml.Element("MailData"); //.Where(arg => arg.Name.LocalName == "MailData").ToList();
+                mailDataXml.Element("MailData"); //.Where(arg => arg.Name.LocalName == "MailData").ToList();
 
             var mail = new MailData();
             if (mailData!=null)

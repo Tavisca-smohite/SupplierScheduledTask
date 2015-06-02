@@ -18,7 +18,7 @@ namespace Notifications
           
           msg.Append(string.Format("Suppliers who have crossed failure threshhold value on {0} environment are as follow:",mailData.Environment));
           msg.Append(Environment.NewLine);
-          msg.Append("No.  SupplierName   SupplierID   ThreshholdVlue   FailureRate");
+          msg.Append("No.  SupplierName   SupplierID   ThreshholdVlue   FailureRate    Disabled");
           msg.Append(Environment.NewLine);
           msg.Append("--------------------------------------------------------------");
           msg.Append(Environment.NewLine);
@@ -26,7 +26,8 @@ namespace Notifications
           foreach (var supplierToDisable in suppliersToDisable)
           {
               var supplier = supplierToDisable.Key;
-              msg.Append(string.Format("{0}  {1}    {2}       {3}        {4}", i + 1, supplier.SupplierName, supplier.SupplierId, supplier.ThreshholdValue,supplierToDisable.Value));
+              var isdisabled = (supplier.DisableIfCrossesThreshhold == 1) ? "YES" : "NO";
+              msg.Append(string.Format("{0}  {1}    {2}       {3}        {4}    {5}", i + 1, supplier.SupplierName, supplier.SupplierId, supplier.ThreshholdValue,supplierToDisable.Value,isdisabled));
               msg.Append(Environment.NewLine);
               i++;
           }
@@ -35,9 +36,10 @@ namespace Notifications
           //msg.Append(Environment.NewLine);
          // msg.Append("Start Time: " + TestRunContext.Current.StartTime);
           msg.Append(Environment.NewLine);
-          msg.Append("Thanks and regards,");
-          msg.Append(Environment.NewLine);
-          msg.Append("Sheetal Mohite");
+          //if required
+          //msg.Append("Thanks and regards,");
+          //msg.Append(Environment.NewLine);
+          //msg.Append("Sheetal Mohite");     name 
         //  msg.Append("End Time: " + System.DateTime.Now.ToString("G"));
           var from = new MailAddress(mailData.MailFrom, mailData.DisplayName);         
 
@@ -62,7 +64,7 @@ namespace Notifications
           {
               Host = mailData.Host,
               Port = Convert.ToInt32(mailData.Port),
-              Credentials = new NetworkCredential(Config.UserId, Config.Password),
+              Credentials = new NetworkCredential(mailData.UserId, mailData.Password),
               EnableSsl = true
           };
           Console.WriteLine("Sending email...");
