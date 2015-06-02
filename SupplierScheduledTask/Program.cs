@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
+using Entities.Products;
+using Notifications;
 
 
 namespace SupplierScheduledTask
@@ -12,10 +14,12 @@ namespace SupplierScheduledTask
     {
         static void Main(string[] args)
         {
-            //var list = new XmlParser().ParseSuppliers();
+         //   var list = new XmlParser().GetProductWiseSuppliersList();
+          
             
-         var obj=new SupplierDataManagerDataContext().spGetLogBasedOnCallType2("HotelMultiAvail", 9, 1000, "Pegasus");
-            //var data=SupplierData
+         //var obj=new SupplierDataManagerDataContext().spGetLogBasedOnCallType("HotelMultiAvail", 9, 1000, "Pegasus");
+         //   //var data=SupplierData
+         //   var a=obj.ToList();
             
         }
     }

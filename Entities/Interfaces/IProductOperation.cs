@@ -8,8 +8,8 @@ namespace Entities.Interfaces
 {
     public interface IProductOperation
     {
-         List<Supplier> GetFailureRateForSuppliers(List<Supplier> suppliers);
-        bool DisableSupplier();
-        bool CompareThreshhold();
+         Dictionary<Supplier,float> GetFailureRateForSuppliers(List<Supplier> suppliers);
+      
+        Dictionary<Supplier,float> CompareThreshhold(Dictionary<Supplier,float> suppliers);
     }
 }

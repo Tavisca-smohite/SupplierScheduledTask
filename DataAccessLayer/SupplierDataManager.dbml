@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dLogging" Class="SupplierDataManagerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=agni;Initial Catalog=dLogging;Integrated Security=True" SettingsObjectName="DataAccessLayer.Properties.Settings" SettingsPropertyName="dLoggingConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.spGetLogBasedOnCallType2" Method="spGetLogBasedOnCallType2">
+  <Function Name="dbo.spGetLogBasedOnCallType" Method="spGetLogBasedOnCallType">
     <Parameter Name="CallType" Parameter="callType" Type="System.String" DbType="NVarChar(32)" />
     <Parameter Name="SupplierId" Parameter="supplierId" Type="System.Int32" DbType="Int" />
     <Parameter Name="TimeDiff" Parameter="timeDiff" Type="System.Int32" DbType="Int" />
     <Parameter Name="SupplierName" Parameter="supplierName" Type="System.String" DbType="NVarChar(64)" />
-    <ElementType Name="spGetLogBasedOnCallType2Result">
+    <ElementType Name="spGetLogBasedOnCallTypeResult">
       <Column Name="ProviderId" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Supplier" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="CallType" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />

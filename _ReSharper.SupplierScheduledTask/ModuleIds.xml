@@ -5,4 +5,6 @@
   <Module PersistentId="EE253154-D3C3-4F29-9DF2-A343A69E17EE" ModuleId="ScheduledTask.Test" />
   <Module PersistentId="3605FAB8-7E18-4964-A968-6E58A83BD530" ModuleId="DataAccessLAyer" />
   <Module PersistentId="359C100B-F537-45F0-A69D-66B44A929590" ModuleId="DataAccessLayer" />
+  <Module PersistentId="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E" ModuleId="Notifications" />
+  <Module PersistentId="395AB9D9-0B06-48CB-A13E-54C6B2E40D1B" ModuleId="ClassLibrary1_1" />
 </Modules>

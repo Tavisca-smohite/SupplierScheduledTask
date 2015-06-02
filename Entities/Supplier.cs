@@ -13,8 +13,8 @@ namespace Entities
         public string SupplierName { get; set; }
         public string ProductType { get; set; }
         public string CallType { get; set; }
-        public int ThreshholdValue { get; set; }
-        public int FailureRate { get; set; }
+        public float ThreshholdValue { get; set; }
+ 
     }
 
     

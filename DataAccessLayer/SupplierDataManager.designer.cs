@@ -62,15 +62,15 @@ namespace DataAccessLayer
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spGetLogBasedOnCallType2")]
-		public ISingleResult<spGetLogBasedOnCallType2Result> spGetLogBasedOnCallType2([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CallType", DbType="NVarChar(32)")] string callType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierId", DbType="Int")] System.Nullable<int> supplierId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeDiff", DbType="Int")] System.Nullable<int> timeDiff, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierName", DbType="NVarChar(64)")] string supplierName)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spGetLogBasedOnCallType")]
+		public ISingleResult<spGetLogBasedOnCallTypeResult> spGetLogBasedOnCallType([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CallType", DbType="NVarChar(32)")] string callType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierId", DbType="Int")] System.Nullable<int> supplierId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeDiff", DbType="Int")] System.Nullable<int> timeDiff, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierName", DbType="NVarChar(64)")] string supplierName)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), callType, supplierId, timeDiff, supplierName);
-			return ((ISingleResult<spGetLogBasedOnCallType2Result>)(result.ReturnValue));
+			return ((ISingleResult<spGetLogBasedOnCallTypeResult>)(result.ReturnValue));
 		}
 	}
 	
-	public partial class spGetLogBasedOnCallType2Result
+	public partial class spGetLogBasedOnCallTypeResult
 	{
 		
 		private string _ProviderId;
@@ -87,7 +87,7 @@ namespace DataAccessLayer
 		
 		private string _PerFailure;
 		
-		public spGetLogBasedOnCallType2Result()
+		public spGetLogBasedOnCallTypeResult()
 		{
 		}
 		
