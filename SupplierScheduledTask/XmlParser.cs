@@ -29,13 +29,15 @@ namespace SupplierScheduledTask
                     let productType = supplierNode.Attribute("Type")
                     let callType = supplierNode.Element("CallType")
                     let threshholdValue = supplierNode.Element("ThreshholdValue")
+                    let shouldBeDisabled = supplierNode.Element("DisableIfCrossesThreshhold")
                     select new Supplier
                         {
                             SupplierId = (id != null) ? Convert.ToInt32(id.Value) : 0,
                             SupplierName = (name != null) ? name.Value : null,
                             ProductType = (productType != null) ? productType.Value : null,
                             CallType = (callType != null) ? callType.Value : null,
-                            ThreshholdValue = (threshholdValue != null) ? float.Parse(threshholdValue.Value) :0
+                            ThreshholdValue = (threshholdValue != null) ? float.Parse(threshholdValue.Value) :0,
+                            DisableIfCrossesThreshhold=(shouldBeDisabled!=null)?Convert.ToInt32(shouldBeDisabled.Value):0
                         }).ToList();
 
         }

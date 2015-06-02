@@ -14,6 +14,7 @@ namespace Entities
         public string ProductType { get; set; }
         public string CallType { get; set; }
         public float ThreshholdValue { get; set; }
+        public int DisableIfCrossesThreshhold { get; set; }
  
     }
 
