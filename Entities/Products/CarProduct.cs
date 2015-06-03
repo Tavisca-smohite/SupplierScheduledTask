@@ -12,11 +12,6 @@ namespace Entities.Products
         public Dictionary<Supplier, float> GetFailureRateForSuppliers(List<Supplier> suppliers)
         {
             throw new NotImplementedException();
-        }
-
-        public Dictionary<Supplier, float> CompareThreshhold(Dictionary<Supplier, float> suppliers)
-        {
-            throw new NotImplementedException();
-        }
+        }        
     }
 }

@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Notifications", "2.Notifications", "{45377BBF-068E-4578-9379-CFAFDAA19611}"
 	ProjectSection(SolutionItems) = preProject
-		MailDataParser.cs = MailDataParser.cs
+		Notifications\MailBody.xml = Notifications\MailBody.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications", "Notifications\Notifications.csproj", "{1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E}"

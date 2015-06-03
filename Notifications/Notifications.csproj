@@ -31,7 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,22 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Contracts\INotificationService.cs" />
     <Compile Include="Mail.cs" />
-    <Compile Include="MailDataParser.cs" />
+    <Compile Include="Entities\MailAttributes.cs" />
+    <Compile Include="SendNotificationMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\NotificationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{0FC51935-5832-47D1-94CF-C141B83A82AE}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SupplierScheduledTask\SupplierScheduledTask.csproj">
-      <Project>{48AD595C-A3E9-469B-A410-79C9BB4F6162}</Project>
-      <Name>SupplierScheduledTask</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MailData.xml" />
+    <Content Include="Proxy\Command.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

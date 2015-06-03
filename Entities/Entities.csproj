@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IProductOperation.cs" />
+    <Compile Include="Products\AirProduct.cs" />
+    <Compile Include="Products\CarProduct.cs" />
     <Compile Include="Products\HotelProduct.cs" />
     <Compile Include="Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

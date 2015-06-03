@@ -1,0 +1,14 @@
+﻿<table style="border: 1px solid black">
+  <tbody>
+    <tr>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">No</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">SupplierName</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">SupplierId</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">ProductType</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">ThreshholdValue</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">FailureRate</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">IsDisabled</th>
+    </tr>   
+      {[RowInfo]}    
+  </tbody>
+</table>

@@ -9,3 +9,7 @@ D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\obj\Debug\SupplierScheduledTask.csprojResolveAssemblyReference.cache
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\obj\Debug\SupplierScheduledTask.exe
 D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\obj\Debug\SupplierScheduledTask.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\Notifications.dll
+D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\Notifications.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\Suppliers.xml
+D:\D\projects\enhancement\SupplierScheduledTask\SupplierScheduledTask\bin\Debug\ApplicationData\MailBody.xml

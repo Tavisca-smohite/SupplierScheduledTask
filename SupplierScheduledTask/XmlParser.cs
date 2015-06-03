@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using System.Web.Hosting;
 using System.Xml.Linq;
 
 using Entities;
 
 namespace SupplierScheduledTask
 {
+    //TODO: Need to change class name and make this class as static also move methods in this class which are used commonly.
     public class XmlParser
     {
         public List<Supplier> ParseSuppliers()
@@ -17,8 +18,14 @@ namespace SupplierScheduledTask
             directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
                                 ? directoryPath.Replace("\\bin\\Debug", "")
                                 : directoryPath;
-            string path = Path.Combine(directoryPath, @"Suppliers.xml");
-            var suppliersXml = XDocument.Load(path);
+            var path = HostingEnvironment.ApplicationPhysicalPath + "\\bin";
+            string xmlFile = HostingEnvironment.MapPath("~/ApplicationData/MailBody.xml");
+            
+            //"\\ApplicationData";
+           // var fullpath = path + "\ApplicationData\Supplier.xml";
+            XDocument.Load(path);
+            //string path = Path.Combine(directoryPath, @"Suppliers.xml");
+            var suppliersXml = XDocument.Load(@".\ApplicationData\Supplier.xml");
 
             List<XElement> suppliersList =
                 suppliersXml.Descendants().Where(arg => arg.Name.LocalName == "Supplier").ToList();
@@ -46,7 +53,8 @@ namespace SupplierScheduledTask
         {
             var productWiseSuppliersList = new Dictionary<string, List<Supplier>>();
                 
-            var suplierList = ParseSuppliers();                          
+            var suplierList = ParseSuppliers();      
+                    
                     var hotelSuppliersList =
                         suplierList.FindAll(
                             supplier =>

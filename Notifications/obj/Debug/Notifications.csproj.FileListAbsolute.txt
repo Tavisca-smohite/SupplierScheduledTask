@@ -1,10 +1,8 @@
 D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Notifications.dll
 D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Notifications.pdb
 D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Entities.dll
-D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\SupplierScheduledTask.exe
 D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\DataAccessLayer.dll
 D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Entities.pdb
-D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\SupplierScheduledTask.pdb
 D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\DataAccessLayer.pdb
 D:\D\projects\enhancement\SupplierScheduledTask\Notifications\obj\Debug\Notifications.csprojResolveAssemblyReference.cache
 D:\D\projects\enhancement\SupplierScheduledTask\Notifications\obj\Debug\Notifications.dll

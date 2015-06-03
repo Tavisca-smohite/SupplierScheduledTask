@@ -1,81 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-using Entities;
+using System.Collections.Specialized;
+using SupplierScheduledTask.Vexiere.NotificationService;
 
 namespace Notifications
 {
-    public class Mail
+    public class Mail : INotificationService
     {
+        #region INotificationService 
 
-      public void NotifyAboutSuppliersShutDown(Dictionary<Supplier,float> suppliersToDisable )
-      {
-          var msg = new StringBuilder();
-          var mailData=new MailDataParser().ParseMailData();
-          
-          msg.Append(string.Format("Suppliers who have crossed failure threshhold value on {0} environment are as follow:",mailData.Environment));
-          msg.Append(Environment.NewLine);
-          msg.Append("No.  SupplierName   SupplierID   ThreshholdVlue   FailureRate    Disabled");
-          msg.Append(Environment.NewLine);
-          msg.Append("--------------------------------------------------------------");
-          msg.Append(Environment.NewLine);
-           var i = 0;
-          foreach (var supplierToDisable in suppliersToDisable)
-          {
-              var supplier = supplierToDisable.Key;
-              var isdisabled = (supplier.DisableIfCrossesThreshhold == 1) ? "YES" : "NO";
-              msg.Append(string.Format("{0}  {1}    {2}       {3}        {4}    {5}", i + 1, supplier.SupplierName, supplier.SupplierId, supplier.ThreshholdValue,supplierToDisable.Value,isdisabled));
-              msg.Append(Environment.NewLine);
-              i++;
-          }
-       
-              
-          //msg.Append(Environment.NewLine);
-         // msg.Append("Start Time: " + TestRunContext.Current.StartTime);
-          msg.Append(Environment.NewLine);
-          //if required
-          //msg.Append("Thanks and regards,");
-          //msg.Append(Environment.NewLine);
-          //msg.Append("Sheetal Mohite");     name 
-        //  msg.Append("End Time: " + System.DateTime.Now.ToString("G"));
-          var from = new MailAddress(mailData.MailFrom, mailData.DisplayName);         
+        public bool SendMail(MailAttributes mail)
+        {
+            try
+            {
+                var mailMessage = new TemplateMessage
+                    {
+                        TemplateName = mail.TemplateName,
+                        Subject = mail.Subject,
+                        To = mail.To,
+                        From = mail.From,
+                        BCC = mail.BCC,
+                        TemplateAttributes = ConvertToKeyValuePair(mail.TemplateAttributes).ToArray()
+                    };
 
-          var mail = new MailMessage()
-          {
-              From = from,
-              Sender = from,
-              Subject = mailData.MailSubject, 
-              Body = msg.ToString(),
-          };
-          foreach (var mailAddress in mailData.MailTo.Split(','))
-          {
-              mail.To.Add(new MailAddress(mailAddress));
-          }
-          foreach (var mailAddress in mailData.MailCC.Split(','))
-          {
-              if (!string.IsNullOrEmpty(mailAddress))
-                  mail.CC.Add(new MailAddress(mailAddress));
-          }
+                Guid msgId = Guid.Empty;
+                using (var client = new MailClient())
+                {
+                    msgId = client.SendMail(NotificationAppContext, mailMessage);
+                }
+                if (msgId != Guid.Empty)
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                //TODO: Add logging part
+            }
+            return false;
+        }
 
-          var smtp = new SmtpClient
-          {
-              Host = mailData.Host,
-              Port = Convert.ToInt32(mailData.Port),
-              Credentials = new NetworkCredential(mailData.UserId, mailData.Password),
-              EnableSsl = true
-          };
-          Console.WriteLine("Sending email...");
-          try
-          {
-              smtp.Send(mail);
-          }
-          catch (Exception exception)
-          {
-              
-          }
-      }       
+        public Template GetTemplate(string templateName)
+        {
+            var emailTemplate = new Template();
+            try
+            {
+                using (var client = new MailClient())
+                {
+                    emailTemplate = client.GetTemplate(NotificationAppContext, templateName);
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: Add logging part
+            }
+            return emailTemplate;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private ApplicationContext NotificationAppContext
+        {
+            get { return new ApplicationContext(); }
+        }
+
+        private List<KeyValuePair> ConvertToKeyValuePair(NameValueCollection nameValueCollection)
+        {
+            var pairs = new List<KeyValuePair>();
+
+            if (nameValueCollection != null && nameValueCollection.Count > 0)
+            {
+                for (int i = 0; i < nameValueCollection.Count; i++)
+                {
+                    var pair = new KeyValuePair
+                        {Key = nameValueCollection.GetKey(i), Value = nameValueCollection[i]};
+                    pairs.Add(pair);
+                }
+            }
+
+            return pairs;
+        }
+
+        #endregion
     }
 }

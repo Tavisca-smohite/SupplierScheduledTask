@@ -9,3 +9,8 @@ D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\bin\Debug\Dat
 D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\obj\Debug\ScheduledTask.Test.csprojResolveAssemblyReference.cache
 D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\obj\Debug\ScheduledTask.Test.dll
 D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\obj\Debug\ScheduledTask.Test.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\bin\Debug\Notifications.dll
+D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\bin\Debug\Notifications.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\bin\Debug\ScheduledTask.Test.dll.config
+D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\bin\Debug\Suppliers.xml
+D:\D\projects\enhancement\SupplierScheduledTask\ScheduledTask.Test\bin\Debug\ApplicationData\MailBody.xml

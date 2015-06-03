@@ -16,6 +16,8 @@ namespace Entities.Products
 
             var getFailureStatResult = new List<spGetLogBasedOnCallTypeResult>();
             var supplierAndFailureRateMapping = new Dictionary<Supplier, float>();
+
+            //TODO: Need to make code more readable
             foreach (var supplier in suppliersList)
             {
                 Supplier tempSupplier = supplier;
@@ -34,21 +36,6 @@ namespace Entities.Products
             }
 
             return supplierAndFailureRateMapping;
-        }
-
-        public Dictionary<Supplier, float> CompareThreshhold(Dictionary<Supplier, float> supplierAndFailureRateMapping)
-        {
-            var suppliersWhoCrossedThreshhold = new Dictionary<Supplier, float>();
-            foreach (var mapping in supplierAndFailureRateMapping)
-            {
-                var supplier = mapping.Key;
-                if (supplier.ThreshholdValue <= mapping.Value)
-                {
-                    suppliersWhoCrossedThreshhold.Add(supplier, mapping.Value);
-                }
-
-            }
-            return suppliersWhoCrossedThreshhold;
-        }
+        }        
     }
 }

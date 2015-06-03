@@ -1,5 +1,5 @@
-D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
 D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\bin\Debug\DataAccessLayer.dll
 D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
 D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache

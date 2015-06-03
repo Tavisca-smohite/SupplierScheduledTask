@@ -15,12 +15,7 @@ namespace Entities.Products
         /// <param name="suppliersList"></param>
         /// <returns></returns>
         public Dictionary<Supplier,float> GetFailureRateForSuppliers(List<Supplier> suppliersList)
-        {
-            //foreach (var supplier in suppliersList)
-            //{
-            //    var result = new SupplierDataManagerDataContext().spGetLogBasedOnCallType2(supplier.CallType,supplier.SupplierId, 1000, supplier.SupplierName);
-            //    var supplierData = result.ToList();
-            //}
+        {           
             const int minutes = 1000;
             
             var getFailureStatResult = new List<spGetLogBasedOnCallTypeResult>();
@@ -43,21 +38,7 @@ namespace Entities.Products
             }
 
             return supplierAndFailureRateMapping;
-        }
-
-        public Dictionary<Supplier,float> CompareThreshhold(Dictionary<Supplier,float> supplierAndFailureRateMapping )
-        {
-           var suppliersWhoCrossedThreshhold=new Dictionary<Supplier, float>();
-            foreach (var mapping in supplierAndFailureRateMapping)
-            {
-                var supplier = mapping.Key;
-                if(supplier.ThreshholdValue<=mapping.Value)
-                {
-                    suppliersWhoCrossedThreshhold.Add(supplier,mapping.Value);
-                }
-
-            }
-            return suppliersWhoCrossedThreshhold;
-        }
+        }       
+     
     }
 }
