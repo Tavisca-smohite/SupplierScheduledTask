@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SupplierScheduledTask.Vexiere.NotificationService;
+using Tavisca.SupplierScheduledTask.BusinessEntities;
 
-namespace Notifications
+namespace Tavisca.SupplierScheduledTask.Notifications
 {
     public interface INotificationService
     {

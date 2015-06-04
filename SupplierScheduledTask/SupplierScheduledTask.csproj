@@ -42,37 +42,45 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tavisca.Frameworks.Logging">
+      <HintPath>..\CommonAssemblies\Tavisca.Frameworks.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.Frameworks.Logging.Extensions">
+      <HintPath>..\CommonAssemblies\Tavisca.Frameworks.Logging.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.TravelNxt.Shared.Entities">
+      <HintPath>..\CommonAssemblies\Tavisca.TravelNxt.Shared.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.TravelNxt.Shared.Exceptions">
+      <HintPath>..\CommonAssemblies\Tavisca.TravelNxt.Shared.Exceptions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SupplierRelatedOperations.cs" />
-    <Compile Include="ProductTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XmlParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="tavisca.singularity.configuration">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationData\MailBody.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Suppliers.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+    <ProjectReference Include="..\DataAccessLayer\Tavisca.SupplierScheduledTask.DataAccessLayer.csproj">
       <Project>{359C100B-F537-45F0-A69D-66B44A929590}</Project>
-      <Name>DataAccessLayer</Name>
+      <Name>Tavisca.SupplierScheduledTask.DataAccessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Entities\Entities.csproj">
+    <ProjectReference Include="..\Entities\Tavisca.SupplierScheduledTask.BusinessLogic.csproj">
       <Project>{0FC51935-5832-47D1-94CF-C141B83A82AE}</Project>
-      <Name>Entities</Name>
+      <Name>Tavisca.SupplierScheduledTask.BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Notifications\Notifications.csproj">
+    <ProjectReference Include="..\Notifications\Tavisca.SupplierScheduledTask.Notifications.csproj">
       <Project>{1f5c34df-15a2-44a7-aa59-fab5b8a5760e}</Project>
-      <Name>Notifications</Name>
+      <Name>Tavisca.SupplierScheduledTask.Notifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tavisca.SupplierScheduledTask.BusinessEntities\Tavisca.SupplierScheduledTask.BusinessEntities.csproj">
+      <Project>{F065DE24-510C-4120-A1E8-1B937A59EC67}</Project>
+      <Name>Tavisca.SupplierScheduledTask.BusinessEntities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using SupplierScheduledTask.Vexiere.NotificationService;
 
-namespace Notifications
+using SupplierScheduledTask.Vexiere.NotificationService;
+using Tavisca.SupplierScheduledTask.BusinessEntities;
+using Tavisca.TravelNxt.Shared.Entities.Infrastructure;
+
+namespace Tavisca.SupplierScheduledTask.Notifications
 {
     public class Mail : INotificationService
     {
@@ -31,9 +34,10 @@ namespace Notifications
                 if (msgId != Guid.Empty)
                     return true;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
                 //TODO: Add logging part
+                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");  
             }
             return false;
         }
@@ -48,9 +52,9 @@ namespace Notifications
                     emailTemplate = client.GetTemplate(NotificationAppContext, templateName);
                 }
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                //TODO: Add logging part
+                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");  
             }
             return emailTemplate;
         }

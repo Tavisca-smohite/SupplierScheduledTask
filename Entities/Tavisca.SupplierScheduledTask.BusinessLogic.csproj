@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0FC51935-5832-47D1-94CF-C141B83A82AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tavisca.SupplierScheduledTask.BusinessLogic</RootNamespace>
+    <AssemblyName>Tavisca.SupplierScheduledTask.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tavisca.Frameworks.Logging">
+      <HintPath>..\CommonAssemblies\Tavisca.Frameworks.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.Frameworks.Logging.Extensions">
+      <HintPath>..\CommonAssemblies\Tavisca.Frameworks.Logging.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.Singularity.Core">
+      <HintPath>..\CommonAssemblies\Tavisca.Singularity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.Singularity.UnityExtension">
+      <HintPath>..\CommonAssemblies\Tavisca.Singularity.UnityExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.TravelNxt.Shared.Entities">
+      <HintPath>..\CommonAssemblies\Tavisca.TravelNxt.Shared.Entities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IProductSupplier.cs" />
+    <Compile Include="Contracts\ISupplierDataController.cs" />
+    <Compile Include="Controller\SupplierDataController.cs" />
+    <Compile Include="Helper\SupplierDataHelper.cs" />
+    <Compile Include="ProductSuppliersStrategy\AirProductSupplierStrategy.cs" />
+    <Compile Include="ProductSuppliersStrategy\CarProductSupplierStrategy.cs" />
+    <Compile Include="ProductSuppliersStrategy\HotelProductSupplierStrategy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\Tavisca.SupplierScheduledTask.DataAccessLayer.csproj">
+      <Project>{359C100B-F537-45F0-A69D-66B44A929590}</Project>
+      <Name>Tavisca.SupplierScheduledTask.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Notifications\Tavisca.SupplierScheduledTask.Notifications.csproj">
+      <Project>{1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E}</Project>
+      <Name>Tavisca.SupplierScheduledTask.Notifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tavisca.SupplierScheduledTask.BusinessEntities\Tavisca.SupplierScheduledTask.BusinessEntities.csproj">
+      <Project>{f065de24-510c-4120-a1e8-1b937a59ec67}</Project>
+      <Name>Tavisca.SupplierScheduledTask.BusinessEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationData\Suppliers.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

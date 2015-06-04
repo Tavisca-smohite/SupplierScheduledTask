@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer
+namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 {
     public sealed class SupplierDataManagerDBContext :IDisposable
     {
@@ -30,8 +30,8 @@ namespace DataAccessLayer
             {
                 _stack = new Stack<SupplierDataManagerDBContext>();
                 this.Depth = 1;
-                this.Read = new SupplierDataManagerDataContext(DBConfiguration.ReadKayMatricesDatabaseConnection);
-                this.Write = new SupplierDataManagerDataContext(DBConfiguration.WriteKayMatricesDatabaseConnection);
+                this.Read = new SupplierDataManagerDataContext(DBConfiguration.ReadSupplierDataDatabaseConnection);
+                this.Write = new SupplierDataManagerDataContext(DBConfiguration.WriteSupplierDataDatabaseConnection);
             }
             else
             {

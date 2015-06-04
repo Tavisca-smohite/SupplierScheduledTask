@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
 
-namespace Notifications
+namespace Tavisca.SupplierScheduledTask.Notifications
 {
     public static class Configuration
     {
@@ -48,6 +48,17 @@ namespace Notifications
         public static string TemplateName
         {
             get { return ConfigurationManager.AppSettings["TemplateName"]; }
+
+        }
+
+        public static string SupplierData
+        {
+            get { return ConfigurationManager.AppSettings["SupplierData"]; }
+        }
+
+        public static string MailBodyData
+        {
+            get { return ConfigurationManager.AppSettings["MailBodyData"]; }
         }
     }
 }

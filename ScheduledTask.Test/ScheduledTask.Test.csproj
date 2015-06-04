@@ -36,9 +36,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Tavisca.Frameworks.Logging">
+      <HintPath>..\CommonAssemblies\Tavisca.Frameworks.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.Frameworks.Logging.Extensions">
+      <HintPath>..\CommonAssemblies\Tavisca.Frameworks.Logging.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.TravelNxt.Shared.Entities">
+      <HintPath>..\CommonAssemblies\Tavisca.TravelNxt.Shared.Entities.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -53,29 +63,36 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestFunctionality.cs" />
+    <Compile Include="Controller\SupplierDataControllerTest.cs" />
+    <Compile Include="Repository\SupplierLogRepositoryTest.cs" />
+    <Compile Include="NotificationEmail\TestFunctionality.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{0fc51935-5832-47d1-94cf-c141b83a82ae}</Project>
-      <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Notifications\Notifications.csproj">
-      <Project>{1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E}</Project>
-      <Name>Notifications</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SupplierScheduledTask\SupplierScheduledTask.csproj">
-      <Project>{48ad595c-a3e9-469b-a410-79c9bb4f6162}</Project>
-      <Name>SupplierScheduledTask</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MailBody.xml" />
-    <Content Include="Suppliers.xml" />
+    <Content Include="ApplicationData\MailBody.xml" />
+    <Content Include="ApplicationData\Suppliers.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="tavisca.singularity.configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\Tavisca.SupplierScheduledTask.DataAccessLayer.csproj">
+      <Project>{359c100b-f537-45f0-a69d-66b44a929590}</Project>
+      <Name>Tavisca.SupplierScheduledTask.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Tavisca.SupplierScheduledTask.BusinessLogic.csproj">
+      <Project>{0fc51935-5832-47d1-94cf-c141b83a82ae}</Project>
+      <Name>Tavisca.SupplierScheduledTask.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Notifications\Tavisca.SupplierScheduledTask.Notifications.csproj">
+      <Project>{1f5c34df-15a2-44a7-aa59-fab5b8a5760e}</Project>
+      <Name>Tavisca.SupplierScheduledTask.Notifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tavisca.SupplierScheduledTask.BusinessEntities\Tavisca.SupplierScheduledTask.BusinessEntities.csproj">
+      <Project>{f065de24-510c-4120-a1e8-1b937a59ec67}</Project>
+      <Name>Tavisca.SupplierScheduledTask.BusinessEntities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tavisca.singularity.configuration>
+  <typeAlias>
+
+    <!--Logging Configuration [BEGIN]-->
+    <add alias="ILogger" type="Tavisca.Frameworks.Logging.ILogger, Tavisca.Frameworks.Logging" />
+    <add alias="Logger" type="Tavisca.Frameworks.Logging.Logger, Tavisca.Frameworks.Logging" />
+
+    <add alias="ITraceLogger" type="Tavisca.Frameworks.Logging.Tracing.ITraceLogger, Tavisca.Frameworks.Logging" />
+    <add alias="TraceLogger" type="Tavisca.Frameworks.Logging.Tracing.TraceLogger, Tavisca.Frameworks.Logging" />
+
+    <add alias="IExceptionEntry" type="Tavisca.Frameworks.Logging.IExceptionEntry, Tavisca.Frameworks.Logging" />
+    <add alias="ISink" type="Tavisca.Frameworks.Logging.ISink, Tavisca.Frameworks.Logging" />
+    <add alias="ExceptionEntry" type="Tavisca.Frameworks.Logging.ExceptionEntry, Tavisca.Frameworks.Logging" />
+
+    <add alias="IEventEntry" type="Tavisca.Frameworks.Logging.IEventEntry, Tavisca.Frameworks.Logging" />
+    <add alias="EventEntry" type="Tavisca.Frameworks.Logging.EventEntry, Tavisca.Frameworks.Logging" />
+
+    <add alias="DBSink" type="Tavisca.Frameworks.Logging.Extensions.Sinks.DBSink, Tavisca.Frameworks.Logging.Extensions" />
+    <add alias="EventViewerSink" type="Tavisca.Frameworks.Logging.Extensions.Sinks.EventViewerSink, Tavisca.Frameworks.Logging.Extensions" />
+    <add alias="FileSink" type="Tavisca.Frameworks.Logging.Extensions.Sinks.FileSink, Tavisca.Frameworks.Logging.Extensions" />
+    <add alias="SqlSpSink" type="Tavisca.Frameworks.Logging.Extensions.Sinks.SqlSpSink, Tavisca.Frameworks.Logging.Extensions" />
+    <!--Logging Configuration [END]-->
+
+    <!--<add alias="IProductSupplier" type="Tavisca.SupplierScheduledTask.BusinessLogic.IProductSupplier, Tavisca.SupplierScheduledTask.BusinessLogic"/>-->
+    <!--<add alias="AirProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.AirProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>
+    <add alias="CarProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.CarProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>
+    <add alias="HotelProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.HotelProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>-->
+    <add alias="ISupplierLogRepository" type="Tavisca.SupplierScheduledTask.DataAccessLayer.ISupplierLogRepository, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
+  </typeAlias>
+  <interception.declaration>
+  </interception.declaration>
+  <wcf.Interception>
+  </wcf.Interception>
+  <modules>
+    <default>
+      <dependencies>
+        <!-- Logging Configuration [START]-->
+        <dependency registeredAs="ILogger" implementedAs="Logger" lifetimeType="PerThread"></dependency>
+        <dependency registeredAs="ITraceLogger" implementedAs="TraceLogger" lifetimeType="PerThread"></dependency>
+        <dependency registeredAs="IExceptionEntry" implementedAs="ExceptionEntry" lifetimeType="PerCall"></dependency>
+        <dependency registeredAs="IEventEntry" implementedAs="EventEntry" lifetimeType="PerCall"></dependency>
+
+        <dependency name="DBSink" registeredAs="ISink" implementedAs="DBSink" lifetimeType="PerThread"></dependency>
+        <dependency name="EventViewerSink" registeredAs="ISink" implementedAs="EventViewerSink" lifetimeType="PerThread"></dependency>
+        <dependency name="FileSink" registeredAs="ISink" implementedAs="FileSink" lifetimeType="PerThread"></dependency>
+        <dependency name="SqlSpSink" registeredAs="ISink" implementedAs="SqlSpSink" lifetimeType="PerThread"></dependency>
+        <!--Logging Configuration [END]-->
+
+        <!--<dependency registeredAs="IProductSupplier" implementedAs="AirProductSupplierStrategy" lifetimeType="Singleton" name="AirProductSupplierStrategy"/>
+        <dependency registeredAs="IProductSupplier" implementedAs="CarProductSupplierStrategy" lifetimeType="Singleton" name="CarProductSupplierStrategy"/>
+        <dependency registeredAs="IProductSupplier" implementedAs="HotelProductSupplierStrategy" lifetimeType="Singleton" name="HotelProductSupplierStrategy"/>-->
+        <dependency registeredAs="ISupplierLogRepository" implementedAs="SupplierLogRepository" lifetimeType="Singleton" name="SupplierLogRepository"/>
+      </dependencies>
+    </default>
+  </modules>
+</tavisca.singularity.configuration>

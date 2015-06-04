@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dLogging" Class="SupplierDataManagerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=agni;Initial Catalog=dLogging;Integrated Security=True" SettingsObjectName="DataAccessLayer.Properties.Settings" SettingsPropertyName="dLoggingConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=RoviaDev;Initial Catalog=dLogging;Integrated Security=True" SettingsObjectName="Tavisca.SupplierScheduledTask.DataAccessLayer.Properties.Settings" SettingsPropertyName="dLoggingConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="dbo.spGetLogBasedOnCallType" Method="spGetLogBasedOnCallType">
     <Parameter Name="CallType" Parameter="callType" Type="System.String" DbType="NVarChar(32)" />
     <Parameter Name="SupplierId" Parameter="supplierId" Type="System.Int32" DbType="Int" />

@@ -1,0 +1,13 @@
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.SupplierScheduledTask.Notifications.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.SupplierScheduledTask.Notifications.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.SupplierScheduledTask.BusinessEntities.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.SupplierScheduledTask.BusinessEntities.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\obj\Debug\Tavisca.SupplierScheduledTask.Notifications.csprojResolveAssemblyReference.cache
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\obj\Debug\Tavisca.SupplierScheduledTask.Notifications.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\obj\Debug\Tavisca.SupplierScheduledTask.Notifications.pdb
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.Frameworks.Logging.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.Frameworks.Logging.Extensions.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.TravelNxt.Shared.Entities.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.Singularity.Core.dll
+D:\D\projects\enhancement\SupplierScheduledTask\Notifications\bin\Debug\Tavisca.TravelNxt.Shared.Exceptions.dll

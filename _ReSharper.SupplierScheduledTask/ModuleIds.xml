@@ -1,10 +1,8 @@
 <Modules>
   <Module PersistentId="48AD595C-A3E9-469B-A410-79C9BB4F6162" ModuleId="SupplierScheduledTask" />
-  <Module PersistentId="CDE780F5-ACE7-4071-9E20-06A989377634" ModuleId="ClassLibrary1" />
   <Module PersistentId="0FC51935-5832-47D1-94CF-C141B83A82AE" ModuleId="Entities" />
   <Module PersistentId="EE253154-D3C3-4F29-9DF2-A343A69E17EE" ModuleId="ScheduledTask.Test" />
-  <Module PersistentId="3605FAB8-7E18-4964-A968-6E58A83BD530" ModuleId="DataAccessLAyer" />
   <Module PersistentId="359C100B-F537-45F0-A69D-66B44A929590" ModuleId="DataAccessLayer" />
   <Module PersistentId="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E" ModuleId="Notifications" />
-  <Module PersistentId="395AB9D9-0B06-48CB-A13E-54C6B2E40D1B" ModuleId="ClassLibrary1_1" />
+  <Module PersistentId="F065DE24-510C-4120-A1E8-1B937A59EC67" ModuleId="Tavisca.SupplierScheduledTask.BusinessEntities" />
 </Modules>

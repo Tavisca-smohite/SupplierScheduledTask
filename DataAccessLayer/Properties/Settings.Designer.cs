@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccessLayer.Properties {
+namespace Tavisca.SupplierScheduledTask.DataAccessLayer.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -30,6 +30,16 @@ namespace DataAccessLayer.Properties {
         public string dLoggingConnectionString {
             get {
                 return ((string)(this["dLoggingConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=RoviaDev;Initial Catalog=dLogging;Integrated Security=True")]
+        public string dLoggingConnectionString1 {
+            get {
+                return ((string)(this["dLoggingConnectionString1"]));
             }
         }
     }

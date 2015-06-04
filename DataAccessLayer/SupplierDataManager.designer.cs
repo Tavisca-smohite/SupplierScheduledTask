@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccessLayer
+namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -33,7 +33,7 @@ namespace DataAccessLayer
     #endregion
 		
 		public SupplierDataManagerDataContext() : 
-				base(global::DataAccessLayer.Properties.Settings.Default.dLoggingConnectionString, mappingSource)
+				base(global::Tavisca.SupplierScheduledTask.DataAccessLayer.Properties.Settings.Default.dLoggingConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

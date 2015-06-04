@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Entities;
+using Tavisca.SupplierScheduledTask.BusinessEntities;
 
-namespace Notifications
+
+namespace Tavisca.SupplierScheduledTask.Notifications
 {
     public class SendNotificationMail
     {
@@ -26,7 +27,7 @@ namespace Notifications
             directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
                                 ? directoryPath.Replace("\\bin\\Debug", "")
                                 : directoryPath;
-            string path = Path.Combine(directoryPath, @"MailBody.xml");
+            string path = directoryPath + Configuration.MailBodyData;
             var mailBody = XDocument.Load(path).ToString();
             var mailAttributes = new MailAttributes()
                 {
