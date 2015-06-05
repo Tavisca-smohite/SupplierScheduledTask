@@ -5,4 +5,3 @@ D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\bin\Debug\Tavisc
 D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\obj\Debug\Tavisca.SupplierScheduledTask.DataAccessLayer.csprojResolveAssemblyReference.cache
 D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\obj\Debug\Tavisca.SupplierScheduledTask.DataAccessLayer.dll
 D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\obj\Debug\Tavisca.SupplierScheduledTask.DataAccessLayer.pdb
-D:\D\projects\enhancement\SupplierScheduledTask\DataAccessLayer\bin\Debug\Tavisca.SupplierScheduledTask.DataAccessLayer.dll.config

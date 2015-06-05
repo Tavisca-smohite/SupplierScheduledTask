@@ -13,7 +13,7 @@ namespace Tavisca.SupplierScheduledTask.Notifications
 {
     public class SendNotificationMail
     {
-        public bool SendNotificationEmail(Dictionary<Supplier,float> suppliersToDisable)
+        public bool SendNotificationEmail(Dictionary<Supplier,string> suppliersToDisable)
         {
            
             var mailAttributes = BuildMailAttributes(suppliersToDisable);
@@ -21,7 +21,7 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             return isSendMail;
         }
 
-        private static MailAttributes BuildMailAttributes(Dictionary<Supplier, float> suppliersToDisable)
+        private static MailAttributes BuildMailAttributes(Dictionary<Supplier, string> suppliersToDisable)
         {
             string directoryPath = Directory.GetCurrentDirectory();
             directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
@@ -38,38 +38,39 @@ namespace Tavisca.SupplierScheduledTask.Notifications
                     TemplateName = Configuration.TemplateName,
                 };
             int i = 1;
-            mailBody = BuildMailBody(suppliersToDisable, i, mailBody);
 
-            var attrubutes = new NameValueCollection {{"{[Environment]}", "Dev"}, {"{[RowInfo]}", mailBody}};
+            var updatedListOfSuppliersToDisable = suppliersToDisable.Where(d => !string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
+            var listOfSuppliersWithFetchingFailure = suppliersToDisable.Where(d => string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
+
+            mailBody = BuildTableInMailBody(updatedListOfSuppliersToDisable, i, mailBody);
+
+            var attrubutes = new NameValueCollection {{"{[Environment]}", Configuration.Environment}, {"{[RowInfo]}", mailBody}};
             mailAttributes.TemplateAttributes = attrubutes;
             return mailAttributes;
         }
 
-        private static string BuildMailBody(Dictionary<Supplier, float> suppliersToDisable, int i, string mailBody)
+        private static string BuildTableInMailBody(Dictionary<Supplier, string> suppliersToDisable, int i, string mailBody)
         {
-            var builder = new StringBuilder();
+            var builder = new StringBuilder();         
+            const string rowStyle =@"<tr><td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">";
             foreach (var supplierToDisable in suppliersToDisable)
             {
-                var isdisabled = (supplierToDisable.Key.DisableIfCrossesThreshhold == 1) ? "YES" : "NO";
-                builder.Append(
-                    @"<tr><td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">" + i++ +
-                    @"</td>");
-                builder.Append(@"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">" +
-                               supplierToDisable.Key.SupplierName + @"</td>");
-                builder.Append(@"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">" +
-                               supplierToDisable.Key.SupplierId + @"</td>");
-                builder.Append(@"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">" +
-                               supplierToDisable.Key.ProductType + @"</td>");
-                builder.Append(@"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">" +
-                               supplierToDisable.Key.ThreshholdValue + @"</td>");
-                builder.Append(@"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">" +
-                               supplierToDisable.Value + @"</td>");
-                builder.Append(@"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">" +
-                               isdisabled + @"</td>");
+                var needsToDisable = (supplierToDisable.Key.DisableIfCrossesThreshhold == 1) ? "YES" : "NO";
+                var isDisabled = (supplierToDisable.Key.IsDisabled== true) ? "YES" : "NO";
+                builder.Append(rowStyle + i++ +@"</td>");
+                builder.Append(rowStyle + supplierToDisable.Key.SupplierName + @"</td>");
+                builder.Append(rowStyle + supplierToDisable.Key.SupplierId + @"</td>");
+                builder.Append(rowStyle + supplierToDisable.Key.ProductType + @"</td>");
+                builder.Append(rowStyle + supplierToDisable.Key.ThreshholdValue + @"</td>");
+                builder.Append(rowStyle + supplierToDisable.Value + @"</td>");
+                builder.Append(rowStyle + needsToDisable + @"</td>");
+                builder.Append(rowStyle + isDisabled + @"</td>");
                 builder.Append(@"</tr>");
             }
             mailBody = mailBody.Replace("{[RowInfo]}", builder.ToString());
             return mailBody;
         }
+
+        
     }
 }

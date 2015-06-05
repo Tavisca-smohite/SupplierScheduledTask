@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
+using Tavisca.SupplierScheduledTask.BusinessLogic.Controller;
+using Tavisca.SupplierScheduledTask.BusinessLogic.Helper;
 using Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy;
 
 namespace ScheduledTask.Test
@@ -14,26 +16,13 @@ namespace ScheduledTask.Test
     {
 
         [TestMethod]
-        public  void GetFailureRateForProductSuppliers_Successful_WithValidInputs()
+        public  void GetLitOfSuppliersToDisable_Successful_withValidInputs()
         {
-            var supplierList = new AirProductSupplierStrategy().GetFailureRateForProductSuppliers(new List<Supplier>());
+            Dictionary<string, List<Supplier>> productWiseSuppliersList = new SupplierDataHelper().GetProductWiseSuppliersList();
+           var suppliersToDisable= new SupplierDataController().GetListOfSuppliersToDisable(productWiseSuppliersList);
+
         }
 
-        private List<Supplier> GetSupplierList()
-        {
-            var list = new List<Supplier>();
-            list.Add(new Supplier
-                {
-                    CallType = "AirMultiAvail",
-                    DisableIfCrossesThreshhold = 1,
-                    IsDisabled = false,
-                    ProductType = "Air",
-                    SupplierId = 1,
-                    SupplierName = "WorldSpan",
-                    ThreshholdValue = 65
-                    
-                });
-            return list;
-        }
+       
     }
 }

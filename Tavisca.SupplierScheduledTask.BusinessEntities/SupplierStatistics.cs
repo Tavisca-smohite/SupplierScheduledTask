@@ -11,5 +11,6 @@ namespace Tavisca.SupplierScheduledTask.BusinessEntities
         public float SuccessRate { get; set; }
         public float FailureRate { get; set; }
         public float TotalRate { get; set; }
+        public int IsEnabled { get; set; }
     }
 }

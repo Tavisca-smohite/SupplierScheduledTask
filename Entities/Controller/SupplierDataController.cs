@@ -27,12 +27,11 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.Controller
 
         public void Invoke()
         {
-            var suppliersToDisable = new Dictionary<Supplier, float>();
+            var suppliersToDisable = new Dictionary<Supplier, string>();
 
             try
             {
-                Dictionary<string, List<Supplier>> productWiseSuppliersList =
-                    new SupplierDataHelper().GetProductWiseSuppliersList();
+                Dictionary<string, List<Supplier>> productWiseSuppliersList =new SupplierDataHelper().GetProductWiseSuppliersList();
                 suppliersToDisable = GetListOfSuppliersToDisable(productWiseSuppliersList);
                 //TODO: call sp to get statuses of suppliers whether they are enabled or disabled and update suppliers' field "IsDisabled"                             
             }
@@ -43,20 +42,19 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.Controller
             }
             finally
             {
-                bool isMailSend = new SendNotificationMail().SendNotificationEmail(suppliersToDisable);
+                new SendNotificationMail().SendNotificationEmail(suppliersToDisable);
             }
         }
 
-        public Dictionary<Supplier, float> GetListOfSuppliersToDisable(
-            Dictionary<string, List<Supplier>> productWiseSuppliersList)
+        public Dictionary<Supplier, string> GetListOfSuppliersToDisable(Dictionary<string, List<Supplier>> productWiseSuppliersList)
         {
-            var suppliersToDisable = new Dictionary<Supplier, float>();
+            var suppliersToDisable = new Dictionary<Supplier, string>();
             foreach (var productWiseSupplier in productWiseSuppliersList)
             {
-                Dictionary<Supplier, float> suppliersWithFailureRate =
+                Dictionary<Supplier, string> suppliersWithFailureRate =
                     SupplierStatistics[productWiseSupplier.Key].GetFailureRateForProductSuppliers(
                         productWiseSupplier.Value);
-                Dictionary<Supplier, float> supplierstoDisable = SupplierDataHelper.CompareThreshhold(suppliersWithFailureRate);
+                Dictionary<Supplier, string> supplierstoDisable = SupplierDataHelper.CompareThreshhold(suppliersWithFailureRate);
                 suppliersToDisable = suppliersToDisable.Concat(supplierstoDisable).ToDictionary(x => x.Key, x => x.Value);
             }
             return suppliersToDisable;

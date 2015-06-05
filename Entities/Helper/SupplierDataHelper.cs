@@ -7,7 +7,7 @@ using Tavisca.SupplierScheduledTask.Notifications;
 
 namespace Tavisca.SupplierScheduledTask.BusinessLogic.Helper
 {
-    //TODO: Need to change class name and make this class as static also move methods in this class which are used commonly.
+  
     public class SupplierDataHelper
 
 {
@@ -75,16 +75,26 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.Helper
         return productWiseSuppliersList;
     }
 
-    public static Dictionary<Supplier, float> CompareThreshhold(Dictionary<Supplier, float> supplierAndFailureRateMapping)
+    public static Dictionary<Supplier, string> CompareThreshhold(Dictionary<Supplier, string> supplierAndFailureRateMapping)
     {
-        var suppliersWhoCrossedThreshhold = new Dictionary<Supplier, float>();
+        var suppliersWhoCrossedThreshhold = new Dictionary<Supplier, string>();
         foreach (var mapping in supplierAndFailureRateMapping)
         {
             Supplier supplier = mapping.Key;
-            if (supplier.ThreshholdValue <= mapping.Value)
+            if(!string.Equals(mapping.Value,string.Empty))
+            {
+                var failureRate = float.Parse(mapping.Value);
+                if (supplier.ThreshholdValue <= failureRate)
+                {
+                    suppliersWhoCrossedThreshhold.Add(supplier, mapping.Value);
+                }
+            }
+            else if(string.Equals(mapping.Value,string.Empty))
             {
                 suppliersWhoCrossedThreshhold.Add(supplier, mapping.Value);
             }
+
+
         }
         return suppliersWhoCrossedThreshhold;
     }

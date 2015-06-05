@@ -51,7 +51,7 @@
   </Supplier>
   <Supplier Name="JacTravel" Type="Hotel" SupplierId="118">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>50</ThreshholdValue>
   </Supplier>
   <!-- Hideaways hotel suppliers-->
   <Supplier Name="RCI" Type="Hotel" SupplierId="49">

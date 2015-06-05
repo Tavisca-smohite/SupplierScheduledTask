@@ -6,6 +6,6 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
     //TODO: Need to change interface name with proper meaning full name
     public interface IProductSupplier
     {
-         Dictionary<Supplier,float> GetFailureRateForProductSuppliers(List<Supplier> suppliers);             
+         Dictionary<Supplier,string> GetFailureRateForProductSuppliers(List<Supplier> suppliers);             
     }
 }

@@ -33,7 +33,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
     #endregion
 		
 		public SupplierDataManagerDataContext() : 
-				base(global::Tavisca.SupplierScheduledTask.DataAccessLayer.Properties.Settings.Default.dLoggingConnectionString, mappingSource)
+				base(global::Tavisca.SupplierScheduledTask.DataAccessLayer.Properties.Settings.Default.dLoggingConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -86,6 +86,8 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 		private string _PerSuccess;
 		
 		private string _PerFailure;
+		
+		private byte _IsEnabled;
 		
 		public spGetLogBasedOnCallTypeResult()
 		{
@@ -199,6 +201,22 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 				if ((this._PerFailure != value))
 				{
 					this._PerFailure = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsEnabled", DbType="TinyInt NOT NULL")]
+		public byte IsEnabled
+		{
+			get
+			{
+				return this._IsEnabled;
+			}
+			set
+			{
+				if ((this._IsEnabled != value))
+				{
+					this._IsEnabled = value;
 				}
 			}
 		}

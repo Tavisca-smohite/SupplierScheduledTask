@@ -60,5 +60,9 @@ namespace Tavisca.SupplierScheduledTask.Notifications
         {
             get { return ConfigurationManager.AppSettings["MailBodyData"]; }
         }
+        public static string Environment
+        {
+            get { return ConfigurationManager.AppSettings["Environment"]; }
+        }
     }
 }
