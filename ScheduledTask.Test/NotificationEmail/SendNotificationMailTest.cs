@@ -12,6 +12,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
 using Tavisca.SupplierScheduledTask.BusinessLogic.Helper;
 using Tavisca.SupplierScheduledTask.Notifications;
+using ScheduledTask.Test.NotificationEmail;
 
 
 namespace ScheduledTask.Test
@@ -31,41 +32,29 @@ namespace ScheduledTask.Test
         }
 
         [TestMethod]
-        public void SendMail_Successful_WithValidTemplateMessage()
+        public void SendMail_Successful_WhenBothTypesOfInputsAreProvided()
         {
-            var isSendMail = new SendNotificationMail().SendNotificationEmail(GetDictinoryWithBothTypesOfsuppliers());
+            var isSendMail = new SendNotificationMail().SendNotificationEmail(StaticInputs.GetDictinoryWithBothTypesOfSuppliers());
             Assert.IsTrue(isSendMail);
         }
 
-        private Dictionary<Supplier,string> GetDictinoryWithBothTypesOfsuppliers()
+        [TestMethod]
+        public void SendMail_Successful_WithOnlySuppliersWhoHaveCrossedThreshholdAreAvailable()
         {
-            var dictionary = new Dictionary<Supplier, string>()
-                {
-                    {
-                        new Supplier()
-                            {
-                                SupplierId = 118,
-                                SupplierName = "JacTravel",
-                                IsDisabled = true,
-                                ProductType = "Hotel",
-                                DisableIfCrossesThreshhold = 1,
-                                ThreshholdValue = 50
-                            }, "50"
-                    },
-                    {
-                        new Supplier()
-                            {
-                                SupplierId = 09,
-                                SupplierName = "Pegasus",
-                                IsDisabled = false,
-                                ProductType = "Hotel",
-                                DisableIfCrossesThreshhold = 1,
-                                ThreshholdValue = 50
-                            }, string.Empty
-                    }
-                };
-            return dictionary;
+            var isSendMail = new SendNotificationMail().SendNotificationEmail(StaticInputs.GetDictinoryWiththreshholdCrossedSuppliers());
+            Assert.IsTrue(isSendMail);
         }
+
+        [TestMethod]
+        public void SendMail_Successful_SuppliersWithFetchingFailure()
+        {
+            var isSendMail = new SendNotificationMail().SendNotificationEmail(StaticInputs.GetDictinorySuppliersWithInternalFailureWhileFetchingLogs());
+            Assert.IsTrue(isSendMail);
+        }
+
+
+
+       
 
 
     }
