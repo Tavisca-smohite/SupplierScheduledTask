@@ -76,11 +76,16 @@
     <Reference Include="Tavisca.TravelNxt.Shared.Entities">
       <HintPath>..\CommonAssemblies\Tavisca.TravelNxt.Shared.Entities.dll</HintPath>
     </Reference>
+    <Reference Include="Tavisca.TravelNxt.Shared.Exceptions, Version=4.4.0.49209, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonAssemblies\Tavisca.TravelNxt.Shared.Exceptions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IProductSupplier.cs" />
     <Compile Include="Contracts\ISupplierDataController.cs" />
     <Compile Include="Controller\SupplierDataController.cs" />
+    <Compile Include="Exceptions\DataException.cs" />
     <Compile Include="Helper\SupplierDataHelper.cs" />
     <Compile Include="ProductSuppliersStrategy\AirProductSupplierStrategy.cs" />
     <Compile Include="ProductSuppliersStrategy\CarProductSupplierStrategy.cs" />

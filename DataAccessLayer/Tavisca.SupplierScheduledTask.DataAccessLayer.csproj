@@ -39,6 +39,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tavisca.Frameworks.Logging">
+      <HintPath>..\CommonAssemblies\Tavisca.Frameworks.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Tavisca.TravelNxt.Shared.Entities">
+      <HintPath>..\CommonAssemblies\Tavisca.TravelNxt.Shared.Entities.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ISupplierLogRepository.cs" />

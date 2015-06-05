@@ -1,4 +1,0 @@
-D:\D\projects\enhancement\SupplierScheduledTask\Tavisca.SupplierScheduledTask.BusinessEntities\bin\Debug\Tavisca.SupplierScheduledTask.BusinessEntities.dll
-D:\D\projects\enhancement\SupplierScheduledTask\Tavisca.SupplierScheduledTask.BusinessEntities\bin\Debug\Tavisca.SupplierScheduledTask.BusinessEntities.pdb
-D:\D\projects\enhancement\SupplierScheduledTask\Tavisca.SupplierScheduledTask.BusinessEntities\obj\Debug\Tavisca.SupplierScheduledTask.BusinessEntities.dll
-D:\D\projects\enhancement\SupplierScheduledTask\Tavisca.SupplierScheduledTask.BusinessEntities\obj\Debug\Tavisca.SupplierScheduledTask.BusinessEntities.pdb

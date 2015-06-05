@@ -95,7 +95,7 @@
   <ItemGroup>
     <Compile Include="Controller\SupplierDataControllerTest.cs" />
     <Compile Include="Repository\SupplierLogRepositoryTest.cs" />
-    <Compile Include="NotificationEmail\TestFunctionality.cs" />
+    <Compile Include="NotificationEmail\SendNotificationMailTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
