@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
@@ -41,23 +42,30 @@ namespace Tavisca.SupplierScheduledTask.Notifications
 
             var updatedListOfSuppliersToDisable = suppliersToDisable.Where(d => !string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
             var listOfSuppliersWithFetchingFailure = suppliersToDisable.Where(d => string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
+            mailBody = updatedListOfSuppliersToDisable.Any() ? 
+                BuildTableInMailBody(updatedListOfSuppliersToDisable, i, mailBody) :
+                Regex.Replace(mailBody,  @"<div id=""#1"">(.*?)(?=<div id=""#2"">)", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
 
-            mailBody = BuildTableInMailBody(updatedListOfSuppliersToDisable, i, mailBody);
+            mailBody =listOfSuppliersWithFetchingFailure.Any()? 
+                AddSupplierInfoForWhomFetchingFailureOccured(listOfSuppliersWithFetchingFailure, mailBody):
+                Regex.Replace(mailBody, @"<div id=""#2"">(.*?)</div>", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
 
-            var attrubutes = new NameValueCollection {{"{[Environment]}", Configuration.Environment}, {"{[RowInfo]}", mailBody}};
-            mailAttributes.TemplateAttributes = attrubutes;
+            mailBody = mailBody.Replace("{[Environment]}", Configuration.Environment);
+
+            var attributes = new NameValueCollection { { "{[SuppliersStatus]}", mailBody } };
+            mailAttributes.TemplateAttributes = attributes;
             return mailAttributes;
         }
 
         private static string BuildTableInMailBody(Dictionary<Supplier, string> suppliersToDisable, int i, string mailBody)
         {
             var builder = new StringBuilder();         
-            const string rowStyle =@"<tr><td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">";
+            const string rowStyle =@"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">";
             foreach (var supplierToDisable in suppliersToDisable)
             {
                 var needsToDisable = (supplierToDisable.Key.DisableIfCrossesThreshhold == 1) ? "YES" : "NO";
                 var isDisabled = (supplierToDisable.Key.IsDisabled== true) ? "YES" : "NO";
-                builder.Append(rowStyle + i++ +@"</td>");
+                builder.Append(@"<tr>" + rowStyle + i++ + @"</td>");
                 builder.Append(rowStyle + supplierToDisable.Key.SupplierName + @"</td>");
                 builder.Append(rowStyle + supplierToDisable.Key.SupplierId + @"</td>");
                 builder.Append(rowStyle + supplierToDisable.Key.ProductType + @"</td>");
@@ -71,6 +79,19 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             return mailBody;
         }
 
-        
+        private static string AddSupplierInfoForWhomFetchingFailureOccured(Dictionary<Supplier, string> listOfSuppliersWithFetchingFailure,string mailBody)
+        {
+            var builder = new StringBuilder();
+            const string listStyle = @"<li style="" vertical-align: middle; color: blue;font-size:medium ;font-family: cursive"">";
+            foreach (var supplier in listOfSuppliersWithFetchingFailure)
+            {                               
+                builder.Append(listStyle + supplier.Key.SupplierName + @"</li>");              
+               
+            }
+            mailBody = mailBody.Replace("{[FailedSupplierData]}", builder.ToString());
+            return mailBody;
+        }
+
+
     }
 }

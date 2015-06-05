@@ -24,6 +24,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy
             foreach (Supplier supplier in suppliersList)
             {
                 var supplierStats = _supplierRepository.GetFailureLogs(supplier, minutes);
+                if (supplierStats.IsEnabled == 1)
                 supplierAndFailureRateMapping.Add(supplier, (supplierStats.TotalRate != 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture));
             }
 

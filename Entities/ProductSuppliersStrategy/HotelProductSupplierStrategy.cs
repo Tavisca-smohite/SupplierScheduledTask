@@ -33,6 +33,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy
             {
                 //TODO: throw exception if sucess + failure rate is not 100
                 var supplierStats = _supplierRepository.GetFailureLogs(supplier, minutes);
+                if (supplierStats.IsEnabled == 1)
                 supplierAndFailureRateMapping.Add(supplier, (supplierStats.TotalRate != 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture));
             }
 

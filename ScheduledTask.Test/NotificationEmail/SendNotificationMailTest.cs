@@ -33,13 +33,13 @@ namespace ScheduledTask.Test
         [TestMethod]
         public void SendMail_Successful_WithValidTemplateMessage()
         {
-            var isSendMail=new SendNotificationMail().SendNotificationEmail(GetDictinory());
+            var isSendMail = new SendNotificationMail().SendNotificationEmail(GetDictinoryWithBothTypesOfsuppliers());
             Assert.IsTrue(isSendMail);
         }
 
-        private Dictionary<Supplier,float> GetDictinory()
+        private Dictionary<Supplier,string> GetDictinoryWithBothTypesOfsuppliers()
         {
-            var dictionary = new Dictionary<Supplier, float>()
+            var dictionary = new Dictionary<Supplier, string>()
                 {
                     {
                         new Supplier()
@@ -50,7 +50,18 @@ namespace ScheduledTask.Test
                                 ProductType = "Hotel",
                                 DisableIfCrossesThreshhold = 1,
                                 ThreshholdValue = 50
-                            }, 50
+                            }, "50"
+                    },
+                    {
+                        new Supplier()
+                            {
+                                SupplierId = 09,
+                                SupplierName = "Pegasus",
+                                IsDisabled = false,
+                                ProductType = "Hotel",
+                                DisableIfCrossesThreshhold = 1,
+                                ThreshholdValue = 50
+                            }, string.Empty
                     }
                 };
             return dictionary;

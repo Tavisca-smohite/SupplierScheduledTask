@@ -42,7 +42,9 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.Controller
             }
             finally
             {
-                new SendNotificationMail().SendNotificationEmail(suppliersToDisable);
+                var suppliersWhoHaveCrossedThreshhold = suppliersToDisable.Where(d => !string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
+                if (suppliersWhoHaveCrossedThreshhold.Any())
+                    new SendNotificationMail().SendNotificationEmail(suppliersToDisable);
             }
         }
 

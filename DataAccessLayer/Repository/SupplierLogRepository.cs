@@ -41,14 +41,15 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
             int isEnabled=0;
             if (getFailureStatResult != null && getFailureStatResult.Count > 0)
             {
-                
+
                 foreach (var result in getFailureStatResult)
                 {
-                   
-                    perFailureRate=(result.PerFailure!=null)?float.Parse(result.PerFailure):0;
-                    perSuccessRate = (result.PerSuccess != null) ? float.Parse(result.PerSuccess) :0;
+
+                    perFailureRate = (result.PerFailure != null) ? float.Parse(result.PerFailure) : 0;
+                    perSuccessRate = (result.PerSuccess != null) ? float.Parse(result.PerSuccess) : 0;
                     isEnabled = result.IsEnabled;
                 }
+            }
             supplierStats.FailureRate = perFailureRate;
             supplierStats.SuccessRate = perSuccessRate;
             supplierStats.TotalRate = perFailureRate + perSuccessRate;
