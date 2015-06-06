@@ -65,7 +65,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationData\MailBody.xml" />
+    <Content Include="ApplicationData\MailBody.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Proxy\Command.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

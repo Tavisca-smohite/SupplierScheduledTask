@@ -13,6 +13,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysisRuleset", "Code
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonAssemblies", "CommonAssemblies", "{ADE987B0-58D0-43F7-A382-B5DDC5E9CA48}"
+	ProjectSection(SolutionItems) = preProject
+		CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.Common.dll = CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.Common.dll
+		CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.Data.dll = CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.Data.dll
+		CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll = CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+		CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll = CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+		CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.Logging.dll = CommonAssemblies\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+		CommonAssemblies\Microsoft.Practices.ServiceLocation.dll = CommonAssemblies\Microsoft.Practices.ServiceLocation.dll
+		CommonAssemblies\Microsoft.Practices.Unity.Configuration.dll = CommonAssemblies\Microsoft.Practices.Unity.Configuration.dll
+		CommonAssemblies\Microsoft.Practices.Unity.dll = CommonAssemblies\Microsoft.Practices.Unity.dll
+		CommonAssemblies\Microsoft.Practices.Unity.Interception.Configuration.dll = CommonAssemblies\Microsoft.Practices.Unity.Interception.Configuration.dll
+		CommonAssemblies\Microsoft.Practices.Unity.Interception.dll = CommonAssemblies\Microsoft.Practices.Unity.Interception.dll
+		CommonAssemblies\Microsoft.Practices.Unity.StaticFactory.dll = CommonAssemblies\Microsoft.Practices.Unity.StaticFactory.dll
+		CommonAssemblies\Tavisca.Frameworks.Logging.dll = CommonAssemblies\Tavisca.Frameworks.Logging.dll
+		CommonAssemblies\Tavisca.Frameworks.Logging.Extensions.dll = CommonAssemblies\Tavisca.Frameworks.Logging.Extensions.dll
+		CommonAssemblies\Tavisca.Singularity.Core.dll = CommonAssemblies\Tavisca.Singularity.Core.dll
+		CommonAssemblies\Tavisca.Singularity.UnityExtension.dll = CommonAssemblies\Tavisca.Singularity.UnityExtension.dll
+		CommonAssemblies\Tavisca.TravelNxt.Shared.Entities.dll = CommonAssemblies\Tavisca.TravelNxt.Shared.Entities.dll
+		CommonAssemblies\Tavisca.TravelNxt.Shared.Exceptions.dll = CommonAssemblies\Tavisca.TravelNxt.Shared.Exceptions.dll
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.BusinessLogic", "3.BusinessLogic", "{AEB26CE1-D2E7-4CFF-A398-6C8FD25E62AD}"
 EndProject
