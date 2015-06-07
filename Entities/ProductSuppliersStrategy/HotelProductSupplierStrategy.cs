@@ -14,6 +14,10 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy
             _supplierRepository = RuntimeContext.Resolver.Resolve<ISupplierLogRepository>("SupplierLogRepository");
         }
 
+         public HotelProductSupplierStrategy(ISupplierLogRepository supplierRepository)
+        {
+            _supplierRepository = supplierRepository;
+        }
         private ISupplierLogRepository _supplierRepository;
         #region IProductSupplier Members
 

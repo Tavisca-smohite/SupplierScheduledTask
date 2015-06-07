@@ -13,6 +13,7 @@ using Tavisca.SupplierScheduledTask.BusinessEntities;
 using Tavisca.SupplierScheduledTask.BusinessLogic.Helper;
 using Tavisca.SupplierScheduledTask.Notifications;
 using ScheduledTask.Test.NotificationEmail;
+using Moq;
 
 
 namespace ScheduledTask.Test
@@ -51,11 +52,6 @@ namespace ScheduledTask.Test
             var isSendMail = new SendNotificationMail().SendNotificationEmail(StaticInputs.GetDictinorySuppliersWithInternalFailureWhileFetchingLogs());
             Assert.IsTrue(isSendMail);
         }
-
-
-
-       
-
 
     }
 }
