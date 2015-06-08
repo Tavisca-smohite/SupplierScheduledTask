@@ -28,6 +28,9 @@
     <add alias="HotelProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.HotelProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>-->
     <add alias="ISupplierLogRepository" type="Tavisca.SupplierScheduledTask.DataAccessLayer.ISupplierLogRepository, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
     <add alias="SupplierLogRepository" type="Tavisca.SupplierScheduledTask.DataAccessLayer.SupplierLogRepository, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
+
+    <add alias="IUpdateFaresourcesConfig" type="Tavisca.SupplierScheduledTask.DataAccessLayer.IUpdateFaresourcesConfig, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
+    <add alias="UpdateFaresourcesConfig" type="Tavisca.SupplierScheduledTask.DataAccessLayer.UpdateFaresourcesConfig, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
   </typeAlias>
   <interception.declaration>
   </interception.declaration>
@@ -52,6 +55,7 @@
         <dependency registeredAs="IProductSupplier" implementedAs="CarProductSupplierStrategy" lifetimeType="Singleton" name="CarProductSupplierStrategy"/>
         <dependency registeredAs="IProductSupplier" implementedAs="HotelProductSupplierStrategy" lifetimeType="Singleton" name="HotelProductSupplierStrategy"/>-->
         <dependency registeredAs="ISupplierLogRepository" implementedAs="SupplierLogRepository" lifetimeType="Singleton" name="SupplierLogRepository"/>
+        <dependency registeredAs="IUpdateFaresourcesConfig" implementedAs="UpdateFaresourcesConfig" lifetimeType="Singleton" name="UpdateFaresourcesConfig"/>
       </dependencies>
     </default>
   </modules>

@@ -21,14 +21,14 @@ namespace ScheduledTask.Test
         public  void GetLitOfSuppliersToDisable_Successful_withValidInputs()
         {
             Dictionary<string, List<Supplier>> productWiseSuppliersList = new SupplierDataHelper().GetProductWiseSuppliersList();
-           var suppliersToDisable= new SupplierDataController().GetListOfSuppliersToDisable(productWiseSuppliersList);
-           Assert.IsNotNull(suppliersToDisable);
+            var suppliersToDisable = new SupplierDataController().GetListOfSuppliersToDisable(productWiseSuppliersList);
+            Assert.IsNotNull(suppliersToDisable);
         }
 
 
 
         [TestMethod]
-        public void Test_Invoke_Method()
+        public void Invoke_Successful_TaskSchedulerLogic()
         {
             new SupplierDataController().Invoke();
         }       

@@ -3,7 +3,6 @@ using System.Globalization;
 using Tavisca.Singularity;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
 using Tavisca.SupplierScheduledTask.DataAccessLayer;
-using Tavisca.SupplierScheduledTask.DataAccessLayer;
 
 namespace Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy
 {
@@ -38,7 +37,12 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy
                 //TODO: throw exception if sucess + failure rate is not 100
                 var supplierStats = _supplierRepository.GetFailureLogs(supplier, minutes);
                 if (supplierStats.IsEnabled == 1)
-                supplierAndFailureRateMapping.Add(supplier, (supplierStats.TotalRate != 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture));
+                {
+                    var failureRate = (supplierStats.TotalRate<100)? string.Empty: supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture);
+                    supplier.TotalCallsCount = supplierStats.TotalCallsCount;
+                    supplierAndFailureRateMapping.Add(supplier,failureRate);
+                }
+                
             }
 
             return supplierAndFailureRateMapping;

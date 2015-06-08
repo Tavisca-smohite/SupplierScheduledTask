@@ -48,14 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ISupplierLogRepository.cs" />
+    <Compile Include="Contracts\IUpdateFaresourcesConfig.cs" />
     <Compile Include="DBConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs" />
     <Compile Include="Repository\SupplierLogRepository.cs" />
+    <Compile Include="Repository\UpdateFaresourcesConfig.cs" />
     <Compile Include="SupplierDataManager.cs">
       <DependentUpon>SupplierDataManager.dbml</DependentUpon>
     </Compile>
@@ -67,10 +65,7 @@
     <Compile Include="SupplierDataManagerDBContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <None Include="Properties\Settings.settings" />
     <None Include="SupplierDataManager.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>SupplierDataManager.designer.cs</LastGenOutput>

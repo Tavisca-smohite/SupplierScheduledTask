@@ -80,7 +80,7 @@ namespace ScheduledTask.Test.NotificationEmail
                                 SupplierName = "JacTravel",
                                 IsDisabled = true,
                                 ProductType = "Hotel",
-                                DisableIfCrossesThreshhold = 1,
+                                DisableIfCrossesThreshhold = 0,
                                 ThreshholdValue = 50
                             }, string.Empty
                     },

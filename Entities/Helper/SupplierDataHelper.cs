@@ -78,13 +78,14 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.Helper
     public static Dictionary<Supplier, string> CompareThreshhold(Dictionary<Supplier, string> supplierAndFailureRateMapping)
     {
         var suppliersWhoCrossedThreshhold = new Dictionary<Supplier, string>();
+        var threshholdForTotalCount = Convert.ToInt32(Configuration.ThreshholdForTotalCallsCount);
         foreach (var mapping in supplierAndFailureRateMapping)
         {
             Supplier supplier = mapping.Key;
             if(!string.Equals(mapping.Value,string.Empty))
             {
                 var failureRate = float.Parse(mapping.Value);
-                if (supplier.ThreshholdValue <= failureRate)
+                if (supplier.TotalCallsCount>=threshholdForTotalCount && supplier.ThreshholdValue <= failureRate)
                 {
                     suppliersWhoCrossedThreshhold.Add(supplier, mapping.Value);
                 }

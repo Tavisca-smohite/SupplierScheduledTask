@@ -38,7 +38,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
             
             var supplierStats = new SupplierStatistics();
             float perFailureRate = 0, perSuccessRate = 0;
-            int isEnabled=0;
+            int isEnabled = 0, totalCount = 0;
             if (getFailureStatResult != null && getFailureStatResult.Count > 0)
             {
 
@@ -47,6 +47,8 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 
                     perFailureRate = (result.PerFailure != null) ? float.Parse(result.PerFailure) : 0;
                     perSuccessRate = (result.PerSuccess != null) ? float.Parse(result.PerSuccess) : 0;
+                    totalCount = ((result.Success != null) ? Convert.ToInt32(result.Success) : 0) +
+                                 ((result.Failure != null) ? Convert.ToInt32(result.Failure) : 0);
                     isEnabled = result.IsEnabled;
                 }
             }
@@ -54,6 +56,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
             supplierStats.SuccessRate = perSuccessRate;
             supplierStats.TotalRate = perFailureRate + perSuccessRate;
             supplierStats.IsEnabled = isEnabled;
+            supplierStats.TotalCallsCount = totalCount;
 
 
             return supplierStats;

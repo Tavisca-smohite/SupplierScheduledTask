@@ -14,6 +14,7 @@ namespace Tavisca.SupplierScheduledTask.Notifications
 
         public bool SendMail(MailAttributes mail)
         {
+            var isSendMail = false;
             try
             {
                 var mailMessage = new TemplateMessage
@@ -32,32 +33,33 @@ namespace Tavisca.SupplierScheduledTask.Notifications
                     msgId = client.SendMail(NotificationAppContext, mailMessage);
                 }
                 if (msgId != Guid.Empty)
-                    return true;
+                    isSendMail= true;
             }
             catch (Exception exception)
             {
                 //TODO: Add logging part
-                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");  
+                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");
+                isSendMail = false;
             }
-            return false;
+            return isSendMail;
         }
 
-        public Template GetTemplate(string templateName)
-        {
-            var emailTemplate = new Template();
-            try
-            {
-                using (var client = new MailClient())
-                {
-                    emailTemplate = client.GetTemplate(NotificationAppContext, templateName);
-                }
-            }
-            catch (Exception exception)
-            {
-                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");  
-            }
-            return emailTemplate;
-        }
+        //public Template GetTemplate(string templateName)
+        //{
+        //    var emailTemplate = new Template();
+        //    try
+        //    {
+        //        using (var client = new MailClient())
+        //        {
+        //            emailTemplate = client.GetTemplate(NotificationAppContext, templateName);
+        //        }
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");  
+        //    }
+        //    return emailTemplate;
+        //}
 
         #endregion
 

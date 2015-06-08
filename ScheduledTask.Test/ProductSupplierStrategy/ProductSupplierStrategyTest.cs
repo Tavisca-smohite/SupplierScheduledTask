@@ -36,6 +36,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
             foreach (var supplierToDisable in suppliersTodisable)
             {
                 Assert.IsTrue(!string.Equals(supplierToDisable.Value, string.Empty), " value should not be empty for invalid stats with enabled suppliers");
+               // Assert.AreEqual(supplierToDisable.Value.Equals());
             }
         }
 

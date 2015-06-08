@@ -30,7 +30,11 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy
             {
                 var supplierStats = _supplierRepository.GetFailureLogs(supplier, minutes);
                 if (supplierStats.IsEnabled == 1)
-                supplierAndFailureRateMapping.Add(supplier, (supplierStats.TotalRate != 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture));
+                {
+                    var failureRate = (supplierStats.TotalRate < 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture);
+                    supplier.TotalCallsCount = supplierStats.TotalCallsCount;
+                    supplierAndFailureRateMapping.Add(supplier, failureRate);
+                }    
             }
 
             return supplierAndFailureRateMapping;

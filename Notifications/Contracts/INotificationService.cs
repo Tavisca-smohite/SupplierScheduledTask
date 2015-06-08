@@ -12,6 +12,6 @@ namespace Tavisca.SupplierScheduledTask.Notifications
     {
         bool SendMail(MailAttributes mail);
 
-        Template GetTemplate(string templateName);
+        //Template GetTemplate(string templateName);
     }
 }

@@ -1,66 +1,48 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:ISupplierDataController.cs" caret="435" fromTop="15" />
-    <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Contracts/f:ISupplierLogRepository.cs" caret="326" fromTop="11" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:tavisca.singularity.configuration.xml" caret="1105" fromTop="13" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:ApplicationData/f:Suppliers.xml" caret="2099" fromTop="35" />
-    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:tavisca.singularity.configuration.xml" caret="4466" fromTop="53" />
-    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:Program.cs" caret="39" fromTop="4" />
     <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:Mail.cs" caret="1394" fromTop="39" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Exceptions/f:DataException.cs" caret="793" fromTop="30" />
-    <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Properties/f:Settings.Designer.cs" caret="837" fromTop="8" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Repository/f:SupplierLogRepositoryTest.cs" caret="1259" fromTop="35" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:IProductSupplier.cs" caret="319" fromTop="8" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Helper/f:SupplierDataHelper.cs" caret="2541" fromTop="5" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:App.config" caret="4414" fromTop="36" />
-    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:App.config" caret="4235" fromTop="33" />
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:Configuration.cs" caret="1428" fromTop="7" />
-    <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManager.designer.cs" caret="3206" fromTop="48" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManager.cs" caret="0" fromTop="0" />
     <File id="F065DE24-510C-4120-A1E8-1B937A59EC67/f:SupplierStatistics.cs" caret="210" fromTop="8" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ApplicationData/f:Suppliers.xml" caret="0" fromTop="0" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Repository/f:SupplierLogRepository.cs" caret="1410" fromTop="15" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:HotelProductSupplierStrategy.cs" caret="1119" fromTop="27" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:NotificationEmail/f:SendNotificationMailTest.cs" caret="1062" fromTop="7" />
-    <File id="F12F752F-26F4-4E24-B28D-B4FE0FF243A7/f:HTMLPage1.html/s:..?HTMLPage1.html" caret="329" fromTop="11" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Controller/f:SupplierDataControllerTest.cs" caret="643" fromTop="19" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:SupplierDataController.cs" caret="2564" fromTop="40" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:CarProductSupplierStrategy.cs" caret="1109" fromTop="26" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:AirProductSupplierStrategy.cs" caret="1114" fromTop="29" />
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:SendNotificationMail.cs" caret="4627" fromTop="33" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:ApplicationData/f:MailBody.xml" caret="911" fromTop="15" />
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/d:ApplicationData/f:MailBody.xml" caret="1062" fromTop="17" />
+    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/d:ApplicationData/f:MailBody.xml" caret="1366" fromTop="30" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:CarProductSupplierStrategy.cs" caret="1275" fromTop="26" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:AirProductSupplierStrategy.cs" caret="1279" fromTop="29" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Helper/f:SupplierDataHelper.cs" caret="2541" fromTop="5" />
+    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:Configuration.cs" caret="1428" fromTop="7" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:IProductSupplier.cs" caret="319" fromTop="8" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Exceptions/f:DataException.cs" caret="793" fromTop="30" />
+    <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Contracts/f:ISupplierLogRepository.cs" caret="326" fromTop="11" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:ISupplierDataController.cs" caret="435" fromTop="15" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:HotelProductSupplierStrategy.cs" caret="1451" fromTop="27" />
+    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:SendNotificationMail.cs" caret="3251" fromTop="52" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:NotificationEmail/f:StaticInputs.cs" caret="0" fromTop="0" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:NotificationEmail/f:SendNotificationMailTest.cs" caret="1346" fromTop="21" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:ProductSupplierStrategy/f:ProductSupplierStrategyTest.cs" caret="5619" fromTop="41" />
+    <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Properties/f:AssemblyInfo.cs" caret="0" fromTop="0" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:SupplierDataController.cs" caret="1082" fromTop="20" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Controller/f:SupplierDataControllerTest.cs" caret="1135" fromTop="27" />
+    <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManager.designer.cs" caret="746" fromTop="23" />
   </RecentFiles>
   <RecentEdits>
-    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:Program.cs" caret="0" fromTop="0" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/f:DBConfiguration.cs" caret="169" fromTop="7" />
-    <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManager.designer.cs" caret="5254" fromTop="21" />
     <File id="F065DE24-510C-4120-A1E8-1B937A59EC67/f:MailAttributes.cs" caret="234" fromTop="9" />
     <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/d:Contracts/f:INotificationService.cs" caret="315" fromTop="10" />
     <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:Mail.cs" caret="1294" fromTop="11" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Contracts/f:ISupplierLogRepository.cs" caret="364" fromTop="11" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:ISupplierDataController.cs" caret="310" fromTop="11" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Repository/f:SupplierLogRepositoryTest.cs" caret="280" fromTop="7" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:tavisca.singularity.configuration.xml" caret="4630" fromTop="53" />
-    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:tavisca.singularity.configuration.xml" caret="4466" fromTop="53" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:ApplicationData/f:Suppliers.xml" caret="2099" fromTop="35" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Controller/f:SupplierDataControllerTest.cs" caret="896" fromTop="22" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Exceptions/f:DataException.cs" caret="793" fromTop="30" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:IProductSupplier.cs" caret="304" fromTop="8" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Helper/f:SupplierDataHelper.cs" caret="3479" fromTop="26" />
-    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:App.config" caret="4256" fromTop="33" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:App.config" caret="4429" fromTop="36" />
     <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:Configuration.cs" caret="1856" fromTop="22" />
     <File id="F065DE24-510C-4120-A1E8-1B937A59EC67/f:SupplierStatistics.cs" caret="411" fromTop="13" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Repository/f:SupplierLogRepository.cs" caret="2191" fromTop="30" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:AirProductSupplierStrategy.cs" caret="1434" fromTop="35" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:AirProductSupplierStrategy.cs" caret="1599" fromTop="35" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:SupplierDataController.cs" caret="2140" fromTop="19" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:CarProductSupplierStrategy.cs" caret="1109" fromTop="26" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:HotelProductSupplierStrategy.cs" caret="1496" fromTop="35" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:NotificationEmail/f:SendNotificationMailTest.cs" caret="1179" fromTop="8" />
-    <File id="F12F752F-26F4-4E24-B28D-B4FE0FF243A7/f:HTMLPage1.html/s:..?HTMLPage1.html" caret="2909" fromTop="28" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:ApplicationData/f:MailBody.xml" caret="1105" fromTop="16" />
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:SendNotificationMail.cs" caret="4627" fromTop="33" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:CarProductSupplierStrategy.cs" caret="1275" fromTop="26" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:HotelProductSupplierStrategy.cs" caret="1662" fromTop="35" />
     <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/d:ApplicationData/f:MailBody.xml" caret="1062" fromTop="17" />
+    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:SendNotificationMail.cs" caret="3748" fromTop="52" />
+    <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManager.designer.cs" caret="1172" fromTop="33" />
   </RecentEdits>
 </RecentFiles>

@@ -41,5 +41,20 @@ namespace ScheduledTask.Test
             var rate = supplierLogRepository.GetFailureLogs(GetSupplierObject("AirMultiAvail", 9, "Pegasus", "Hotel"), 1000);
             Assert.AreEqual(0, rate.TotalRate, "total rate must be 0 for invalid inputs");
         }
+
+
+        [TestMethod]
+        public void GetFailureLogs_ThowsException_WithInvalidInput()
+        {
+
+            var supplierLogRepository = new SupplierLogRepository();
+
+            var rate = supplierLogRepository.GetFailureLogs(new Supplier(), 1000);//throws sql exception
+            Assert.AreEqual(0, rate.TotalRate, "total rate must be 0 for invalid inputs");
+            Assert.AreEqual(0, rate.IsEnabled, "total rate must be 0 for invalid inputs");
+            Assert.AreEqual(0, rate.SuccessRate, "total rate must be 0 for invalid inputs");
+            Assert.AreEqual(0, rate.FailureRate, "total rate must be 0 for invalid inputs");
+            
+        }
     }
 }

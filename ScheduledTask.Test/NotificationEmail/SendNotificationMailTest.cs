@@ -53,5 +53,13 @@ namespace ScheduledTask.Test
             Assert.IsTrue(isSendMail);
         }
 
+        //behaviour of functin when exception is thrown .
+        [TestMethod]
+        public void SendMail_WithInvalidInputs_ThrowsException_ShouldReturnFalse()
+        {
+            var isSendMail = new Mail().SendMail(null);
+            Assert.IsFalse(isSendMail);
+        }
+
     }
 }

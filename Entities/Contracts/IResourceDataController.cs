@@ -7,9 +7,10 @@ using Tavisca.SupplierScheduledTask.BusinessEntities;
 
 namespace Tavisca.SupplierScheduledTask.BusinessLogic.Contracts
 {
-    public  interface ISupplierDataController
+    public interface IResourceDataController
     {
-        //bool DisableSuppliers(Dictionary<Supplier, string> suppliersToDisable);
-        //void EnableSuppliers();        
+        //bool UpdateResourceFile(List<Supplier> disabledSuppliers  );
+        //Dictionary<string, string> ReadResourceFile();
+        //bool DeleteFromResourceFile();
     }
 }
