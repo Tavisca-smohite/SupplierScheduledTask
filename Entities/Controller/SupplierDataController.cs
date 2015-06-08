@@ -29,6 +29,18 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                 };
         }
 
+        public SupplierDataController(IProductSupplier _productSupplier)
+        {
+           // _updateFaresourcesConfig = RuntimeContext.Resolver.Resolve<IUpdateFaresourcesConfig>("UpdateFaresourcesConfig");
+           // _resourceDataController = RuntimeContext.Resolver.Resolve<IResourceDataController>("ResourceDataController");
+            _supplierStatistics = new Dictionary<string, IProductSupplier>
+                {
+                    {"Air", _productSupplier},
+                    {"Hotel", _productSupplier},
+                    {"Car", _productSupplier}
+                };
+        }
+
         public void Invoke()
         {
             var suppliersToDisable = new Dictionary<Supplier, string>();
@@ -95,20 +107,37 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         //}
 
         //public void EnableSuppliers()
-        //{//read resource file,compare each value with current time if it exceeds 30 minute enable supplier and remove entry from resource file
-        //   var resourceEntries= _resourceDataController.ReadResourceFile();           
-        //   //Modify resources here...
-        //   foreach (var resourceEntry in resourceEntries)
-        //   {
-        //       //var key = disabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture);
+        //{
+        //    //read resource file,compare each value with current time if it exceeds 30 minute enable supplier and remove entry from resource file
+        //    var enabledSuppliers = new List<Supplier>();
+        //    var resourceEntries = _resourceDataController.ReadResourceFile();
+            
+        //    foreach (var resourceEntry in resourceEntries)
+        //    {
+        //        //var key = disabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture);
 
-        //       var value = Convert.ToDateTime(resourceEntry.Value);
-        //       //TODO:compare and call enable supplier. If enabled add t olist and pass list to remove keys
-               
-        //   }
-        //   //Write the combined resource file
-          
-          
+        //        if (CompareTimeIntervals(resourceEntry.Value))
+        //        { 
+        //            //TODO:call enable supplier if is enabled add to list
+
+        //        }
+        //        //TODO:compare and call enable supplier. If enabled add t olist and pass list to remove keys
+
+        //    }
+        //    //Write the combined resource file
+
+
         //}
+
+        private bool CompareTimeIntervals(string timeWhenSuppplierWasDisabled)
+        {
+            var _timeWhenSuppplierWasDisabled = Convert.ToDateTime(timeWhenSuppplierWasDisabled);
+            var timeInterval = (DateTime.Now - _timeWhenSuppplierWasDisabled).TotalMinutes;
+            if (timeInterval >= 30)
+                return true;
+
+            return false;
+        }
+
     }
 }

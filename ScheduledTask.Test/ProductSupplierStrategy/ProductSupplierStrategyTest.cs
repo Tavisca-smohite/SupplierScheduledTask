@@ -25,16 +25,17 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
     {
         //when list contains all valid stats for enabled suppliers
         [TestMethod]
-        public void GetFailureRateOfAirProductSuppliers_WithValid_ExecutionOfFailureLogsFunction()
+        public void GetFailureRateOfAirProductSuppliers_WithValidExecution_OfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 });           
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=30}).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1,TotalCallsCount=40 });           
             var suppliersTodisable = new AirProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "Mystifly" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
             {
-                Assert.IsTrue(!string.Equals(supplierToDisable.Value, string.Empty), " value should not be empty for invalid stats with enabled suppliers");
-               // Assert.AreEqual(supplierToDisable.Value.Equals());
+               // Assert.IsTrue(!string.Equals(supplierToDisable.Value, string.Empty), " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreNotEqual(string.Empty, supplierToDisable.Value, " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreNotEqual(0, supplierToDisable.Key.TotalCallsCount, "totalcall count must not be 0");
             }
         }
 
@@ -54,12 +55,14 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfAirProductSuppliers_WithInValid_ExecutionOfFailureLogsFunctionForEnabledSuppliers()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 });
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0,TotalCallsCount=0, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1,TotalCallsCount=0 });
             var suppliersTodisable = new AirProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "WorldSpan" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
             {
-                Assert.IsTrue(string.Equals(supplierToDisable.Value, string.Empty), " value should be empty for invalid stats with enabled suppliers");
+              //  Assert.IsTrue(string.Equals(supplierToDisable.Value, string.Empty), " value should be empty for invalid stats with enabled suppliers");
+                Assert.AreEqual(string.Empty, supplierToDisable.Value, " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreEqual(0, supplierToDisable.Key.TotalCallsCount, "totalcall count must be 0");
             }
         
         }
@@ -68,15 +71,17 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
 
         //when list contains all valid stats for enabled suppliers
         [TestMethod]
-        public void GetFailureRateOfHotelProductSuppliers_WithValid_ExecutionOfFailureLogsFunction()
+        public void GetFailureRateOfHotelProductSuppliers_WithValidExecution_OfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 });
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1,TotalCallsCount=30 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=40});
             var suppliersTodisable = new HotelProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "Mystifly" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
             {
-                Assert.IsTrue(!string.Equals(supplierToDisable.Value, string.Empty), " value should not be empty for invalid stats with enabled suppliers");
+                // Assert.IsTrue(!string.Equals(supplierToDisable.Value, string.Empty), " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreNotEqual(string.Empty, supplierToDisable.Value, " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreNotEqual(0, supplierToDisable.Key.TotalCallsCount, "totalcall count must not be 0");
             }
         }
 
@@ -101,22 +106,26 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
             {
-                Assert.IsTrue(string.Equals(supplierToDisable.Value, string.Empty), " value should be empty for invalid stats with enabled suppliers");
+                //  Assert.IsTrue(string.Equals(supplierToDisable.Value, string.Empty), " value should be empty for invalid stats with enabled suppliers");
+                Assert.AreEqual(string.Empty, supplierToDisable.Value, " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreEqual(0, supplierToDisable.Key.TotalCallsCount, "totalcall count must be 0");
             }
 
         }
 
         //when list contains all valid stats for enabled suppliers
         [TestMethod]
-        public void GetFailureRateOfCarProductSuppliers_WithValid_ExecutionOfFailureLogsFunction()
+        public void GetFailureRateOfCarProductSuppliers_WithValidExecution_OfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 });
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1,TotalCallsCount=35 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=20});
             var suppliersTodisable = new CarProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "Mystifly" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
             {
-                Assert.IsTrue(!string.Equals(supplierToDisable.Value, string.Empty), " value should not be empty for invalid stats with enabled suppliers");
+                // Assert.IsTrue(!string.Equals(supplierToDisable.Value, string.Empty), " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreNotEqual(string.Empty, supplierToDisable.Value, " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreNotEqual(0, supplierToDisable.Key.TotalCallsCount, "totalcall count must not be 0");
             }
         }
 
@@ -141,7 +150,9 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
             {
-                Assert.IsTrue(string.Equals(supplierToDisable.Value, string.Empty), " value should be empty for invalid stats with enabled suppliers");
+                //  Assert.IsTrue(string.Equals(supplierToDisable.Value, string.Empty), " value should be empty for invalid stats with enabled suppliers");
+                Assert.AreEqual(string.Empty, supplierToDisable.Value, " value should not be empty for invalid stats with enabled suppliers");
+                Assert.AreEqual(0, supplierToDisable.Key.TotalCallsCount, "totalcall count must be 0");
             }
 
         }

@@ -96,6 +96,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controller\StaticInputsForController.cs" />
     <Compile Include="Controller\SupplierDataControllerTest.cs" />
     <Compile Include="NotificationEmail\StaticInputs.cs" />
     <Compile Include="ProductSupplierStrategy\ProductSupplierStrategyTest.cs" />
