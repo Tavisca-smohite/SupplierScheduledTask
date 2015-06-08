@@ -6,10 +6,9 @@ using Moq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
-using Tavisca.SupplierScheduledTask.BusinessLogic.Controller;
-using Tavisca.SupplierScheduledTask.BusinessLogic.Helper;
+using Tavisca.SupplierScheduledTask.BusinessLogic;
 using Tavisca.SupplierScheduledTask.DataAccessLayer;
-using Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy;
+
 
 namespace ScheduledTask.Test
 {

@@ -1,30 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Tavisca.Singularity;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
-using Tavisca.SupplierScheduledTask.BusinessLogic.Contracts;
-using Tavisca.SupplierScheduledTask.BusinessLogic.Helper;
-using Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy;
 using Tavisca.SupplierScheduledTask.DataAccessLayer;
 using Tavisca.SupplierScheduledTask.Notifications;
 using Tavisca.TravelNxt.Shared.Entities.Infrastructure;
 
-namespace Tavisca.SupplierScheduledTask.BusinessLogic.Controller
+namespace Tavisca.SupplierScheduledTask.BusinessLogic
 {
     //TODO: Need to move this logic in Business 
     public class SupplierDataController : ISupplierDataController
     {
         private static  Dictionary<string, IProductSupplier> _supplierStatistics;
-       // private IUpdateFaresourcesConfig _updateFaresourcesConfig;
+        private IUpdateFaresourcesConfig _updateFaresourcesConfig;
+        private IResourceDataController _resourceDataController;
 
         public SupplierDataController()
         {
-           // _updateFaresourcesConfig =RuntimeContext.Resolver.Resolve<IUpdateFaresourcesConfig>("UpdateFaresourcesConfig");
-            _supplierStatistics = new Dictionary<string, IProductSupplier>();
-            _supplierStatistics.Add("Air", new AirProductSupplierStrategy());
-            _supplierStatistics.Add("Hotel", new HotelProductSupplierStrategy());
-            _supplierStatistics.Add("Car", new CarProductSupplierStrategy());
+            _updateFaresourcesConfig = RuntimeContext.Resolver.Resolve<IUpdateFaresourcesConfig>("UpdateFaresourcesConfig");
+            _resourceDataController = RuntimeContext.Resolver.Resolve<IResourceDataController>("ResourceDataController");
+            _supplierStatistics = new Dictionary<string, IProductSupplier>
+                {
+                    {"Air", new AirProductSupplierStrategy()},
+                    {"Hotel", new HotelProductSupplierStrategy()},
+                    {"Car", new CarProductSupplierStrategy()}
+                };
         }
 
         public void Invoke()
@@ -72,25 +74,41 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic.Controller
 
 
 
-        //public bool DisableSuppliers(Dictionary<Supplier, string> suppliersToDisable)
+        //public bool DisableSuppliers(Dictionary<Supplier, string> suppliersWhoHaveCrossedThreshhold)
         //{
         //    var disabledSuppliers = new List<Supplier>();
-        //    foreach (var supplierToDisable in suppliersToDisable)
+        //    foreach (var supplierToDisable in suppliersWhoHaveCrossedThreshhold)
         //    {
-        //       var isDisabled= _updateFaresourcesConfig.DisableSupplier(supplierToDisable.Key);
-        //        supplierToDisable.Key.IsDisabled = isDisabled;
-        //        if(isDisabled)
+        //        if (supplierToDisable.Key.DisableIfCrossesThreshhold == 1)
         //        {
-        //            disabledSuppliers.Add(supplierToDisable.Key);
+        //            var isDisabled = _updateFaresourcesConfig.DisableSupplier(supplierToDisable.Key);
+        //            supplierToDisable.Key.IsDisabled = isDisabled;
+        //            if (isDisabled)
+        //            {
+        //                disabledSuppliers.Add(supplierToDisable.Key);
+        //            }
         //        }
         //    }
-        //    _updateFaresourcesConfig.DisableSupplier(disabledSuppliers);
+        //    //TODO:pass list to resx file to set info about suppliers who has disabled
+        //    _resourceDataController.UpdateResourceFile(disabledSuppliers);
         //    return false;
         //}
 
         //public void EnableSuppliers()
-        //{
-        //    throw new NotImplementedException();
+        //{//read resource file,compare each value with current time if it exceeds 30 minute enable supplier and remove entry from resource file
+        //   var resourceEntries= _resourceDataController.ReadResourceFile();           
+        //   //Modify resources here...
+        //   foreach (var resourceEntry in resourceEntries)
+        //   {
+        //       //var key = disabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture);
+
+        //       var value = Convert.ToDateTime(resourceEntry.Value);
+        //       //TODO:compare and call enable supplier. If enabled add t olist and pass list to remove keys
+               
+        //   }
+        //   //Write the combined resource file
+          
+          
         //}
     }
 }

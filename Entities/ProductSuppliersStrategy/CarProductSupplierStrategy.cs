@@ -4,7 +4,7 @@ using Tavisca.Singularity;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
 using Tavisca.SupplierScheduledTask.DataAccessLayer;
 
-namespace Tavisca.SupplierScheduledTask.BusinessLogic.ProductSuppliersStrategy
+namespace Tavisca.SupplierScheduledTask.BusinessLogic
 {
     public class CarProductSupplierStrategy : IProductSupplier
     {

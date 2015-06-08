@@ -70,9 +70,9 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             get { return ConfigurationManager.AppSettings["ThreshholdForTotalCallsCount"]; }
         }
 
-        //public static string SuppliersConfigLogsFile
-        //{
-        //    get { return ConfigurationManager.AppSettings["SuppliersConfigLogsFile"]; }
-        //}        
+        public static string SuppliersConfigLogsFile
+        {
+            get { return ConfigurationManager.AppSettings["SuppliersConfigLogsFile"]; }
+        }        
     }
 }

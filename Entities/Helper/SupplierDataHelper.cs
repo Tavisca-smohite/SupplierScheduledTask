@@ -5,7 +5,7 @@ using System.Xml.Linq;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
 using Tavisca.SupplierScheduledTask.Notifications;
 
-namespace Tavisca.SupplierScheduledTask.BusinessLogic.Helper
+namespace Tavisca.SupplierScheduledTask.BusinessLogic
 {
   
     public class SupplierDataHelper

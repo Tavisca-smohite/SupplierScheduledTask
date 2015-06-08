@@ -31,6 +31,9 @@
     
     <add alias="IUpdateFaresourcesConfig" type="Tavisca.SupplierScheduledTask.DataAccessLayer.IUpdateFaresourcesConfig, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
     <add alias="UpdateFaresourcesConfig" type="Tavisca.SupplierScheduledTask.DataAccessLayer.UpdateFaresourcesConfig, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
+
+    <add alias="IResourceDataController" type="Tavisca.SupplierScheduledTask.BusinessLogic.IResourceDataController, Tavisca.SupplierScheduledTask.BusinessLogic"/>
+    <add alias="ResourceDataController" type="Tavisca.SupplierScheduledTask.BusinessLogic.ResourceDataController, Tavisca.SupplierScheduledTask.BusinessLogic"/>
   </typeAlias>
   <interception.declaration>
   </interception.declaration>
@@ -56,6 +59,7 @@
         <dependency registeredAs="IProductSupplier" implementedAs="HotelProductSupplierStrategy" lifetimeType="Singleton" name="HotelProductSupplierStrategy"/>-->
         <dependency registeredAs="ISupplierLogRepository" implementedAs="SupplierLogRepository" lifetimeType="Singleton" name="SupplierLogRepository"/>
         <dependency registeredAs="IUpdateFaresourcesConfig" implementedAs="UpdateFaresourcesConfig" lifetimeType="Singleton" name="UpdateFaresourcesConfig"/>
+        <dependency registeredAs="IResourceDataController" implementedAs="ResourceDataController" lifetimeType="Singleton" name="ResourceDataController"/>
       </dependencies>
     </default>
   </modules>

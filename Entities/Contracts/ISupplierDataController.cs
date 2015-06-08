@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
 
-namespace Tavisca.SupplierScheduledTask.BusinessLogic.Contracts
+namespace Tavisca.SupplierScheduledTask.BusinessLogic
 {
     public  interface ISupplierDataController
     {
