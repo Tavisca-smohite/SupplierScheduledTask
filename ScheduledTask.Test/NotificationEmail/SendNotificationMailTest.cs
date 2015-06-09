@@ -83,7 +83,7 @@ namespace ScheduledTask.Test
         [TestMethod]
         public void SendMail_Successful_WhenoOnlydisabledSuppliersHasPassedInInputs_EnabledSuppliers()
         {
-            var isSendMail = new SendNotificationMail().SendNotificationEmail(StaticInputs.GetEnabledSuppliers(),new List<string>()));
+            var isSendMail = new SendNotificationMail().SendNotificationEmail(StaticInputs.GetEnabledSuppliers(),new List<string>());
             Assert.IsTrue(isSendMail);
         }
 

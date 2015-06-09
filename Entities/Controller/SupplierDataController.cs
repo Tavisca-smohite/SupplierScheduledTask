@@ -136,8 +136,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                         {
                             enabledSuppliersKeys.Add(resourceEntry.Key);
                         }
-                    }
-                    //TODO:call enable supplier if is enabled add to list
+                    }                   
                 }
             }
             //remove supplier entries from resource file which are enabled

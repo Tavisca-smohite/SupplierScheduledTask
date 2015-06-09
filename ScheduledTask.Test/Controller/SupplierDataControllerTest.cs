@@ -14,7 +14,13 @@ namespace ScheduledTask.Test
 {
     [TestClass]
     public class SupplierDataControllerTest
-    {       
+    {
+
+        [TestInitialize]
+        public void CleanResourceFile_atTheBeginning()
+        {
+            new ResourceDataController().RemoveAllEntriesInResourceFile();
+        }
 
         [TestMethod]
         public  void GetLitOfSuppliersToDisable_Successful_withValidInputs()
@@ -140,6 +146,23 @@ namespace ScheduledTask.Test
                {"Car",new List<Supplier>()}
            };
             return productWiseSuppliersList;
+        }
+
+        //when suppliers who has crossed threshhold are available
+        //and disable supplier is mocked to return true for suppliers to disable
+        //and enable suppllier is mocked to return true to indicate supplier has enabled
+        [TestMethod]
+        public void Test_InvokeLogic_WhenSuppliersTodisableAndEnableAreAvailable()
+        {
+            var mockProductSupplier = new Mock<IProductSupplier>();
+            var mockUpdateFaresourcesConfig = new Mock<IUpdateFaresourcesConfig>();
+            mockProductSupplier.SetupSequence(m => m.GetFailureRateForProductSuppliers(It.IsAny<List<Supplier>>()))
+                .Returns(StaticInputsForSupplierDataController.DictionaryWithValidFailureRateAndTotalCallsCount(1))
+                .Returns(StaticInputsForSupplierDataController.DictionaryWithValidFailureRateAndTotalCallsCount(2))
+                .Returns(StaticInputsForSupplierDataController.DictionaryWithValidFailureRateAndTotalCallsCount(3));
+            mockUpdateFaresourcesConfig.Setup(m => m.DisableSupplier(It.IsAny<int>())).Returns(true);
+            mockUpdateFaresourcesConfig.Setup(m => m.EnableSupplier(It.IsAny<int>())).Returns(true);
+            new SupplierDataController(mockProductSupplier.Object, mockUpdateFaresourcesConfig.Object).Invoke();
         }
     }
 }

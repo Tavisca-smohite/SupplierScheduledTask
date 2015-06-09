@@ -19,6 +19,7 @@ namespace ScheduledTask.Test
                     
                    dictionary= new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Hotel",
+                            SupplierName="Pegasus",
                             SupplierId=9,
                             TotalCallsCount=60,
                             DisableIfCrossesThreshhold=1,
@@ -31,6 +32,7 @@ namespace ScheduledTask.Test
                     new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Air",
                             SupplierId=110,
+                            SupplierName="Mystifly",
                             TotalCallsCount=51,
                             DisableIfCrossesThreshhold=1,
                             ThreshholdValue=60,
@@ -42,6 +44,7 @@ namespace ScheduledTask.Test
                     new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Car",
                             SupplierId=24,
+                            SupplierName="SabreCar",
                             TotalCallsCount=50,
                             DisableIfCrossesThreshhold=0,
                             ThreshholdValue=70,
@@ -63,6 +66,7 @@ namespace ScheduledTask.Test
                     dictionary = new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Hotel",
                             SupplierId=9,
+                            SupplierName="Pegasus",
                             TotalCallsCount=49,
                             DisableIfCrossesThreshhold=1,
                             ThreshholdValue=50,
@@ -74,6 +78,7 @@ namespace ScheduledTask.Test
                     new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Air",
                             SupplierId=110,
+                            SupplierName="Mystifly",
                             TotalCallsCount=10,
                             DisableIfCrossesThreshhold=1,
                             ThreshholdValue=60,
@@ -85,6 +90,7 @@ namespace ScheduledTask.Test
                     new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Car",
                             SupplierId=24,
+                            SupplierName="SabreCar",
                             TotalCallsCount=1,
                             DisableIfCrossesThreshhold=0,
                             ThreshholdValue=70,
@@ -106,6 +112,7 @@ namespace ScheduledTask.Test
                     dictionary = new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Hotel",
                             SupplierId=9,
+                            SupplierName="Pegasus",
                             TotalCallsCount=49,
                             DisableIfCrossesThreshhold=1,
                             ThreshholdValue=50,
@@ -117,6 +124,7 @@ namespace ScheduledTask.Test
                     new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Air",
                             SupplierId=110,
+                            SupplierName="Mystifly",
                             TotalCallsCount=100,
                             DisableIfCrossesThreshhold=1,
                             ThreshholdValue=60,
@@ -128,6 +136,7 @@ namespace ScheduledTask.Test
                     new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Car",
                             SupplierId=24,
+                            SupplierName="SabreCar",
                             TotalCallsCount=1,
                             DisableIfCrossesThreshhold=0,
                             ThreshholdValue=70,
@@ -149,6 +158,7 @@ namespace ScheduledTask.Test
                     dictionary = new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Hotel",
                             SupplierId=9,
+                            SupplierName="Pegasus",
                             TotalCallsCount=49,
                             DisableIfCrossesThreshhold=1,
                             ThreshholdValue=50,
@@ -162,6 +172,7 @@ namespace ScheduledTask.Test
                     new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Hotel",
                             SupplierId=117,
+                            SupplierName="PricelineV3",
                             TotalCallsCount=0,
                             DisableIfCrossesThreshhold=1,
                             ThreshholdValue=60,
@@ -173,7 +184,8 @@ namespace ScheduledTask.Test
                     dictionary =
               new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Air",
-                            SupplierId=114,
+                            SupplierId=16,
+                            SupplierName="AmadeusAir",
                             TotalCallsCount=60,
                             DisableIfCrossesThreshhold=1,
                             ThreshholdValue=60,
@@ -185,6 +197,7 @@ namespace ScheduledTask.Test
                     new Dictionary<Supplier, string>{
                         {new Supplier{ProductType="Car",
                             SupplierId=24,
+                            SupplierName="SabreCar",
                             TotalCallsCount=1,
                             DisableIfCrossesThreshhold=0,
                             ThreshholdValue=70,
