@@ -11,6 +11,8 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
     {
         bool UpdateResourceFile(List<Supplier> disabledSuppliers);
         Dictionary<string, string> ReadResourceFile();
-        bool RemoveEntriesFromResourceFile(List<Supplier> disabledSuppliers);
+        //bool RemoveEntriesFromResourceFile(List<Supplier> disabledSuppliers);
+        bool RemoveEntriesFromResourceFile(List<String> keys);
+        void RemoveAllEntriesInResourceFile();
     }
 }

@@ -7,7 +7,7 @@ using Tavisca.SupplierScheduledTask.BusinessEntities;
 
 namespace ScheduledTask.Test
 {
-    public class StaticInputsForController
+    public class StaticInputsForSupplierDataController
     {
         public static Dictionary<Supplier, string> DictionaryWithValidFailureRateAndTotalCallsCount(int no)
         {

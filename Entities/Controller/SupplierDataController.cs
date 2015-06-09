@@ -30,8 +30,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         }
 
         public SupplierDataController(IProductSupplier _productSupplier)
-        {
-           // _updateFaresourcesConfig = RuntimeContext.Resolver.Resolve<IUpdateFaresourcesConfig>("UpdateFaresourcesConfig");
+        {           
            // _resourceDataController = RuntimeContext.Resolver.Resolve<IResourceDataController>("ResourceDataController");
             _supplierStatistics = new Dictionary<string, IProductSupplier>
                 {
@@ -40,6 +39,18 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                     {"Car", _productSupplier}
                 };
         }
+        public SupplierDataController(IProductSupplier _productSupplier, IUpdateFaresourcesConfig updateFaresourcesConfig)
+        {
+            _updateFaresourcesConfig = updateFaresourcesConfig;
+            _resourceDataController = RuntimeContext.Resolver.Resolve<IResourceDataController>("ResourceDataController");
+            _supplierStatistics = new Dictionary<string, IProductSupplier>
+                {
+                    {"Air", _productSupplier},
+                    {"Hotel", _productSupplier},
+                    {"Car", _productSupplier}
+                };
+        }
+
 
         public void Invoke()
         {
@@ -50,12 +61,12 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                 Dictionary<string, List<Supplier>> productWiseSuppliersList =new SupplierDataHelper().GetProductWiseSuppliersList();
                 suppliersToDisable = GetListOfSuppliersToDisable(productWiseSuppliersList);
                 suppliersWhoHaveCrossedThreshhold = suppliersToDisable.Where(d => !string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
-           
-                //if(suppliersWhoHaveCrossedThreshhold.Count>0)
-                //{
-                //    //TODO: call sp to get statuses of suppliers whether they are enabled or disabled and update suppliers' field "IsDisabled" 
-                //    DisableSuppliers(suppliersWhoHaveCrossedThreshhold);
-                //}
+
+                if (suppliersWhoHaveCrossedThreshhold.Count > 0)
+                {
+                    //TODO: call sp to get statuses of suppliers whether they are enabled or disabled and update suppliers' field "IsDisabled" 
+                    DisableSuppliers(suppliersWhoHaveCrossedThreshhold);
+                }
                                             
             }
             catch (Exception exception)
@@ -85,50 +96,62 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         }
 
 
+        #region interface methods
+        public bool DisableSuppliers(Dictionary<Supplier, string> suppliersWhoHaveCrossedThreshhold)
+        {
+            var disabledSuppliers = new List<Supplier>();
+            foreach (var supplierToDisable in suppliersWhoHaveCrossedThreshhold)
+            {
+                if (supplierToDisable.Key.DisableIfCrossesThreshhold == 1)
+                {
+                    var isDisabled = _updateFaresourcesConfig.DisableSupplier(supplierToDisable.Key.SupplierId);
+                    supplierToDisable.Key.IsDisabled = isDisabled;
+                    if (isDisabled)
+                    {
+                        disabledSuppliers.Add(supplierToDisable.Key);
+                    }
+                }
+            }
+            //TODO:pass list to resx file to set info about suppliers who has disabled
+            _resourceDataController.UpdateResourceFile(disabledSuppliers);
+            return false;
+        }
+        
+        public void EnableSuppliers()
+        {
+            //read resource file,compare each value with current time if it exceeds 30 minute enable supplier and remove entry from resource file
+            var enabledSuppliersKeys = new List<string>();
+            var resourceEntries = _resourceDataController.ReadResourceFile();
 
-        //public bool DisableSuppliers(Dictionary<Supplier, string> suppliersWhoHaveCrossedThreshhold)
-        //{
-        //    var disabledSuppliers = new List<Supplier>();
-        //    foreach (var supplierToDisable in suppliersWhoHaveCrossedThreshhold)
-        //    {
-        //        if (supplierToDisable.Key.DisableIfCrossesThreshhold == 1)
-        //        {
-        //            var isDisabled = _updateFaresourcesConfig.DisableSupplier(supplierToDisable.Key);
-        //            supplierToDisable.Key.IsDisabled = isDisabled;
-        //            if (isDisabled)
-        //            {
-        //                disabledSuppliers.Add(supplierToDisable.Key);
-        //            }
-        //        }
-        //    }
-        //    //TODO:pass list to resx file to set info about suppliers who has disabled
-        //    _resourceDataController.UpdateResourceFile(disabledSuppliers);
-        //    return false;
-        //}
+            foreach (var resourceEntry in resourceEntries)
+            {                
+                if (CompareTimeIntervals(resourceEntry.Value))
+                {
+                    var key = RetriveIdFromKey(resourceEntry.Key);
+                    if(key!=0)
+                    {
+                        var isEnabled = _updateFaresourcesConfig.EnableSupplier(key);
+                        if (isEnabled)
+                        {
+                            enabledSuppliersKeys.Add(resourceEntry.Key);
+                        }
+                    }                    
+                    //TODO:call enable supplier if is enabled add to list
+                }
+                //remove supplier entries from resource file which are enabled
+                _resourceDataController.RemoveEntriesFromResourceFile(enabledSuppliersKeys);
+                if(enabledSuppliersKeys.Any())
+                {
+                    //TODO:send notification mail
+                    resourceEntries = _resourceDataController.ReadResourceFile();
+                    List<string> disabledSuppliers = resourceEntries.Keys.ToList();
+                    new SendNotificationMail().SendNotificationEmail(enabledSuppliersKeys,disabledSuppliers);
+                }
+            }            
+        }
 
-        //public void EnableSuppliers()
-        //{
-        //    //read resource file,compare each value with current time if it exceeds 30 minute enable supplier and remove entry from resource file
-        //    var enabledSuppliers = new List<Supplier>();
-        //    var resourceEntries = _resourceDataController.ReadResourceFile();
-            
-        //    foreach (var resourceEntry in resourceEntries)
-        //    {
-        //        //var key = disabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture);
-
-        //        if (CompareTimeIntervals(resourceEntry.Value))
-        //        { 
-        //            //TODO:call enable supplier if is enabled add to list
-
-        //        }
-        //        //TODO:compare and call enable supplier. If enabled add t olist and pass list to remove keys
-
-        //    }
-        //    //Write the combined resource file
-
-
-        //}
-
+        #endregion
+        #region private helper methods
         private bool CompareTimeIntervals(string timeWhenSuppplierWasDisabled)
         {
             var _timeWhenSuppplierWasDisabled = Convert.ToDateTime(timeWhenSuppplierWasDisabled);
@@ -138,6 +161,21 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 
             return false;
         }
+
+        private int RetriveIdFromKey(string key)
+        {
+            var keys = new List<string>();
+            var id = 0;
+            if (string.IsNullOrEmpty(key))
+                id=0;
+
+            keys.AddRange(key.Split('_'));
+            if (keys.Count == 2)
+                id=Convert.ToInt32(keys[1]);
+            return id;
+        }
+
+        #endregion
 
     }
 }

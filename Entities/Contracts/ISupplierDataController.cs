@@ -9,7 +9,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 {
     public  interface ISupplierDataController
     {
-        //bool DisableSuppliers(Dictionary<Supplier, string> suppliersToDisable);
-        //void EnableSuppliers();        
+        bool DisableSuppliers(Dictionary<Supplier, string> suppliersToDisable);
+        void EnableSuppliers();        
     }
 }

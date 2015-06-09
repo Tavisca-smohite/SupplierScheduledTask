@@ -10,7 +10,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 {
     public class UpdateFaresourcesConfig : IUpdateFaresourcesConfig
     {
-        public bool DisableSupplier(Supplier supplier)
+        public bool DisableSupplier(int supplierId)
         {
             var isDisabled = false;
             try
@@ -29,6 +29,11 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
             }
             return isDisabled;
 
+        }
+
+        public bool EnableSupplier(int supplierId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

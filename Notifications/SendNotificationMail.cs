@@ -22,32 +22,46 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             return isSendMail;
         }
 
-        private static MailAttributes BuildMailAttributes(Dictionary<Supplier, string> suppliersToDisable)
+        public bool SendNotificationEmail(List<string> enabledSuppliers,List<string> disabledSuppliers)
+        {
+
+            var mailAttributes = BuildMailAttributes(enabledSuppliers,disabledSuppliers);
+            bool isSendMail = new Mail().SendMail(mailAttributes);
+            return isSendMail;
+        }
+
+        
+
+        
+
+        #region helper methods to build mail body for disabled suppliers notification mail
+
+        private MailAttributes BuildMailAttributes(Dictionary<Supplier, string> suppliersToDisable)
         {
             string directoryPath = Directory.GetCurrentDirectory();
             directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
                                 ? directoryPath.Replace("\\bin\\Debug", "")
                                 : directoryPath;
-            string path = directoryPath + Configuration.MailBodyData;
+            string path = directoryPath + Configuration.FailedSuppliersNotificationMailBodyData;
             var mailBody = XDocument.Load(path).ToString();
             var mailAttributes = new MailAttributes()
-                {
-                    From = Configuration.MailFrom,
-                    To = Configuration.MailTo,
-                    BCC = Configuration.MailCc,
-                    Subject = Configuration.MailSubject,
-                    TemplateName = Configuration.TemplateName,
-                };
+            {
+                From = Configuration.MailFrom,
+                To = Configuration.MailTo,
+                BCC = Configuration.MailCc,
+                Subject = Configuration.MailSubject,
+                TemplateName = Configuration.TemplateName,
+            };
             int i = 1;
 
             var updatedListOfSuppliersToDisable = suppliersToDisable.Where(d => !string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
             var listOfSuppliersWithFetchingFailure = suppliersToDisable.Where(d => string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
-            mailBody = updatedListOfSuppliersToDisable.Any() ? 
+            mailBody = updatedListOfSuppliersToDisable.Any() ?
                 BuildTableInMailBody(updatedListOfSuppliersToDisable, i, mailBody) :
-                Regex.Replace(mailBody,  @"<div id=""#1"">(.*?)(?=<div id=""#2"">)", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
+                Regex.Replace(mailBody, @"<div id=""#1"">(.*?)(?=<div id=""#2"">)", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
 
-            mailBody =listOfSuppliersWithFetchingFailure.Any()? 
-                AddSupplierInfoForWhomFetchingFailureOccured(listOfSuppliersWithFetchingFailure, mailBody):
+            mailBody = listOfSuppliersWithFetchingFailure.Any() ?
+                AddSupplierInfoForWhomFetchingFailureOccured(listOfSuppliersWithFetchingFailure, mailBody) :
                 Regex.Replace(mailBody, @"<div id=""#2"">(.*?)</div>", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
 
             mailBody = mailBody.Replace("{[Environment]}", Configuration.Environment);
@@ -57,7 +71,7 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             return mailAttributes;
         }
 
-        private static string BuildTableInMailBody(Dictionary<Supplier, string> suppliersToDisable, int i, string mailBody)
+        private  string BuildTableInMailBody(Dictionary<Supplier, string> suppliersToDisable, int i, string mailBody)
         {
             var builder = new StringBuilder();         
             const string rowStyle =@"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">";
@@ -79,7 +93,7 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             return mailBody;
         }
 
-        private static string AddSupplierInfoForWhomFetchingFailureOccured(Dictionary<Supplier, string> listOfSuppliersWithFetchingFailure,string mailBody)
+        private  string AddSupplierInfoForWhomFetchingFailureOccured(Dictionary<Supplier, string> listOfSuppliersWithFetchingFailure,string mailBody)
         {
             var builder = new StringBuilder();
             const string listStyle = @"<li style="" vertical-align: middle; color: blue;font-size:medium ;font-family: cursive"">";
@@ -91,7 +105,76 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             mailBody = mailBody.Replace("{[FailedSupplierData]}", builder.ToString());
             return mailBody;
         }
+        #endregion
 
+        #region helper methods to build mail body for enabled suppliers notification mail
+        private MailAttributes BuildMailAttributes(List<string> enabledSuppliers, List<string> disabledSuppliers)
+        {
+            string directoryPath = Directory.GetCurrentDirectory();
+            directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
+                                ? directoryPath.Replace("\\bin\\Debug", "")
+                                : directoryPath;
+            string path = directoryPath + Configuration.FailedSuppliersNotificationMailBodyData;
+            var mailBody = XDocument.Load(path).ToString();
+            var mailAttributes = new MailAttributes()
+            {
+                From = Configuration.MailFrom,
+                To = Configuration.MailTo,
+                BCC = Configuration.MailCc,
+                Subject = Configuration.MailSubject,
+                TemplateName = Configuration.TemplateName,
+            };
+            mailBody = BuildTableInMailBodyForEnabledSuppliers(enabledSuppliers, mailBody);
+
+            mailBody = (disabledSuppliers != null) ?
+               AddSupplierInfoWhichAreStillDisabled(disabledSuppliers, mailBody) :
+               Regex.Replace(mailBody, @"<div id=""#2"">(.*?)</div>", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
+
+            mailBody = mailBody.Replace("{[Environment]}", Configuration.Environment);
+
+            var attributes = new NameValueCollection { { "{[SuppliersStatus]}", mailBody } };
+            mailAttributes.TemplateAttributes = attributes;
+            return mailAttributes;
+        }
+
+        private string AddSupplierInfoWhichAreStillDisabled(List<string> disabledSuppliers, string mailBody)
+        {
+            var builder = new StringBuilder();
+            const string listStyle = @"<li style="" vertical-align: middle; color: blue;font-size:medium ;font-family: cursive"">";
+            foreach (var disabledSupplier in disabledSuppliers)
+            {
+                var supplierData = new List<string>();
+                if (!string.IsNullOrEmpty(disabledSupplier))
+                    supplierData.AddRange(disabledSupplier.Split('_'));
+
+                builder.Append(listStyle + supplierData[0] + @"</li>");
+
+            }
+            mailBody = mailBody.Replace("{[DisabledSupplierData]}", builder.ToString());
+            return mailBody;
+        }
+
+        private string BuildTableInMailBodyForEnabledSuppliers(List<string> enabledSuppliers, string mailBody)
+        {
+            
+            const string rowStyle = @"<td style=""border: 1px solid black;color: blue;font-size:medium ;font-family: cursive"">";      
+            var builder = new StringBuilder();
+            int i = 1;
+            foreach (string enabledSupplier in enabledSuppliers)
+            {
+                var supplierData = new List<string>();
+                if (!string.IsNullOrEmpty(enabledSupplier))
+                    supplierData.AddRange(enabledSupplier.Split('_'));
+                
+                builder.Append(@"<tr>" + rowStyle + i++ + @"</td>");
+                builder.Append(rowStyle + supplierData[0] + @"</td>");
+                builder.Append(rowStyle + supplierData[1] + @"</td>");
+                builder.Append(@"</tr>");               
+            }
+            mailBody = mailBody.Replace("{[RowInfo]}", builder.ToString());
+            return mailBody;
+        }
+        #endregion
 
     }
 }

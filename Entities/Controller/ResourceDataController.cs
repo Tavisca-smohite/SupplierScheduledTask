@@ -16,7 +16,8 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             //Modify resources here...
             foreach (var disabledSupplier in disabledSuppliers)
             {
-                var key = disabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture);
+                //var key = disabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture);
+                var key = GenerateKey(disabledSupplier.SupplierName, disabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture));
                 var value = DateTime.Now.ToString(CultureInfo.InvariantCulture);  
                 if (!resourceEntries.ContainsKey(key))
                 {                                   
@@ -59,28 +60,67 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             return resourceEntries;
         }
 
-       public bool RemoveEntriesFromResourceFile(List<Supplier> enabledSuppliers)
-       {
-           var resourceEntries = ReadResourceFile();
-           //Modify resources here...
-           foreach (var enabledSupplier in enabledSuppliers)
-           {
-               var key = enabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture);              
-               if (resourceEntries.ContainsKey(key))
-               {
-                   resourceEntries.Remove(key);
-               }              
-           }
-           //Write the combined resource file
-           var resourceWriter = new ResXResourceWriter(GetPath());
-           foreach (var key in resourceEntries.Keys)
-           {
-               resourceWriter.AddResource(key, resourceEntries[key]);
-           }
-           resourceWriter.Generate();
-           resourceWriter.Close();
-           return false;        
-       }
+      //public bool RemoveEntriesFromResourceFile(List<Supplier> enabledSuppliers)
+      // {
+      //     var resourceEntries = ReadResourceFile();
+      //     //Modify resources here...
+      //     foreach (var enabledSupplier in enabledSuppliers)
+      //     {
+      //         //var key = enabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture);         
+      //         var key = GenerateKey(enabledSupplier.SupplierName,enabledSupplier.SupplierId.ToString(CultureInfo.InvariantCulture));
+      //         if (resourceEntries.ContainsKey(key))
+      //         {
+      //             resourceEntries.Remove(key);
+      //         }              
+      //     }
+      //     //Write the combined resource file
+      //     var resourceWriter = new ResXResourceWriter(GetPath());
+      //     foreach (var key in resourceEntries.Keys)
+      //     {
+      //         resourceWriter.AddResource(key, resourceEntries[key]);
+      //     }
+      //     resourceWriter.Generate();
+      //     resourceWriter.Close();
+      //     return false;        
+      // }
+
+        public bool RemoveEntriesFromResourceFile(List<string> keys)
+        {
+            var resourceEntries = ReadResourceFile();
+            //Modify resources here...
+            foreach (var key in keys)
+            {
+                if (resourceEntries.ContainsKey(key))
+                {
+                    resourceEntries.Remove(key);
+                }
+            }
+            //Write the combined resource file
+            var resourceWriter = new ResXResourceWriter(GetPath());
+            foreach (var key in resourceEntries.Keys)
+            {
+                resourceWriter.AddResource(key, resourceEntries[key]);
+            }
+            resourceWriter.Generate();
+            resourceWriter.Close();
+            return false;
+        }
+
+        public void RemoveAllEntriesInResourceFile()
+        {
+            var resourceEntries = ReadResourceFile();
+            //Modify resources here...
+            resourceEntries.Clear();
+            //Write the combined resource file
+            var resourceWriter = new ResXResourceWriter(GetPath());
+            foreach (var key in resourceEntries.Keys)
+            {
+                resourceWriter.AddResource(key, resourceEntries[key]);
+            }
+            resourceWriter.Generate();
+            resourceWriter.Close();
+           
+        }
 
         private string GetPath()
         {
@@ -92,5 +132,11 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             string path = directoryPath + Configuration.SuppliersConfigLogsFile;
             return path;
         }
+
+        private string GenerateKey(string name,string id)
+        {
+            var key = string.Format("{0}_{1}", name, id);                     
+            return key;
+        }      
     }
 }

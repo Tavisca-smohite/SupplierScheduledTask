@@ -1,0 +1,25 @@
+﻿<div>
+  <div id="#1">
+    <div>
+      <p style="font-size:medium ;font-family: cursive">Following suppliers has been enabled on {[Environment]} environment:</p>
+    </div>
+    <br/>
+    <table style="border: 1px solid black">
+      <tbody>
+        <tr>
+          <th style="border: 1px solid black;font-size:medium ;font-family: cursive">No</th>
+          <th style="border: 1px solid black;font-size:medium ;font-family: cursive">SupplierName</th>
+          <th style="border: 1px solid black;font-size:medium ;font-family: cursive">SupplierId</th>        
+        </tr>
+        {[RowInfo]}
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div id="#2">
+    <p style="font-size:medium ;font-family: cursive">Note:Following Suppliers are still disabled :</p>
+    <ul type="circle">
+      {[DisabledSupplierData]}
+    </ul>
+  </div>
+</div>

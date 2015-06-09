@@ -96,7 +96,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Controller\StaticInputsForController.cs" />
+    <Compile Include="ApplicationData\SuppliersConfigLogs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ResourceDataControllerTest.cs" />
+    <Compile Include="Controller\StaticInputsForSupplierDataController.cs" />
     <Compile Include="Controller\SupplierDataControllerTest.cs" />
     <Compile Include="NotificationEmail\StaticInputs.cs" />
     <Compile Include="ProductSupplierStrategy\ProductSupplierStrategyTest.cs" />
@@ -105,7 +111,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationData\MailBody.xml" />
+    <Content Include="ApplicationData\FailedSuppliersNotificationMailBody.xml" />
     <Content Include="ApplicationData\Suppliers.xml" />
     <Content Include="tavisca.singularity.configuration.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -132,6 +138,13 @@
       <Project>{f065de24-510c-4120-a1e8-1b937a59ec67}</Project>
       <Name>Tavisca.SupplierScheduledTask.BusinessEntities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ApplicationData\SuppliersConfigLogs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuppliersConfigLogs.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

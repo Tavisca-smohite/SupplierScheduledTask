@@ -65,7 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationData\MailBody.xml">
+    <Content Include="ApplicationData\EnabledSupliersNotifincationMailBody.xml" />
+    <Content Include="ApplicationData\FailedSuppliersNotificationMailBody.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Proxy\Command.txt" />
