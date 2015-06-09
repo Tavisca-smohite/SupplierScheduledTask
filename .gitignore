@@ -31,6 +31,7 @@ Portal/JsTest
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+_[Rr]e[Ss]harper*/
 # NUNIT
 *.VisualState.xml
 TestResult.xml
