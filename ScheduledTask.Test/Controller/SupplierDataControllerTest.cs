@@ -93,9 +93,10 @@ namespace ScheduledTask.Test
             Assert.AreEqual(2, suppliersTodisable.Count(), "it should not return 2 suppliers in above case one with string.empty and one with valid arguments");
         }
 
-        // behaviour of function when suppliers have crossed threshhold failure rate or total calls 
+        //when suppliers who has crossed threshhold are available
+        //and disable supplier is mocked to return true for suppliers to disable
         [TestMethod]
-        public void Test_InvokeLogic()
+        public void Test_InvokeLogic_WhenSuppliersTodisableAreAvailable()
         {            
             var mockProductSupplier = new Mock<IProductSupplier>();
             var mockUpdateFaresourcesConfig = new Mock<IUpdateFaresourcesConfig>();
@@ -107,6 +108,18 @@ namespace ScheduledTask.Test
             new SupplierDataController(mockProductSupplier.Object,mockUpdateFaresourcesConfig.Object).Invoke();
         }
 
+        //when suppliers who has crossed threshhold are available       
+        [TestMethod]
+        public void Test_InvokeLogic_WithoutmockingConfigurationBehaviour()
+        {
+            var mockProductSupplier = new Mock<IProductSupplier>();
+           // var mockUpdateFaresourcesConfig = new Mock<IUpdateFaresourcesConfig>();
+            mockProductSupplier.SetupSequence(m => m.GetFailureRateForProductSuppliers(It.IsAny<List<Supplier>>()))
+                .Returns(StaticInputsForSupplierDataController.DictionaryWithValidFailureRateAndTotalCallsCount(1))
+                .Returns(StaticInputsForSupplierDataController.DictionaryWithValidFailureRateAndTotalCallsCount(2))
+                .Returns(StaticInputsForSupplierDataController.DictionaryWithValidFailureRateAndTotalCallsCount(3));            
+            new SupplierDataController(mockProductSupplier.Object).Invoke();
+        }
         private Dictionary<string, List<Supplier>> GetDictionary()
         {
             var productWiseSuppliersList = new Dictionary<string, List<Supplier>>

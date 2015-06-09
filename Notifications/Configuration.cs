@@ -60,6 +60,12 @@ namespace Tavisca.SupplierScheduledTask.Notifications
         {
             get { return ConfigurationManager.AppSettings["FailedSuppliersNotificationMailBodyData"]; }
         }
+
+        public static string EnabledSupliersNotificationMailBodyData
+        {
+            get { return ConfigurationManager.AppSettings["EnabledSupliersNotificationMailBodyData"]; }
+        }
+        
         public static string Environment
         {
             get { return ConfigurationManager.AppSettings["Environment"]; }

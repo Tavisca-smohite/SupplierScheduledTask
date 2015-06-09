@@ -6,7 +6,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 {
     public interface IUpdateFaresourcesConfig
     {
-        bool DisableSupplier(int supplierId);
+        bool DisableSupplier(int? supplierId);
         bool EnableSupplier(int supplierId);
     }
 }

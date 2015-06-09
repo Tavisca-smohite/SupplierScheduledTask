@@ -113,10 +113,10 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             resourceEntries.Clear();
             //Write the combined resource file
             var resourceWriter = new ResXResourceWriter(GetPath());
-            foreach (var key in resourceEntries.Keys)
-            {
-                resourceWriter.AddResource(key, resourceEntries[key]);
-            }
+            //foreach (var key in resourceEntries.Keys)
+            //{
+            //    resourceWriter.AddResource(key, resourceEntries[key]);
+            //}
             resourceWriter.Generate();
             resourceWriter.Close();
            

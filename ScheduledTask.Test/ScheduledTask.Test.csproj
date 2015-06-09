@@ -109,8 +109,10 @@
     <Compile Include="Repository\SupplierLogRepositoryTest.cs" />
     <Compile Include="NotificationEmail\SendNotificationMailTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\UpdateFaresourcesConfigTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ApplicationData\EnabledSupliersNotificationMailBody.xml" />
     <Content Include="ApplicationData\FailedSuppliersNotificationMailBody.xml" />
     <Content Include="ApplicationData\Suppliers.xml" />
     <Content Include="tavisca.singularity.configuration.xml">
