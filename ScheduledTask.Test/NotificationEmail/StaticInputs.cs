@@ -98,5 +98,25 @@ namespace ScheduledTask.Test.NotificationEmail
                 };
            return dictionary;
        }
-    }
+
+       public static List<string> GetEnabledSuppliers()
+       {
+           var list = new List<string>();
+           
+                   list.Add("Pegasus_9");
+                   list.Add("JacTravel_118");
+                   list.Add("Mystifly_110");          
+           return list;
+       }
+
+       public static List<string> GetDisabledSuppliers()
+       {
+           var list = new List<string>();
+
+           list.Add("RCICondos_49");
+           list.Add("WorldSpan_1");
+           list.Add("SabreAir_24");
+           return list;
+       }
+   }
 }

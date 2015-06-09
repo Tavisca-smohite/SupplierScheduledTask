@@ -114,7 +114,7 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
                                 ? directoryPath.Replace("\\bin\\Debug", "")
                                 : directoryPath;
-            string path = directoryPath + Configuration.FailedSuppliersNotificationMailBodyData;
+            string path = directoryPath + Configuration.EnabledSupliersNotificationMailBodyData;
             var mailBody = XDocument.Load(path).ToString();
             var mailAttributes = new MailAttributes()
             {
@@ -124,9 +124,12 @@ namespace Tavisca.SupplierScheduledTask.Notifications
                 Subject = Configuration.MailSubject,
                 TemplateName = Configuration.TemplateName,
             };
-            mailBody = BuildTableInMailBodyForEnabledSuppliers(enabledSuppliers, mailBody);
+            mailBody =(enabledSuppliers != null && enabledSuppliers.Count()>0)?
+                BuildTableInMailBodyForEnabledSuppliers(enabledSuppliers, mailBody):
+                Regex.Replace(mailBody, @"<div id=""#1"">(.*?)(?=<div id=""#2"">)", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
+            
 
-            mailBody = (disabledSuppliers != null) ?
+            mailBody = (disabledSuppliers != null && disabledSuppliers.Count()>0) ?
                AddSupplierInfoWhichAreStillDisabled(disabledSuppliers, mailBody) :
                Regex.Replace(mailBody, @"<div id=""#2"">(.*?)</div>", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
 

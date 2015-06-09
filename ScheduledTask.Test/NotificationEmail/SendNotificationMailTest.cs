@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Net.Mime;
 using System.Text;
 using System.Xml;
@@ -31,7 +32,7 @@ namespace ScheduledTask.Test
             Assert.AreNotEqual(0,suppliersList.Count,"List cannot be empty");
 
         }
-
+        //tests to verify behaviour of  mail sent to notify about disabled suppliers
         [TestMethod]
         public void SendMail_Successful_WhenBothTypesOfInputsAreProvided()
         {
@@ -53,13 +54,39 @@ namespace ScheduledTask.Test
             Assert.IsTrue(isSendMail);
         }
 
-        //behaviour of functin when exception is thrown .
+        //behaviour of function when exception is thrown .
         [TestMethod]
         public void SendMail_WithInvalidInputs_ThrowsException_ShouldReturnFalse()
         {
             var isSendMail = new Mail().SendMail(null);
             Assert.IsFalse(isSendMail);
         }
+
+
+        //tests to verify behaviour of  mail sent to notify about enabled suppliers
+        [TestMethod]
+        public void SendMail_Successful_WhenBothTypesOfInputsAreProvided_EnabledSuppliers()
+        {         
+            var isSendMail = new SendNotificationMail().SendNotificationEmail(StaticInputs.GetEnabledSuppliers(),StaticInputs.GetDisabledSuppliers());
+            Assert.IsTrue(isSendMail);
+        }
+
+
+        [TestMethod]
+        public void SendMail_Successful_WhenoOnlyEnabledSuppliersHasPassedInInputs_EnabledSuppliers()
+        {
+            var isSendMail = new SendNotificationMail().SendNotificationEmail(new List<string>(), StaticInputs.GetDisabledSuppliers());
+            Assert.IsTrue(isSendMail);
+        }
+
+
+        [TestMethod]
+        public void SendMail_Successful_WhenoOnlydisabledSuppliersHasPassedInInputs_EnabledSuppliers()
+        {
+            var isSendMail = new SendNotificationMail().SendNotificationEmail(StaticInputs.GetEnabledSuppliers(),new List<string>()));
+            Assert.IsTrue(isSendMail);
+        }
+
 
     }
 }
