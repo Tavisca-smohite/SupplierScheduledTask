@@ -36,12 +36,12 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 
         private static string ReadSupplierConfigDatabaseKey
         {
-            get { return GetSupplierConfigDbConnectionString() ?? "Faresource"; }
+            get { return GetSupplierConfigDbConnectionString() ?? "CommonDB"; }
         }
 
         private static string WriteSupplierConfigDatabaseKey
         {
-            get { return GetSupplierConfigDbConnectionString() ?? "Faresource"; }
+            get { return GetSupplierConfigDbConnectionString() ?? "CommonDB"; }
         }
 
         public static string ReadSupplierConfigDatabaseConnection
@@ -56,7 +56,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 
         private static string GetSupplierConfigDbConnectionString()
         {
-            return ConfigurationManager.ConnectionStrings["Faresource"].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["CommonDB"].ConnectionString;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="abc")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dCommon")]
 	public partial class SupplierConfigUpdateManagerDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,7 +33,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
     #endregion
 		
 		public SupplierConfigUpdateManagerDataContext() : 
-				base(global::Tavisca.SupplierScheduledTask.DataAccessLayer.Properties.Settings.Default.abcConnectionString, mappingSource)
+				base(global::Tavisca.SupplierScheduledTask.DataAccessLayer.Properties.Settings.Default.dCommonConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -62,16 +62,16 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spDisableSupplierWhoHasCrossedThreshhold")]
-		public int spDisableSupplierWhoHasCrossedThreshhold([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierId", DbType="Int")] System.Nullable<int> supplierId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> success)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spEnableSupplier")]
+		public int spEnableSupplier([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierId", DbType="Int")] System.Nullable<int> supplierId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> success)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), supplierId, success);
 			success = ((System.Nullable<int>)(result.GetParameterValue(1)));
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spEnableSupplier")]
-		public int spEnableSupplier([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierId", DbType="Int")] System.Nullable<int> supplierId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> success)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spDisableSupplierWhoHasCrossedThreshhold")]
+		public int spDisableSupplierWhoHasCrossedThreshhold([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierId", DbType="Int")] System.Nullable<int> supplierId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> success)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), supplierId, success);
 			success = ((System.Nullable<int>)(result.GetParameterValue(1)));

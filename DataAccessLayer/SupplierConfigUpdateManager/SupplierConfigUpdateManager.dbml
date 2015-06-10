@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="abc" Class="SupplierConfigUpdateManagerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=TAVWITPD008\MSSQLSERVER2012;Initial Catalog=abc;Persist Security Info=True;User ID=sa" SettingsObjectName="Tavisca.SupplierScheduledTask.DataAccessLayer.Properties.Settings" SettingsPropertyName="abcConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.spDisableSupplierWhoHasCrossedThreshhold" Method="spDisableSupplierWhoHasCrossedThreshhold">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dCommon" Class="SupplierConfigUpdateManagerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=RoviaDev;Initial Catalog=dCommon;Integrated Security=True" SettingsObjectName="Tavisca.SupplierScheduledTask.DataAccessLayer.Properties.Settings" SettingsPropertyName="dCommonConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.spEnableSupplier" Method="spEnableSupplier">
     <Parameter Name="SupplierId" Parameter="supplierId" Type="System.Int32" DbType="Int" />
     <Parameter Name="success" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.spEnableSupplier" Method="spEnableSupplier">
+  <Function Name="dbo.spDisableSupplierWhoHasCrossedThreshhold" Method="spDisableSupplierWhoHasCrossedThreshhold">
     <Parameter Name="SupplierId" Parameter="supplierId" Type="System.Int32" DbType="Int" />
     <Parameter Name="success" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />

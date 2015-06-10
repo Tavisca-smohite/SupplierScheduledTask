@@ -151,7 +151,6 @@
     <None Include="ApplicationData\Suppliers.Prod.xml">
       <DependentUpon>Suppliers.xml</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ApplicationData\Suppliers.QA.xml">
       <DependentUpon>Suppliers.xml</DependentUpon>
