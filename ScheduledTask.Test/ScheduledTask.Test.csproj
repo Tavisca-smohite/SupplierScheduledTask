@@ -49,6 +49,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PreQA|AnyCPU'">
     <OutputPath>bin\PreQA\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Stage|AnyCPU'">
+    <OutputPath>bin\Stage\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -133,7 +136,38 @@
     <Content Include="ApplicationData\FailedSuppliersNotificationMailBody.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ApplicationData\Suppliers.xml" />
+    <None Include="App.Stage.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="ApplicationData\Suppliers.Debug.xml">
+      <DependentUpon>Suppliers.xml</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="ApplicationData\Suppliers.Release.xml">
+      <DependentUpon>Suppliers.xml</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="ApplicationData\Suppliers.Prod.xml">
+      <DependentUpon>Suppliers.xml</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ApplicationData\Suppliers.QA.xml">
+      <DependentUpon>Suppliers.xml</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="ApplicationData\Suppliers.PreQA.xml">
+      <DependentUpon>Suppliers.xml</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="ApplicationData\Suppliers.Stage.xml">
+      <DependentUpon>Suppliers.xml</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <Content Include="ApplicationData\Suppliers.xml">
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
     <Content Include="tavisca.singularity.configuration.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

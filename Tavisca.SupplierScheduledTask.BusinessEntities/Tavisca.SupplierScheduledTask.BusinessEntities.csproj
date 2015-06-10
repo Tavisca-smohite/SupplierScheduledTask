@@ -38,6 +38,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PreQA|AnyCPU'">
     <OutputPath>bin\PreQA\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Stage|AnyCPU'">
+    <OutputPath>bin\Stage\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />

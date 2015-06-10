@@ -1,11 +1,11 @@
 ﻿<Suppliers>
   <!-- air suppliers-->
-  <Supplier Name="Amadeus" Type="Air" SupplierId="16">
+  <Supplier Name="AmadeusWS" Type="Air" SupplierId="16">
     <CallType>AirMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
   </Supplier>
-  <Supplier Name="Sabre" Type="Air" SupplierId="24">
+  <Supplier Name="SabreAir" Type="Air" SupplierId="24">
     <CallType>AirMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
@@ -20,6 +20,11 @@
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
   </Supplier>
+  <Supplier Name="Picasso" Type="Hotel" SupplierId="68">
+    <CallType>AirMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
   <!--  hotel suppliers-->
   <Supplier Name="Pegasus" Type="Hotel" SupplierId="9">
     <CallType>HotelMultiAvail</CallType>
@@ -31,7 +36,7 @@
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
   </Supplier>
-  <Supplier Name="Amadeus" Type="Hotel" SupplierId="114" IsEnabled="1">
+  <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="114" IsEnabled="1">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
@@ -40,11 +45,6 @@
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
-  </Supplier>
-  <Supplier Name="Picasso" Type="Hotel" SupplierId="68">
-    <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="TouricoTGS" Type="Hotel" SupplierId="4">
     <CallType>HotelMultiAvail</CallType>
@@ -83,7 +83,7 @@
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- car suppliers-->
-  <Supplier Name="Sabre" Type="Car" SupplierId="24" >
+  <Supplier Name="SabreCar" Type="Car" SupplierId="24" >
     <CallType>CarMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>

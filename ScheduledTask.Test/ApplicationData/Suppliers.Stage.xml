@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- For more information on using transformations 
+     see the web.config examples at http://go.microsoft.com/fwlink/?LinkId=214134. -->
+<Suppliers xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <!-- air suppliers-->
+  <Supplier Name="AmadeusWS" Type="Air" SupplierId="19" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>AirMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="SabreAir" Type="Air" SupplierId="21" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>AirMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="Worldspan" Type="Air" SupplierId="2" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>AirMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="Mystifly" Type="Air" SupplierId="45" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>AirMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <!--  hotel suppliers-->
+  <Supplier Name="Pegasus" Type="Hotel" SupplierId="9" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="PegasusSpl" Type="Hotel" SupplierId="15" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="48" IsEnabled="1" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="HotelBeds" Type="Hotel" SupplierId="47" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="Picasso" Type="Hotel" SupplierId="35" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="TouricoTGS" Type="Hotel" SupplierId="4" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="HotelsCom" Type="Hotel" SupplierId="34" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="Priceline" Type="Hotel" SupplierId="50" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="JacTravel" Type="Hotel" SupplierId="52" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
+  <!-- Hideaways hotel suppliers-->
+  <Supplier Name="RCI" Type="Hotel" SupplierId="36" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="HolidaySystems" Type="Hotel" SupplierId="41" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
+  <Supplier Name="TouricoVacation" Type="Hotel" SupplierId="579" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>HotelMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
+  <!-- car suppliers-->
+  <Supplier Name="SabreCar" Type="Car" SupplierId="21" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>CarMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
+</Suppliers>
