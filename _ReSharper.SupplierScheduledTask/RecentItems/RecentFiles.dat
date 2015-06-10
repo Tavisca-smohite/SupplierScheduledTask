@@ -1,40 +1,38 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/d:ApplicationData/f:FailedSuppliersNotificationMailBody.xml" caret="1366" fromTop="30" />
-    <File id="359C100B-F537-45F0-A69D-66B44A929590/d:SupplierConfigUpdateManager/f:SupplierConfigUpdateManager.dbml.layout" caret="0" fromTop="0" />
-    <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManagerDBContext.cs" caret="2351" fromTop="21" />
-    <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Repository/f:SupplierLogRepository.cs" caret="1021" fromTop="23" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:ApplicationData/f:Suppliers.xml" caret="2850" fromTop="20" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:ApplicationData/f:EnabledSupliersNotificationMailBody.xml" caret="0" fromTop="0" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Repository/f:SupplierLogRepositoryTest.cs" caret="1321" fromTop="30" />
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/d:ApplicationData/f:EnabledSupliersNotificationMailBody.xml" caret="860" fromTop="24" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:App.config" caret="5254" fromTop="11" />
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:Configuration.cs" caret="1968" fromTop="26" />
     <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:ApplicationData/f:FailedSuppliersNotificationMailBody.xml" caret="1422" fromTop="28" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Properties/f:Settings.settings" caret="1000" fromTop="12" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:SupplierConfigUpdateManager/f:SupplierConfigUpdateManager.designer.cs" caret="3290" fromTop="17" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/f:DBConfiguration.cs" caret="1373" fromTop="26" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:SupplierConfigUpdateManager/f:SupplierConfigUpdateManagerDBContext.cs" caret="1284" fromTop="33" />
-    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:App.config" caret="2400" fromTop="24" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManager.cs" caret="0" fromTop="0" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManager.designer.cs" caret="5758" fromTop="24" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:IResourceDataController.cs" caret="119" fromTop="4" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Contracts/f:IUpdateFaresourcesConfig.cs" caret="254" fromTop="9" />
     <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Controller/f:StaticInputsForSupplierDataController.cs" caret="381" fromTop="11" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:ISupplierDataController.cs" caret="410" fromTop="12" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Helper/f:SupplierDataHelper.cs" caret="3557" fromTop="26" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Repository/f:UpdateFaresourcesConfigTest.cs" caret="1916" fromTop="39" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Controller/f:SupplierDataControllerTest.cs" caret="7886" fromTop="84" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:SupplierDataController.cs" caret="6604" fromTop="85" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Repository/f:UpdateFaresourcesConfig.cs" caret="1944" fromTop="51" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Properties/f:Settings1.Designer.cs" caret="2468" fromTop="20" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:ResourceDataController.cs" caret="4837" fromTop="32" />
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:SendNotificationMail.cs" caret="1014" fromTop="26" />
+    <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManagerDBContext.cs" caret="0" fromTop="0" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:packages.config" caret="0" fromTop="0" />
+    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:tavisca.singularity.configuration.xml" caret="66" fromTop="0" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Controller/f:SupplierDataControllerTest.cs" caret="1174" fromTop="37" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:tavisca.singularity.configuration.xml" caret="79" fromTop="2" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:AirProductSupplierStrategy.cs" caret="513" fromTop="13" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:HotelProductSupplierStrategy.cs" caret="2024" fromTop="27" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Helper/f:SupplierDataHelper.cs" caret="622" fromTop="13" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:App.config" caret="5265" fromTop="25" />
+    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:App.config" caret="4977" fromTop="17" />
+    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:Program.cs" caret="257" fromTop="10" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:SupplierDataController.cs" caret="3052" fromTop="14" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:ResourceDataController.cs" caret="5299" fromTop="20" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Repository/f:UpdateFaresourcesConfigTest.cs" caret="1415" fromTop="33" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:NotificationEmail/f:SendNotificationMailTest.cs" caret="2569" fromTop="12" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:NotificationEmail/f:StaticInputs.cs" caret="4573" fromTop="43" />
+    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:SendNotificationMail.cs" caret="5733" fromTop="18" />
   </RecentFiles>
   <RecentEdits>
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Exceptions/f:DataException.cs" caret="793" fromTop="30" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:IProductSupplier.cs" caret="304" fromTop="8" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Helper/f:SupplierDataHelper.cs" caret="3479" fromTop="26" />
     <File id="F065DE24-510C-4120-A1E8-1B937A59EC67/f:SupplierStatistics.cs" caret="411" fromTop="13" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Repository/f:SupplierLogRepository.cs" caret="2191" fromTop="30" />
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:ProductSuppliersStrategy/f:AirProductSupplierStrategy.cs" caret="1599" fromTop="35" />
@@ -48,19 +46,21 @@
     <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Contracts/f:IResourceDataController.cs" caret="604" fromTop="15" />
     <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Controller/f:ResourceDataControllerTest.cs" caret="501" fromTop="5" />
     <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/d:ApplicationData/f:EnabledSupliersNotificationMailBody.xml" caret="817" fromTop="21" />
-    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:SendNotificationMail.cs" caret="3276" fromTop="32" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/f:SupplierDataManager.cs" caret="0" fromTop="0" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:SupplierConfigUpdateManager/f:SupplierConfigUpdateManager.designer.cs" caret="492" fromTop="11" />
-    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:App.config" caret="2506" fromTop="24" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/f:DBConfiguration.cs" caret="1373" fromTop="26" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:SupplierConfigUpdateManager/f:SupplierConfigUpdateManagerDBContext.cs" caret="1284" fromTop="27" />
-    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:App.config" caret="5187" fromTop="11" />
     <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:Configuration.cs" caret="1968" fromTop="26" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Properties/f:Settings1.Designer.cs" caret="2970" fromTop="32" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:SupplierDataController.cs" caret="6453" fromTop="20" />
     <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Controller/f:SupplierDataControllerTest.cs" caret="8392" fromTop="23" />
-    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:ResourceDataController.cs" caret="4837" fromTop="35" />
     <File id="359C100B-F537-45F0-A69D-66B44A929590/d:Repository/f:UpdateFaresourcesConfig.cs" caret="2020" fromTop="42" />
     <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/d:Repository/f:UpdateFaresourcesConfigTest.cs" caret="1517" fromTop="26" />
+    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:Program.cs" caret="244" fromTop="9" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:SupplierDataController.cs" caret="6938" fromTop="10" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Helper/f:SupplierDataHelper.cs" caret="646" fromTop="8" />
+    <File id="EE253154-D3C3-4F29-9DF2-A343A69E17EE/f:App.config" caret="5314" fromTop="26" />
+    <File id="48AD595C-A3E9-469B-A410-79C9BB4F6162/f:App.config" caret="4977" fromTop="17" />
+    <File id="0FC51935-5832-47D1-94CF-C141B83A82AE/d:Controller/f:ResourceDataController.cs" caret="5299" fromTop="20" />
+    <File id="1F5C34DF-15A2-44A7-AA59-FAB5B8A5760E/f:SendNotificationMail.cs" caret="1559" fromTop="14" />
   </RecentEdits>
 </RecentFiles>

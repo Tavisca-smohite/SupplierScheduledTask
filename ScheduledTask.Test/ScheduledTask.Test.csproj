@@ -112,8 +112,12 @@
     <Compile Include="Repository\UpdateFaresourcesConfigTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationData\EnabledSupliersNotificationMailBody.xml" />
-    <Content Include="ApplicationData\FailedSuppliersNotificationMailBody.xml" />
+    <Content Include="ApplicationData\EnabledSupliersNotificationMailBody.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\FailedSuppliersNotificationMailBody.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ApplicationData\Suppliers.xml" />
     <Content Include="tavisca.singularity.configuration.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

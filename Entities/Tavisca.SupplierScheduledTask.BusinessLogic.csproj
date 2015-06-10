@@ -87,6 +87,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Contracts\IProductSupplier.cs" />
     <Compile Include="Contracts\IResourceDataController.cs" />
@@ -123,6 +124,7 @@
     <EmbeddedResource Include="ApplicationData\SuppliersConfigLogs.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SuppliersConfigLogs.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

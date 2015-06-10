@@ -13,12 +13,12 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 {
     public List<Supplier> ParseSuppliers()
     {
-        string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
-        directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
-                            ? directoryPath.Replace("\\bin\\Debug", "")
-                            : directoryPath;
+        //string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
+        //directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
+        //                    ? directoryPath.Replace("\\bin\\Debug", "")
+        //                    : directoryPath;
 
-        string path = directoryPath + Configuration.SupplierData;
+        string path = Configuration.SupplierData;
         var suppliersXml = XDocument.Load(path);
 
         List<XElement> suppliersList =

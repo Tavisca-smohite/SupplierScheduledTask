@@ -38,11 +38,11 @@ namespace Tavisca.SupplierScheduledTask.Notifications
 
         private MailAttributes BuildMailAttributes(Dictionary<Supplier, string> suppliersToDisable)
         {
-            string directoryPath = Directory.GetCurrentDirectory();
-            directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
-                                ? directoryPath.Replace("\\bin\\Debug", "")
-                                : directoryPath;
-            string path = directoryPath + Configuration.FailedSuppliersNotificationMailBodyData;
+            //string directoryPath = Directory.GetCurrentDirectory();
+            //directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
+            //                    ? directoryPath.Replace("\\bin\\Debug", "")
+            //                    : directoryPath;
+            string path =  Configuration.FailedSuppliersNotificationMailBodyData;
             var mailBody = XDocument.Load(path).ToString();
             var mailAttributes = new MailAttributes()
             {
@@ -110,11 +110,11 @@ namespace Tavisca.SupplierScheduledTask.Notifications
         #region helper methods to build mail body for enabled suppliers notification mail
         private MailAttributes BuildMailAttributes(List<string> enabledSuppliers, List<string> disabledSuppliers)
         {
-            string directoryPath = Directory.GetCurrentDirectory();
-            directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
-                                ? directoryPath.Replace("\\bin\\Debug", "")
-                                : directoryPath;
-            string path = directoryPath + Configuration.EnabledSupliersNotificationMailBodyData;
+            //string directoryPath = Directory.GetCurrentDirectory();
+            //directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
+            //                    ? directoryPath.Replace("\\bin\\Debug", "")
+            //                    : directoryPath;
+            string path =  Configuration.EnabledSupliersNotificationMailBodyData;
             var mailBody = XDocument.Load(path).ToString();
             var mailAttributes = new MailAttributes()
             {

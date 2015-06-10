@@ -124,12 +124,12 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 
         private string GetPath()
         {
-            string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
-            directoryPath = (directoryPath.EndsWith("\\bin\\Debug"))
-                                ? directoryPath.Replace("\\bin\\Debug", "")
-                                : directoryPath;
+            //string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
+            //directoryPath = (directoryPath.EndsWith("\\bin\\Debug\\"))
+            //                    ? directoryPath.Replace("\\bin\\Debug\\", "")
+            //                    : directoryPath;
 
-            string path = directoryPath + Configuration.SuppliersConfigLogsFile;
+            string path = Configuration.SuppliersConfigLogsFile;
             return path;
         }
 

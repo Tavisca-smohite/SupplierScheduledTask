@@ -139,11 +139,11 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                     }                   
                 }
             }
-            //remove supplier entries from resource file which are enabled
-                _resourceDataController.RemoveEntriesFromResourceFile(enabledSuppliersKeys);
+            //remove supplier entries from resource file which are enabled             
                 if(enabledSuppliersKeys.Any())
                 {
                     //TODO:send notification mail
+                    _resourceDataController.RemoveEntriesFromResourceFile(enabledSuppliersKeys);
                     resourceEntries = _resourceDataController.ReadResourceFile();
                     List<string> disabledSuppliers = resourceEntries.Keys.ToList();
                     new SendNotificationMail().SendNotificationEmail(enabledSuppliersKeys,disabledSuppliers);

@@ -70,6 +70,7 @@
     </Content>
     <Content Include="ApplicationData\FailedSuppliersNotificationMailBody.xml">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Proxy\Command.txt" />
   </ItemGroup>
