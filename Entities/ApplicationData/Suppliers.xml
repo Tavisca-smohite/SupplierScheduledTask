@@ -8,7 +8,7 @@
   <Supplier Name="Sabre" Type="Air" SupplierId="24">
     <CallType>AirMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="Worldspan" Type="Air" SupplierId="1">
     <CallType>AirMultiAvail</CallType>
@@ -44,7 +44,7 @@
   <Supplier Name="Picasso" Type="Hotel" SupplierId="68">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="TouricoTGS" Type="Hotel" SupplierId="4">
     <CallType>HotelMultiAvail</CallType>
@@ -64,23 +64,23 @@
   <Supplier Name="JacTravel" Type="Hotel" SupplierId="118">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- Hideaways hotel suppliers-->
   <Supplier Name="RCI" Type="Hotel" SupplierId="49">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="HolidaySystems" Type="Hotel" SupplierId="72">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="TouricoVacation" Type="Hotel" SupplierId="579">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- car suppliers-->
   <Supplier Name="Sabre" Type="Car" SupplierId="24" >

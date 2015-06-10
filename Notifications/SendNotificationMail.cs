@@ -124,12 +124,12 @@ namespace Tavisca.SupplierScheduledTask.Notifications
                 Subject = Configuration.MailSubject,
                 TemplateName = Configuration.TemplateName,
             };
-            mailBody =(enabledSuppliers != null && enabledSuppliers.Count()>0)?
+            mailBody =(enabledSuppliers != null && enabledSuppliers.Any())?
                 BuildTableInMailBodyForEnabledSuppliers(enabledSuppliers, mailBody):
                 Regex.Replace(mailBody, @"<div id=""#1"">(.*?)(?=<div id=""#2"">)", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
             
 
-            mailBody = (disabledSuppliers != null && disabledSuppliers.Count()>0) ?
+            mailBody = (disabledSuppliers != null && disabledSuppliers.Any()) ?
                AddSupplierInfoWhichAreStillDisabled(disabledSuppliers, mailBody) :
                Regex.Replace(mailBody, @"<div id=""#2"">(.*?)</div>", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
 

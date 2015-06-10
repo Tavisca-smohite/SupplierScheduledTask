@@ -108,27 +108,17 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 
         public void RemoveAllEntriesInResourceFile()
         {
-            var resourceEntries = ReadResourceFile();
-            //Modify resources here...
+            var resourceEntries = ReadResourceFile();           
             resourceEntries.Clear();
             //Write the combined resource file
-            var resourceWriter = new ResXResourceWriter(GetPath());
-            //foreach (var key in resourceEntries.Keys)
-            //{
-            //    resourceWriter.AddResource(key, resourceEntries[key]);
-            //}
+            var resourceWriter = new ResXResourceWriter(GetPath());           
             resourceWriter.Generate();
             resourceWriter.Close();
            
         }
 
         private string GetPath()
-        {
-            //string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
-            //directoryPath = (directoryPath.EndsWith("\\bin\\Debug\\"))
-            //                    ? directoryPath.Replace("\\bin\\Debug\\", "")
-            //                    : directoryPath;
-
+        {           
             string path = Configuration.SuppliersConfigLogsFile;
             return path;
         }

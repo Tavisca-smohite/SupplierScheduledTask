@@ -1,5 +1,6 @@
 ﻿using System;
 using Tavisca.SupplierScheduledTask.BusinessLogic;
+using Tavisca.TravelNxt.Shared.Entities.Infrastructure;
 
 namespace SupplierScheduledTask
 {
@@ -8,7 +9,16 @@ namespace SupplierScheduledTask
         static void Main(string[] args)
         {
         Console.WriteLine(@"Started SupplierScheduledTask....");
-        new SupplierDataController().Invoke();
+            try
+            {
+                new SupplierDataController().Invoke();
+            }
+            catch (Exception exception)
+            {
+
+                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");
+            }
+       
             Console.ReadLine();
         }
     }

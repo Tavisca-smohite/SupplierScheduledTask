@@ -114,7 +114,8 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                 }
             }
             //TODO:pass list to resx file to set info about suppliers who has disabled
-            _resourceDataController.UpdateResourceFile(disabledSuppliers);
+            if(disabledSuppliers.Any())
+                    _resourceDataController.UpdateResourceFile(disabledSuppliers);
             return false;
         }
         
@@ -138,14 +139,12 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                         }
                     }                   
                 }
-            }
-            //remove supplier entries from resource file which are enabled             
+            }                   
                 if(enabledSuppliersKeys.Any())
                 {
-                    //TODO:send notification mail
-                    _resourceDataController.RemoveEntriesFromResourceFile(enabledSuppliersKeys);
+                    _resourceDataController.RemoveEntriesFromResourceFile(enabledSuppliersKeys);  //remove supplier entries from resource file which are enabled (if exists)   
                     resourceEntries = _resourceDataController.ReadResourceFile();
-                    List<string> disabledSuppliers = resourceEntries.Keys.ToList();
+                    var disabledSuppliers = resourceEntries.Keys.ToList();
                     new SendNotificationMail().SendNotificationEmail(enabledSuppliersKeys,disabledSuppliers);
                 }
                        
