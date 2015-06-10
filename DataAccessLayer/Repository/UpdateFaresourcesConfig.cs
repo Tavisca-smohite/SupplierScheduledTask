@@ -12,8 +12,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
     {
         public bool DisableSupplier(int? supplierId)
         {
-            bool isDisabled;
-            int? status = 1; 
+            int? status = 0; 
             try
             {                 
                 SupplierConfigUpdateManagerDBContext.UsingCommonContentDbRead(db =>
@@ -22,8 +21,8 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
                         //disable supplier and get status 
                                               
                     });
-                 //if return value is 0 ; that indicates supplier is disabled. 
-                if (status == 2) //for invalid parameters it will return value 2 (other than 0 or 1)
+                 //if return value is 1 ; that indicates supplier is disabled. 
+                if (status == 0) //for invalid parameters it will return value 0
                     throw new Exception("Parameters passed to sp are invalid");
             }
             
@@ -31,14 +30,13 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
             {
                 LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");
             }
-            isDisabled = (status == 0);
+            bool isDisabled = (status == 1);
             return isDisabled;
 
         }
 
         public bool EnableSupplier(int supplierId)
         {
-            bool isEnabled ;
             int? status = 0;
             try
             {
@@ -49,7 +47,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
                     //disable supplier and get status 
 
                 });
-                if (status == 2) //for invalid parameters it will return value 2 (other than 0 or 1)
+                if (status == 0) //for invalid parameters it will return value 0
                     throw new Exception("Parameters passed to sp are invalid");
                  //if return value is 1 ; that indicates supplier is enabled.               
             }
@@ -58,7 +56,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
             {
                 LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");
             }
-            isEnabled = (status == 1);
+            bool isEnabled = (status == 1);
             return isEnabled;
         }
     }
