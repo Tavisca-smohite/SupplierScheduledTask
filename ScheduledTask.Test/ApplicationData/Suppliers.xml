@@ -17,7 +17,7 @@
   </Supplier>
   <Supplier Name="Mystifly" Type="Air" SupplierId="110">
     <CallType>AirMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>70</ThreshholdValue>
     <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
   </Supplier>
   <!--  hotel suppliers-->
@@ -43,7 +43,7 @@
   </Supplier>
   <Supplier Name="Picasso" Type="Hotel" SupplierId="68">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>70</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="TouricoTGS" Type="Hotel" SupplierId="4">
@@ -63,23 +63,23 @@
   </Supplier>
   <Supplier Name="JacTravel" Type="Hotel" SupplierId="118">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>70</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- Hideaways hotel suppliers-->
   <Supplier Name="RCI" Type="Hotel" SupplierId="49">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>90</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="HolidaySystems" Type="Hotel" SupplierId="72">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="TouricoVacation" Type="Hotel" SupplierId="579">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- car suppliers-->

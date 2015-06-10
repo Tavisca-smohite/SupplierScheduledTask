@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Tavisca.Singularity;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
 using Tavisca.SupplierScheduledTask.DataAccessLayer;
+using Tavisca.SupplierScheduledTask.Notifications;
 
 namespace Tavisca.SupplierScheduledTask.BusinessLogic
 {
@@ -24,8 +26,8 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 
         public Dictionary<Supplier, string> GetFailureRateForProductSuppliers(List<Supplier> suppliersList)
         {
-           
-            const int minutes = 1000;
+
+            int minutes = (!string.IsNullOrEmpty(Configuration.TimeDiffInMinutes)) ?Convert.ToInt32(Configuration.TimeDiffInMinutes):60;
             var supplierAndFailureRateMapping = new Dictionary<Supplier, string>();
 
             foreach (Supplier supplier in suppliersList)

@@ -79,6 +79,12 @@ namespace Tavisca.SupplierScheduledTask.Notifications
         public static string SuppliersConfigLogsFile
         {
             get { return ConfigurationManager.AppSettings["SuppliersConfigLogsFile"]; }
-        }        
+        }
+
+        public static string TimeDiffInMinutes
+        {
+            get { return ConfigurationManager.AppSettings["TimeDiffInMinutes"]; }
+        } 
+        
     }
 }
