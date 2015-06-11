@@ -39,7 +39,7 @@
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
-  <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="48"  xdt:Locator="Match(Name)" xdt:Transform="Replace">
+  <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="48" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>MultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
@@ -49,7 +49,7 @@
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
-  
+
   <Supplier Name="TouricoTGS" Type="Hotel" SupplierId="4" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
@@ -67,23 +67,23 @@
   </Supplier>
   <Supplier Name="JacTravel" Type="Hotel" SupplierId="52" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- Hideaways hotel suppliers-->
   <Supplier Name="RCI" Type="Hotel" SupplierId="36" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="HolidaySystems" Type="Hotel" SupplierId="41" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="TouricoVacation" Type="Hotel" SupplierId="51" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- car suppliers-->

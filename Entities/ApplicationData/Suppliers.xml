@@ -63,23 +63,23 @@
   </Supplier>
   <Supplier Name="JacTravel" Type="Hotel" SupplierId="118">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- Hideaways hotel suppliers-->
   <Supplier Name="RCI" Type="Hotel" SupplierId="49">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="HolidaySystems" Type="Hotel" SupplierId="72">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="TouricoVacation" Type="Hotel" SupplierId="579">
     <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
+    <ThreshholdValue>80</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <!-- car suppliers-->
