@@ -12,6 +12,9 @@
       <th style="border: 1px solid black;font-size:medium ;font-family: cursive">SupplierName</th>
       <th style="border: 1px solid black;font-size:medium ;font-family: cursive">SupplierId</th>
       <th style="border: 1px solid black;font-size:medium ;font-family: cursive">ProductType</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">TotalCallsMade</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">SuccessFulCallsCount</th>
+      <th style="border: 1px solid black;font-size:medium ;font-family: cursive">FailedCallsCount</th>
       <th style="border: 1px solid black;font-size:medium ;font-family: cursive">ThreshholdValue</th>
       <th style="border: 1px solid black;font-size:medium ;font-family: cursive">FailureRate</th>
       <th style="border: 1px solid black;font-size:medium ;font-family: cursive">NeedsToDisable</th>

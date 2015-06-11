@@ -56,7 +56,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         public void Invoke()
         {
             var suppliersToDisable = new Dictionary<Supplier, string>();
-            var suppliersWhoHaveCrossedThreshhold = new Dictionary<Supplier, string>();// suppliersToDisable.Where(d => !string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
+            var suppliersWhoHaveCrossedThreshhold = new Dictionary<Supplier, string>();
             try
             {
                 Dictionary<string, List<Supplier>> productWiseSuppliersList =new SupplierDataHelper().GetProductWiseSuppliersList();

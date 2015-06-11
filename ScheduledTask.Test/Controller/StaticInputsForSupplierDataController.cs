@@ -22,7 +22,9 @@ namespace ScheduledTask.Test
                             SupplierName="Pegasus",
                             SupplierId=9,
                             TotalCallsCount=60,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount= 18,
+                            TotalFailureCallsCount= 42,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=50,
                             IsDisabled=false},"70"}
                     };
@@ -34,7 +36,9 @@ namespace ScheduledTask.Test
                             SupplierId=110,
                             SupplierName="Mystifly",
                             TotalCallsCount=51,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount= 13,
+                            TotalFailureCallsCount= 38,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=60,
                             IsDisabled=false},"75"}
                     };
@@ -46,6 +50,8 @@ namespace ScheduledTask.Test
                             SupplierId=24,
                             SupplierName="SabreCar",
                             TotalCallsCount=50,
+                            TotalSuccessfulCallsCount= 15,
+                            TotalFailureCallsCount= 35,
                             DisableIfCrossesThreshhold=0,
                             ThreshholdValue=70,
                             IsDisabled=false},"70"}
@@ -68,7 +74,9 @@ namespace ScheduledTask.Test
                             SupplierId=9,
                             SupplierName="Pegasus",
                             TotalCallsCount=49,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount= 15,
+                            TotalFailureCallsCount= 34,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=50,
                             IsDisabled=false},"70"}
                     };
@@ -80,7 +88,9 @@ namespace ScheduledTask.Test
                             SupplierId=110,
                             SupplierName="Mystifly",
                             TotalCallsCount=10,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount= 3,
+                            TotalFailureCallsCount= 7,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=60,
                             IsDisabled=false},"75"}
                     };
@@ -92,9 +102,11 @@ namespace ScheduledTask.Test
                             SupplierId=24,
                             SupplierName="SabreCar",
                             TotalCallsCount=1,
+                            TotalSuccessfulCallsCount = 0,
+                            TotalFailureCallsCount = 1,
                             DisableIfCrossesThreshhold=0,
                             ThreshholdValue=70,
-                            IsDisabled=false},"70"}
+                            IsDisabled=false},"100"}
                     };
                     break;
             }
@@ -114,7 +126,9 @@ namespace ScheduledTask.Test
                             SupplierId=9,
                             SupplierName="Pegasus",
                             TotalCallsCount=49,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount = 44,
+                            TotalFailureCallsCount = 5,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=50,
                             IsDisabled=false},"10"}
                     };
@@ -126,7 +140,9 @@ namespace ScheduledTask.Test
                             SupplierId=110,
                             SupplierName="Mystifly",
                             TotalCallsCount=100,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount = 75,
+                            TotalFailureCallsCount = 25,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=60,
                             IsDisabled=false},"25"}
                     };
@@ -138,9 +154,11 @@ namespace ScheduledTask.Test
                             SupplierId=24,
                             SupplierName="SabreCar",
                             TotalCallsCount=1,
+                            TotalSuccessfulCallsCount = 0,
+                            TotalFailureCallsCount = 1,
                             DisableIfCrossesThreshhold=0,
                             ThreshholdValue=70,
-                            IsDisabled=false},"70"}
+                            IsDisabled=false},"100"}
                     };
                     break;
             }
@@ -160,7 +178,9 @@ namespace ScheduledTask.Test
                             SupplierId=9,
                             SupplierName="Pegasus",
                             TotalCallsCount=49,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount = 44,
+                            TotalFailureCallsCount = 5,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=50,
                             IsDisabled=false},"10"},
 
@@ -174,7 +194,9 @@ namespace ScheduledTask.Test
                             SupplierId=117,
                             SupplierName="PricelineV3",
                             TotalCallsCount=0,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount = 0,
+                            TotalFailureCallsCount = 0,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=60,
                             IsDisabled=false},""}
                     };
@@ -187,7 +209,9 @@ namespace ScheduledTask.Test
                             SupplierId=16,
                             SupplierName="AmadeusAir",
                             TotalCallsCount=60,
-                            DisableIfCrossesThreshhold=1,
+                            TotalSuccessfulCallsCount = 24,
+                            TotalFailureCallsCount = 36,
+                            DisableIfCrossesThreshhold=0,
                             ThreshholdValue=60,
                             IsDisabled=false},"60"}
                     };
@@ -199,9 +223,11 @@ namespace ScheduledTask.Test
                             SupplierId=24,
                             SupplierName="SabreCar",
                             TotalCallsCount=1,
+                            TotalSuccessfulCallsCount = 0,
+                            TotalFailureCallsCount = 1,
                             DisableIfCrossesThreshhold=0,
                             ThreshholdValue=70,
-                            IsDisabled=false},"70"}
+                            IsDisabled=false},"100"}
                     };
                     break;
             }

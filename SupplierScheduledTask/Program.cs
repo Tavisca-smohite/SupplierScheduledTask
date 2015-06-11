@@ -17,6 +17,7 @@ namespace SupplierScheduledTask
             {
 
                 LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");
+                
             }
        
             Console.ReadLine();

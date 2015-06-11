@@ -78,11 +78,14 @@ namespace Tavisca.SupplierScheduledTask.Notifications
             foreach (var supplierToDisable in suppliersToDisable)
             {
                 var needsToDisable = (supplierToDisable.Key.DisableIfCrossesThreshhold == 1) ? "YES" : "NO";
-                var isDisabled = (supplierToDisable.Key.IsDisabled== true) ? "YES" : "NO";
+                var isDisabled = (supplierToDisable.Key.IsDisabled) ? "YES" : "NO";
                 builder.Append(@"<tr>" + rowStyle + i++ + @"</td>");
                 builder.Append(rowStyle + supplierToDisable.Key.SupplierName + @"</td>");
                 builder.Append(rowStyle + supplierToDisable.Key.SupplierId + @"</td>");
                 builder.Append(rowStyle + supplierToDisable.Key.ProductType + @"</td>");
+                builder.Append(rowStyle + supplierToDisable.Key.TotalCallsCount + @"</td>");
+                builder.Append(rowStyle + supplierToDisable.Key.TotalSuccessfulCallsCount + @"</td>");
+                builder.Append(rowStyle + supplierToDisable.Key.TotalFailureCallsCount + @"</td>");
                 builder.Append(rowStyle + supplierToDisable.Key.ThreshholdValue + @"</td>");
                 builder.Append(rowStyle + supplierToDisable.Value + @"</td>");
                 builder.Append(rowStyle + needsToDisable + @"</td>");

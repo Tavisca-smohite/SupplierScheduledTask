@@ -15,6 +15,8 @@ namespace Tavisca.SupplierScheduledTask.BusinessEntities
         public float ThreshholdValue { get; set; }
         public int DisableIfCrossesThreshhold { get; set; }
         public int TotalCallsCount { get; set; } //total calls made with distinct session ids
+        public int TotalSuccessfulCallsCount { get; set; } //total successful calls among total calls
+        public int TotalFailureCallsCount { get; set; } //total failed calls among total calls
         public bool IsDisabled { get; set; }
     }
 }

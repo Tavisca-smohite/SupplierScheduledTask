@@ -59,23 +59,5 @@ namespace ScheduledTask.Test.ApplicationData {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 06/09/2015 13:33:54.
-        /// </summary>
-        internal static string _110 {
-            get {
-                return ResourceManager.GetString("_110", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 06/09/2015 17:16:02.
-        /// </summary>
-        internal static string _9 {
-            get {
-                return ResourceManager.GetString("_9", resourceCulture);
-            }
-        }
     }
 }

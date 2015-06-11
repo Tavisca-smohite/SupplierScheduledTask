@@ -15,7 +15,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             _supplierRepository = RuntimeContext.Resolver.Resolve<ISupplierLogRepository>("SupplierLogRepository");
         }
 
-        public AirProductSupplierStrategy(ISupplierLogRepository supplierRepository)
+        public AirProductSupplierStrategy(ISupplierLogRepository supplierRepository = null)
         {
             _supplierRepository = supplierRepository;
         }
@@ -38,6 +38,8 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                 {
                     var failureRate = (supplierStats.TotalRate < 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture);
                     supplier.TotalCallsCount = supplierStats.TotalCallsCount;
+                    supplier.TotalSuccessfulCallsCount = supplierStats.TotalSuccessfulCallsCount;
+                    supplier.TotalFailureCallsCount = supplierStats.TotalFailureCallsCount;
                     supplierAndFailureRateMapping.Add(supplier, failureRate);
                 }
             }

@@ -3,7 +3,7 @@
   <Supplier Name="AmadeusWS" Type="Air" SupplierId="16">
     <CallType>AirMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="SabreAir" Type="Air" SupplierId="24">
     <CallType>AirMultiAvail</CallType>
@@ -13,12 +13,12 @@
   <Supplier Name="Worldspan" Type="Air" SupplierId="1">
     <CallType>AirMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="Mystifly" Type="Air" SupplierId="110">
     <CallType>AirMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="Picasso" Type="Hotel" SupplierId="68">
     <CallType>AirMultiAvail</CallType>
@@ -29,37 +29,37 @@
   <Supplier Name="Pegasus" Type="Hotel" SupplierId="9">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="PegasusSpl" Type="Hotel" SupplierId="11">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="114" IsEnabled="1">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="HotelBeds" Type="Hotel" SupplierId="32">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="TouricoTGS" Type="Hotel" SupplierId="4">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="HotelsCom" Type="Hotel" SupplierId="55">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="Priceline" Type="Hotel" SupplierId="117">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>1</DisableIfCrossesThreshhold>
+     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="JacTravel" Type="Hotel" SupplierId="118">
     <CallType>HotelMultiAvail</CallType>

@@ -16,9 +16,9 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         }
 
          public CarProductSupplierStrategy(ISupplierLogRepository supplierRepository)
-        {
-            _supplierRepository = supplierRepository;
-        }
+         {
+             _supplierRepository = supplierRepository;
+         }
 
         private ISupplierLogRepository _supplierRepository;
         #region IProductSupplier Members
@@ -35,6 +35,8 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                 {
                     var failureRate = (supplierStats.TotalRate < 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture);
                     supplier.TotalCallsCount = supplierStats.TotalCallsCount;
+                    supplier.TotalSuccessfulCallsCount = supplierStats.TotalSuccessfulCallsCount;
+                    supplier.TotalFailureCallsCount = supplierStats.TotalFailureCallsCount;
                     supplierAndFailureRateMapping.Add(supplier, failureRate);
                 }    
             }

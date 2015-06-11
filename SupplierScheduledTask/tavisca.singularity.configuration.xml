@@ -22,10 +22,11 @@
     <add alias="SqlSpSink" type="Tavisca.Frameworks.Logging.Extensions.Sinks.SqlSpSink, Tavisca.Frameworks.Logging.Extensions" />
     <!--Logging Configuration [END]-->
 
-    <!--<add alias="IProductSupplier" type="Tavisca.SupplierScheduledTask.BusinessLogic.IProductSupplier, Tavisca.SupplierScheduledTask.BusinessLogic"/>-->
-    <!--<add alias="AirProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.AirProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>
+    <add alias="IProductSupplier" type="Tavisca.SupplierScheduledTask.BusinessLogic.IProductSupplier, Tavisca.SupplierScheduledTask.BusinessLogic"/>
+    <add alias="AirProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.AirProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>
     <add alias="CarProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.CarProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>
-    <add alias="HotelProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.HotelProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>-->
+    <add alias="HotelProductSupplierStrategy" type="Tavisca.SupplierScheduledTask.BusinessLogic.HotelProductSupplierStrategy, Tavisca.SupplierScheduledTask.BusinessLogic"/>
+    
     <add alias="ISupplierLogRepository" type="Tavisca.SupplierScheduledTask.DataAccessLayer.ISupplierLogRepository, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
     <add alias="SupplierLogRepository" type="Tavisca.SupplierScheduledTask.DataAccessLayer.SupplierLogRepository, Tavisca.SupplierScheduledTask.DataAccessLayer"/>
     
@@ -54,9 +55,10 @@
         <dependency name="SqlSpSink" registeredAs="ISink" implementedAs="SqlSpSink" lifetimeType="PerThread"></dependency>
         <!--Logging Configuration [END]-->
 
-        <!--<dependency registeredAs="IProductSupplier" implementedAs="AirProductSupplierStrategy" lifetimeType="Singleton" name="AirProductSupplierStrategy"/>
-        <dependency registeredAs="IProductSupplier" implementedAs="CarProductSupplierStrategy" lifetimeType="Singleton" name="CarProductSupplierStrategy"/>
-        <dependency registeredAs="IProductSupplier" implementedAs="HotelProductSupplierStrategy" lifetimeType="Singleton" name="HotelProductSupplierStrategy"/>-->
+        <dependency registeredAs="IProductSupplier" implementedAs="AirProductSupplierStrategy" lifetimeType="singleton" name="AirProductSupplierStrategy"/>
+        <dependency registeredAs="IProductSupplier" implementedAs="CarProductSupplierStrategy" lifetimeType="singleton" name="CarProductSupplierStrategy"/>
+        <dependency registeredAs="IProductSupplier" implementedAs="HotelProductSupplierStrategy" lifetimeType="singleton" name="HotelProductSupplierStrategy"/>
+        
         <dependency registeredAs="ISupplierLogRepository" implementedAs="SupplierLogRepository" lifetimeType="Singleton" name="SupplierLogRepository"/>
         <dependency registeredAs="IUpdateFaresourcesConfig" implementedAs="UpdateFaresourcesConfig" lifetimeType="Singleton" name="UpdateFaresourcesConfig"/>
         <dependency registeredAs="IResourceDataController" implementedAs="ResourceDataController" lifetimeType="Singleton" name="ResourceDataController"/>
