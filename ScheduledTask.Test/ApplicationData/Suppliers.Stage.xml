@@ -23,6 +23,11 @@
     <ThreshholdValue>60</ThreshholdValue>
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
+  <Supplier Name="Picasso" Type="Hotel" SupplierId="35" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>AirMultiAvail</CallType>
+    <ThreshholdValue>60</ThreshholdValue>
+    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
+  </Supplier>
   <!--  hotel suppliers-->
   <Supplier Name="Pegasus" Type="Hotel" SupplierId="9" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>HotelMultiAvail</CallType>
@@ -34,8 +39,8 @@
     <ThreshholdValue>60</ThreshholdValue>
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
-  <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="48" IsEnabled="1" xdt:Locator="Match(Name)" xdt:Transform="Replace">
-    <CallType>HotelMultiAvail</CallType>
+  <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="48"  xdt:Locator="Match(Name)" xdt:Transform="Replace">
+    <CallType>MultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
@@ -44,11 +49,7 @@
     <ThreshholdValue>60</ThreshholdValue>
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
-  <Supplier Name="Picasso" Type="Hotel" SupplierId="35" xdt:Locator="Match(Name)" xdt:Transform="Replace">
-    <CallType>HotelMultiAvail</CallType>
-    <ThreshholdValue>60</ThreshholdValue>
-    <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
-  </Supplier>
+
   <Supplier Name="TouricoTGS" Type="Hotel" SupplierId="4" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
@@ -60,7 +61,7 @@
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
   <Supplier Name="Priceline" Type="Hotel" SupplierId="50" xdt:Locator="Match(Name)" xdt:Transform="Replace">
-    <CallType>HotelMultiAvail</CallType>
+    <CallType>HotelMultiAvail.PricelineV3.getHotelResultsWithCacheV2</CallType>
     <ThreshholdValue>60</ThreshholdValue>
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
@@ -80,7 +81,7 @@
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
-  <Supplier Name="TouricoVacation" Type="Hotel" SupplierId="579" xdt:Locator="Match(Name)" xdt:Transform="Replace">
+  <Supplier Name="TouricoVacation" Type="Hotel" SupplierId="51" xdt:Locator="Match(Name)" xdt:Transform="Replace">
     <CallType>HotelMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>

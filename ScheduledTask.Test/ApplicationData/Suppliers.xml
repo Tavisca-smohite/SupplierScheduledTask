@@ -36,8 +36,8 @@
     <ThreshholdValue>60</ThreshholdValue>
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
-  <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="114" IsEnabled="1">
-    <CallType>HotelMultiAvail</CallType>
+  <Supplier Name="AmadeusWSHotel" Type="Hotel" SupplierId="114" >
+    <CallType>MultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>

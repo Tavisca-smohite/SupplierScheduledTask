@@ -15,9 +15,7 @@ namespace SupplierScheduledTask
             }
             catch (Exception exception)
             {
-
-                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");
-                
+                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");               
             }
        
             Console.ReadLine();
