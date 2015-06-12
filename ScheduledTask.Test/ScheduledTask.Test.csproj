@@ -118,6 +118,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Controller\ResourceDataControllerTest.cs" />
     <Compile Include="Controller\StaticInputsForSupplierDataController.cs" />
@@ -219,35 +220,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ApplicationData\SuppliersConfigLogs.Stage.resx">
-      <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
-      <IsTransformFile>True</IsTransformFile>
-    </None>
-    <None Include="ApplicationData\SuppliersConfigLogs.Debug.resx">
-      <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
-      <IsTransformFile>True</IsTransformFile>
-    </None>
-    <None Include="ApplicationData\SuppliersConfigLogs.Release.resx">
-      <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
-      <IsTransformFile>True</IsTransformFile>
-    </None>
-    <None Include="ApplicationData\SuppliersConfigLogs.Prod.resx">
-      <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
-      <IsTransformFile>True</IsTransformFile>
-    </None>
-    <None Include="ApplicationData\SuppliersConfigLogs.QA.resx">
-      <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
-      <IsTransformFile>True</IsTransformFile>
-    </None>
-    <None Include="ApplicationData\SuppliersConfigLogs.PreQA.resx">
-      <DependentUpon>SuppliersConfigLogs.resx</DependentUpon>
-      <IsTransformFile>True</IsTransformFile>
-    </None>
     <EmbeddedResource Include="ApplicationData\SuppliersConfigLogs.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SuppliersConfigLogs.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
       <TransformOnBuild>true</TransformOnBuild>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <Choose>
