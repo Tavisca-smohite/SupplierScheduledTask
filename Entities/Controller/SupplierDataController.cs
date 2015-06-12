@@ -100,22 +100,26 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         #region interface methods
         public bool DisableSuppliers(Dictionary<Supplier, string> suppliersWhoHaveCrossedThreshhold)
         {
-            var disabledSuppliers = new List<Supplier>();
-            foreach (var supplierToDisable in suppliersWhoHaveCrossedThreshhold)
+            var isConfiguredToDisable = Convert.ToInt32(Configuration.DisableAllSuppliers);
+            if (isConfiguredToDisable == 1)
             {
-                if (supplierToDisable.Key.DisableIfCrossesThreshhold == 1)
+                var disabledSuppliers = new List<Supplier>();
+                foreach (var supplierToDisable in suppliersWhoHaveCrossedThreshhold)
                 {
-                    var isDisabled = _updateFaresourcesConfig.DisableSupplier(supplierToDisable.Key.SupplierId);
-                    supplierToDisable.Key.IsDisabled = isDisabled;
-                    if (isDisabled)
+                    if (supplierToDisable.Key.DisableIfCrossesThreshhold == 1)
                     {
-                        disabledSuppliers.Add(supplierToDisable.Key);
+                        var isDisabled = _updateFaresourcesConfig.DisableSupplier(supplierToDisable.Key.SupplierId);
+                        supplierToDisable.Key.IsDisabled = isDisabled;
+                        if (isDisabled)
+                        {
+                            disabledSuppliers.Add(supplierToDisable.Key);
+                        }
                     }
                 }
-            }
-            //TODO:pass list to resx file to set info about suppliers who has disabled
-            if(disabledSuppliers.Any())
+                //TODO:pass list to resx file to set info about suppliers who has disabled
+                if (disabledSuppliers.Any())
                     _resourceDataController.UpdateResourceFile(disabledSuppliers);
+            }
             return false;
         }
         

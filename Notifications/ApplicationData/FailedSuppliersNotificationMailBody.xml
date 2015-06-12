@@ -3,6 +3,7 @@
   <div id="#1">
   <div>
   <p style="font-size:medium ;font-family: cursive">Suppliers who have crossed failure threshhold value on {[Environment]} environment are as follow:</p>
+    <p style="font-size:medium ;font-family: cursive"><b>Note:</b>Threshhold for Total Calls Count is set to : {[TotalCallsCount]} And Time difference within which logs has to be picked up is :{[TimeDiff]} minutes</p>
     </div>
   <br/>
   <table style="border: 1px solid black">

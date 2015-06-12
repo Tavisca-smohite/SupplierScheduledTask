@@ -84,6 +84,10 @@ namespace Tavisca.SupplierScheduledTask.Notifications
         public static string TimeDiffInMinutes
         {
             get { return ConfigurationManager.AppSettings["TimeDiffInMinutes"]; }
+        }
+        public static string DisableAllSuppliers
+        {
+            get { return ConfigurationManager.AppSettings["DisableAllSuppliers"]; }
         } 
         
     }

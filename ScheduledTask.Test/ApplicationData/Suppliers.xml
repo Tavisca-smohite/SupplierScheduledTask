@@ -20,7 +20,7 @@
     <ThreshholdValue>60</ThreshholdValue>
      <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>
   </Supplier>
-  <Supplier Name="Picasso" Type="Hotel" SupplierId="68">
+  <Supplier Name="Picasso" Type="Air" SupplierId="68">
     <CallType>AirMultiAvail</CallType>
     <ThreshholdValue>60</ThreshholdValue>
     <DisableIfCrossesThreshhold>0</DisableIfCrossesThreshhold>

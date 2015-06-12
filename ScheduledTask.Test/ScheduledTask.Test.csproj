@@ -166,6 +166,7 @@
     </None>
     <Content Include="ApplicationData\Suppliers.xml">
       <TransformOnBuild>true</TransformOnBuild>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="tavisca.singularity.configuration.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

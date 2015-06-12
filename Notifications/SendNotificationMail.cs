@@ -65,7 +65,8 @@ namespace Tavisca.SupplierScheduledTask.Notifications
                 Regex.Replace(mailBody, @"<div id=""#2"">(.*?)</div>", string.Empty, RegexOptions.Compiled | RegexOptions.Singleline);
 
             mailBody = mailBody.Replace("{[Environment]}", Configuration.Environment);
-
+            mailBody = mailBody.Replace("{[TotalCallsCount]}", Configuration.ThreshholdForTotalCallsCount);
+            mailBody = mailBody.Replace("{[TimeDiff]}", Configuration.TimeDiffInMinutes);
             var attributes = new NameValueCollection { { "{[SuppliersStatus]}", mailBody } };
             mailAttributes.TemplateAttributes = attributes;
             return mailAttributes;
