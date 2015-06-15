@@ -40,6 +40,31 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             return false;
         }
 
+        public bool AddResourcesToFile(Dictionary<string, string> data)
+        {
+            var resourceEntries = ReadResourceFile();            
+            foreach (var dataContents in data)
+            {
+                if (!resourceEntries.ContainsKey(dataContents.Key))
+                {
+                    resourceEntries.Add(dataContents.Key, dataContents.Value);
+                }
+                else
+                {
+                    resourceEntries.Remove(dataContents.Key);
+                    resourceEntries.Add(dataContents.Key, dataContents.Value);
+                }                
+            }
+            var resourceWriter = new ResXResourceWriter(GetPath());
+            foreach (var key in resourceEntries.Keys)
+            {
+                resourceWriter.AddResource(key, resourceEntries[key]);
+            }
+            resourceWriter.Generate();
+            resourceWriter.Close();
+            return false;
+        }
+
         public Dictionary<string, string> ReadResourceFile()
         {
             var resourceEntries = new Dictionary<string, string>();

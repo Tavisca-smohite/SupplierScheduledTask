@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tavisca.SupplierScheduledTask.BusinessEntities;
 using Tavisca.SupplierScheduledTask.DataAccessLayer;
 using Tavisca.SupplierScheduledTask.BusinessLogic;
+using Tavisca.SupplierScheduledTask.Notifications;
 
 namespace ScheduledTask.Test.ProductSupplierStrategy
 {
@@ -23,12 +24,14 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
     [TestClass]
     public class ProductSupplierStrategyTest
     {
+        private int minutes=Convert.ToInt32(Configuration.TimeDiffInMinutes);
+
         //when list contains all valid stats for enabled suppliers
         [TestMethod]
         public void GetFailureRateOfAirProductSuppliers_WithValidExecution_OfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=30}).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1,TotalCallsCount=40 });           
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=30}).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1,TotalCallsCount=40 });           
             var suppliersTodisable = new AirProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "Mystifly" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
@@ -45,7 +48,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfAirProductSuppliers_WithInValid_ExecutionOfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics()).Returns(new SupplierStatistics());            
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics()).Returns(new SupplierStatistics());            
             var suppliersTodisable = new AirProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "WorldSpan" } });
             Assert.AreEqual(0, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
         }
@@ -55,7 +58,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfAirProductSuppliers_WithInValid_ExecutionOfFailureLogsFunctionForEnabledSuppliers()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0,TotalCallsCount=0, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1,TotalCallsCount=0 });
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0,TotalCallsCount=0, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1,TotalCallsCount=0 });
             var suppliersTodisable = new AirProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "WorldSpan" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
@@ -74,7 +77,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfHotelProductSuppliers_WithValidExecution_OfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1,TotalCallsCount=30 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=40});
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1,TotalCallsCount=30 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=40});
             var suppliersTodisable = new HotelProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "Mystifly" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
@@ -91,7 +94,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfHotelProductSuppliers_WithInValid_ExecutionOfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics()).Returns(new SupplierStatistics());
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics()).Returns(new SupplierStatistics());
             var suppliersTodisable = new HotelProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "WorldSpan" } });
             Assert.AreEqual(0, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
         }
@@ -101,7 +104,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfHotelProductSuppliers_WithInValid_ExecutionOfFailureLogsFunction_ForEnabledSuppliers()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 });
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 });
             var suppliersTodisable = new HotelProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "WorldSpan" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
@@ -118,7 +121,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfCarProductSuppliers_WithValidExecution_OfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1,TotalCallsCount=35 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=20});
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics { FailureRate = 60, SuccessRate = 40, TotalRate = 100, IsEnabled = 1,TotalCallsCount=35 }).Returns(new SupplierStatistics { FailureRate = 50, SuccessRate = 50, TotalRate = 100, IsEnabled = 1 ,TotalCallsCount=20});
             var suppliersTodisable = new CarProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "Mystifly" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)
@@ -135,7 +138,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfCarProductSuppliers_WithInValid_ExecutionOfFailureLogsFunction()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics()).Returns(new SupplierStatistics());
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics()).Returns(new SupplierStatistics());
             var suppliersTodisable = new CarProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "WorldSpan" } });
             Assert.AreEqual(0, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
         }
@@ -145,7 +148,7 @@ namespace ScheduledTask.Test.ProductSupplierStrategy
         public void GetFailureRateOfCarProductSuppliers_WithInValid_ExecutionOfFailureLogsFunction_ForEnabledSuppliers()
         {
             Mock<ISupplierLogRepository> mockSupplierLogRepository = new Mock<ISupplierLogRepository>();
-            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), 1000)).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 });
+            mockSupplierLogRepository.SetupSequence(m => m.GetFailureLogs(It.IsAny<Supplier>(), minutes)).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 }).Returns(new SupplierStatistics { FailureRate = 0, SuccessRate = 0, TotalRate = 0, IsEnabled = 1 });
             var suppliersTodisable = new CarProductSupplierStrategy(mockSupplierLogRepository.Object).GetFailureRateForProductSuppliers(new List<Supplier> { new Supplier(), new Supplier { SupplierName = "WorldSpan" } });
             Assert.AreEqual(2, suppliersTodisable.Count(), "only suppliers which are enabled and have totalrate=100 should be added to dictionary");
             foreach (var supplierToDisable in suppliersTodisable)

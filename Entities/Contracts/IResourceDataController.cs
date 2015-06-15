@@ -10,6 +10,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
     public interface IResourceDataController
     {
         bool UpdateResourceFile(List<Supplier> disabledSuppliers);
+        bool AddResourcesToFile(Dictionary<string,string> data);
         Dictionary<string, string> ReadResourceFile();
         //bool RemoveEntriesFromResourceFile(List<Supplier> disabledSuppliers);
         bool RemoveEntriesFromResourceFile(List<String> keys);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using Moq;
@@ -163,6 +164,19 @@ namespace ScheduledTask.Test
             mockUpdateFaresourcesConfig.Setup(m => m.DisableSupplier(It.IsAny<int>())).Returns(true);
             mockUpdateFaresourcesConfig.Setup(m => m.EnableSupplier(It.IsAny<int>())).Returns(true);
             new SupplierDataController(mockProductSupplier.Object, mockUpdateFaresourcesConfig.Object).Invoke();
+        }
+
+
+        [TestMethod]
+        public void EnableSuppliers_Test_Successful()
+        {
+            var data = new Dictionary<string, string>
+                {
+                    {"Pegasus_9", DateTime.Now.AddMinutes(-40).ToString(CultureInfo.InvariantCulture)},
+                    {"JAcTravel_118", DateTime.Now.AddMinutes(-40).ToString(CultureInfo.InvariantCulture)}
+                };
+            new ResourceDataController().AddResourcesToFile(data);           
+            new SupplierDataController().EnableSuppliers();
         }
     }
 }
