@@ -8,9 +8,9 @@ namespace Tavisca.SupplierScheduledTask.BusinessEntities
 {
     public  class SupplierStatistics
     {
-        public float SuccessRate { get; set; }
-        public float FailureRate { get; set; }
-        public float TotalRate { get; set; }
+        public double SuccessRate { get; set; }
+        public double FailureRate { get; set; }
+        public double TotalRate { get; set; }
         public int IsEnabled { get; set; }
         public int TotalCallsCount { get; set; }
         public int TotalSuccessfulCallsCount { get; set; } //total successful calls among total calls

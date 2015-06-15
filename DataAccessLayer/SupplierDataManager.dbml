@@ -6,13 +6,13 @@
     <Parameter Name="TimeDiff" Parameter="timeDiff" Type="System.Int32" DbType="Int" />
     <Parameter Name="SupplierName" Parameter="supplierName" Type="System.String" DbType="NVarChar(64)" />
     <ElementType Name="spGetLogBasedOnCallTypeResult">
-      <Column Name="ProviderId" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Supplier" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="CallType" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Success" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Failure" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="PerSuccess" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="PerFailure" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Calltype" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="Success" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Failure" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PerSuccess" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PerFailure" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="IsEnabled" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>

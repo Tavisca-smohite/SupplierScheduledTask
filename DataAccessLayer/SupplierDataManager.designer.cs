@@ -73,19 +73,19 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 	public partial class spGetLogBasedOnCallTypeResult
 	{
 		
-		private string _ProviderId;
+		private System.Nullable<int> _ProviderId;
 		
 		private string _Supplier;
 		
-		private string _CallType;
+		private string _Calltype;
 		
-		private string _Success;
+		private System.Nullable<int> _Success;
 		
-		private string _Failure;
+		private System.Nullable<int> _Failure;
 		
-		private string _PerSuccess;
+		private double _PerSuccess;
 		
-		private string _PerFailure;
+		private double _PerFailure;
 		
 		private byte _IsEnabled;
 		
@@ -93,8 +93,8 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderId", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string ProviderId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderId", DbType="Int")]
+		public System.Nullable<int> ProviderId
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Supplier", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Supplier", DbType="NVarChar(64)")]
 		public string Supplier
 		{
 			get
@@ -125,24 +125,24 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CallType", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string CallType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Calltype", DbType="NVarChar(32)")]
+		public string Calltype
 		{
 			get
 			{
-				return this._CallType;
+				return this._Calltype;
 			}
 			set
 			{
-				if ((this._CallType != value))
+				if ((this._Calltype != value))
 				{
-					this._CallType = value;
+					this._Calltype = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Success", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Success
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Success", DbType="Int")]
+		public System.Nullable<int> Success
 		{
 			get
 			{
@@ -157,8 +157,8 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Failure", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Failure
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Failure", DbType="Int")]
+		public System.Nullable<int> Failure
 		{
 			get
 			{
@@ -173,8 +173,8 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PerSuccess", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string PerSuccess
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PerSuccess", DbType="Float NOT NULL")]
+		public double PerSuccess
 		{
 			get
 			{
@@ -189,8 +189,8 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PerFailure", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string PerFailure
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PerFailure", DbType="Float NOT NULL")]
+		public double PerFailure
 		{
 			get
 			{
