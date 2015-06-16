@@ -18,7 +18,7 @@ namespace Tavisca.SupplierScheduledTask.Notifications
         {
            
             var mailAttributes = BuildMailAttributes(suppliersToDisable);
-            bool isSendMail = new Mail().SendMail(mailAttributes);
+            bool isSendMail = new Mail().SendMail(mailAttributes);           
             return isSendMail;
         }
 

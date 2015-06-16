@@ -12,6 +12,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
     {
         public bool UpdateResourceFile(List<Supplier> disabledSuppliers)
         {
+            SupplierDataHelper.WriteIntoLogFile("inside UpdateResourceFile()");
             var resourceEntries = ReadResourceFile();
             //Modify resources here...
             foreach (var disabledSupplier in disabledSuppliers)
@@ -37,6 +38,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             }
             resourceWriter.Generate();
             resourceWriter.Close();
+            SupplierDataHelper.WriteIntoLogFile("updated resource file");
             return false;
         }
 
@@ -111,6 +113,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 
         public bool RemoveEntriesFromResourceFile(List<string> keys)
         {
+            SupplierDataHelper.WriteIntoLogFile("inside RemoveEntriesFromResourceFile()");
             var resourceEntries = ReadResourceFile();
             //Modify resources here...
             foreach (var key in keys)
@@ -128,6 +131,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             }
             resourceWriter.Generate();
             resourceWriter.Close();
+            SupplierDataHelper.WriteIntoLogFile("returning from RemoveEntriesFromResourceFile()");
             return false;
         }
 

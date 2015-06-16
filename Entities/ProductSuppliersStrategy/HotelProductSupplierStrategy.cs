@@ -33,11 +33,18 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             int minutes = (!string.IsNullOrEmpty(Configuration.TimeDiffInMinutes)) ? Convert.ToInt32(Configuration.TimeDiffInMinutes) : 60;
 
             var supplierAndFailureRateMapping = new Dictionary<Supplier, string>();
-
+            SupplierDataHelper.WriteIntoLogFile("inside hotelproductstrategy GetFailureRateForProductSuppliers....");
             foreach (var supplier in suppliersList)
             {
                 //TODO: throw exception if sucess + failure rate is not 100
                 var supplierStats = _supplierRepository.GetFailureLogs(supplier, minutes);
+                SupplierDataHelper.WriteIntoLogFile(string.Format("supplier stats for {0} ,id: {1} ,total count: {2} failure count :  {3}, failure rate : {4} ",
+                                                      supplier.SupplierName,
+                                                      supplier.SupplierId,
+                                                      supplierStats.TotalCallsCount,
+                                                      supplierStats.TotalFailureCallsCount,
+                                                      supplierStats.FailureRate));
+
                 if (supplierStats.IsEnabled == 1)
                 {
                     var failureRate = (supplierStats.TotalRate<100)? string.Empty: supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture);

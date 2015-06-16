@@ -55,14 +55,16 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 
         public void Invoke()
         {
+            SupplierDataHelper.WriteIntoLogFile("invoke execution started...");
             var suppliersToDisable = new Dictionary<Supplier, string>();
             var suppliersWhoHaveCrossedThreshhold = new Dictionary<Supplier, string>();
+            bool isMailSend;
             try
             {
                 Dictionary<string, List<Supplier>> productWiseSuppliersList =new SupplierDataHelper().GetProductWiseSuppliersList();
                 suppliersToDisable = GetListOfSuppliersToDisable(productWiseSuppliersList);
                 suppliersWhoHaveCrossedThreshhold = suppliersToDisable.Where(d => !string.Equals(d.Value, string.Empty)).ToDictionary(x => x.Key, x => x.Value);
-
+                SupplierDataHelper.WriteIntoLogFile(string.Format("suppliersWhoHaveCrossedThreshhold count: {0}",suppliersWhoHaveCrossedThreshhold.Count));
                 if (suppliersWhoHaveCrossedThreshhold.Count > 0)
                 {                    
                     DisableSuppliers(suppliersWhoHaveCrossedThreshhold);
@@ -73,11 +75,16 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             {
                 //TODO: ignore or log
                 LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");
+                SupplierDataHelper.WriteIntoLogFile(string.Format("exception occured in invoke method with message {0}",exception.Message));
             }
             finally
-            {                
+            {
                 if (suppliersWhoHaveCrossedThreshhold.Any())
-                    new SendNotificationMail().SendNotificationEmail(suppliersToDisable);
+                {
+                    isMailSend = new SendNotificationMail().SendNotificationEmail(suppliersToDisable);
+                    SupplierDataHelper.WriteIntoLogFile(string.Format("mail send for disabled suppliers state:{0}",
+                                                                      isMailSend));
+                }
                 EnableSuppliers();
             }
         }
@@ -93,19 +100,25 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                 Dictionary<Supplier, string> supplierstoDisable = SupplierDataHelper.CompareThreshhold(suppliersWithFailureRate);
                 suppliersToDisable = suppliersToDisable.Concat(supplierstoDisable).ToDictionary(x => x.Key, x => x.Value);
             }
+            SupplierDataHelper.WriteIntoLogFile("returning suppliers list to disable...");
             return suppliersToDisable;
+
         }
 
 
         #region interface methods
         public bool DisableSuppliers(Dictionary<Supplier, string> suppliersWhoHaveCrossedThreshhold)
-        {
+        {          
             var isConfiguredToDisable = Convert.ToInt32(Configuration.DisableAllSuppliers);
+            SupplierDataHelper.WriteIntoLogFile(string.Format("isConfiguredToDisable value: {0}", isConfiguredToDisable));
             if (isConfiguredToDisable == 1)
             {
                 var disabledSuppliers = new List<Supplier>();
                 foreach (var supplierToDisable in suppliersWhoHaveCrossedThreshhold)
                 {
+                    SupplierDataHelper.WriteIntoLogFile(string.Format("supplier id: {0}, DisableIfCrossesThreshhold value :{1}", 
+                                                                         supplierToDisable.Key.SupplierId,
+                                                                         supplierToDisable.Key.DisableIfCrossesThreshhold));
                     if (supplierToDisable.Key.DisableIfCrossesThreshhold == 1)
                     {
                         var isDisabled = _updateFaresourcesConfig.DisableSupplier(supplierToDisable.Key.SupplierId);
@@ -117,6 +130,8 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                     }
                 }
                 //TODO:pass list to resx file to set info about suppliers who has disabled
+
+                SupplierDataHelper.WriteIntoLogFile(string.Format("disabled suppliers' count: {0}", disabledSuppliers.Count));
                 if (disabledSuppliers.Any())
                     _resourceDataController.UpdateResourceFile(disabledSuppliers);
             }
@@ -126,6 +141,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         public void EnableSuppliers()
         {
             //read resource file,compare each value with current time if it exceeds 30 minute enable supplier and remove entry from resource file
+            SupplierDataHelper.WriteIntoLogFile("inside EnableSuppliers()");
             var enabledSuppliersKeys = new List<string>();
             var resourceEntries = _resourceDataController.ReadResourceFile();
 
@@ -146,6 +162,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
             }                   
                 if(enabledSuppliersKeys.Any())
                 {
+                    SupplierDataHelper.WriteIntoLogFile(string.Format("enabled suppliers count: {0}", enabledSuppliersKeys.Count));
                     _resourceDataController.RemoveEntriesFromResourceFile(enabledSuppliersKeys);  //remove supplier entries from resource file which are enabled (if exists)   
                     resourceEntries = _resourceDataController.ReadResourceFile();
                     var disabledSuppliers = resourceEntries.Keys.ToList();

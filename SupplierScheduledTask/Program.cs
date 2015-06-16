@@ -11,11 +11,13 @@ namespace SupplierScheduledTask
         Console.WriteLine(@"Started SupplierScheduledTask....");
             try
             {
+                SupplierDataHelper.WriteIntoLogFile("execution started....");
                 new SupplierDataController().Invoke();
             }
             catch (Exception exception)
             {
-                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");               
+                LogUtility.GetLogger().WriteAsync(exception.ToContextualEntry(), "Log Only Policy");    
+                SupplierDataHelper.WriteIntoLogFile("exception occured in main...");
             }          
             Console.ReadLine();
         }

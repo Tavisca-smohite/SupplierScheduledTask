@@ -137,10 +137,12 @@
     <None Include="ApplicationData\Suppliers.Debug.xml">
       <DependentUpon>Suppliers.xml</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ApplicationData\Suppliers.Release.xml">
       <DependentUpon>Suppliers.xml</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ApplicationData\Suppliers.Prod.xml">
       <DependentUpon>Suppliers.xml</DependentUpon>
@@ -150,19 +152,25 @@
     <None Include="ApplicationData\Suppliers.QA.xml">
       <DependentUpon>Suppliers.xml</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ApplicationData\Suppliers.PreQA.xml">
       <DependentUpon>Suppliers.xml</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ApplicationData\Suppliers.Stage.xml">
       <DependentUpon>Suppliers.xml</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
       <SubType>Designer</SubType>
-    </None>
-    <Content Include="ApplicationData\Suppliers.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="ApplicationData\Log.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\Suppliers.xml">
       <TransformOnBuild>true</TransformOnBuild>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
     <None Include="Properties\SlowCheetah\SlowCheetah.Transforms.targets" />

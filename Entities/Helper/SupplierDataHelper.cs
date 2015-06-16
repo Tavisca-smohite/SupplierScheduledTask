@@ -49,7 +49,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         var productWiseSuppliersList = new Dictionary<string, List<Supplier>>();
 
         var suplierList = ParseSuppliers();
-
+        WriteIntoLogFile("got parsed list of supliers...");
         var hotelSuppliersList =
             suplierList.FindAll(
                 supplier =>
@@ -71,7 +71,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                               StringComparison.InvariantCultureIgnoreCase));
         productWiseSuppliersList.Add(ProductTypes.ProductType.Car.ToString(), carSuppliersList);
 
-
+        WriteIntoLogFile("returning dictinary to invoke- product wise supplier mapping");
         return productWiseSuppliersList;
     }
 
@@ -99,6 +99,17 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         }
         return suppliersWhoCrossedThreshhold;
     }
+
+
+        public static void WriteIntoLogFile(string data)
+        {
+
+            using (var file = new System.IO.StreamWriter(Configuration.LogFile, true))
+            {
+                file.WriteLine("-------------------------------------------------------");
+                file.WriteLine(data);
+            }            
+        }
 
 }
 

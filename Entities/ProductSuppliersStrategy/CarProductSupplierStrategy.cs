@@ -26,11 +26,17 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         public Dictionary<Supplier, string> GetFailureRateForProductSuppliers(List<Supplier> suppliersList)
         {
             int minutes = (!string.IsNullOrEmpty(Configuration.TimeDiffInMinutes)) ? Convert.ToInt32(Configuration.TimeDiffInMinutes) : 60;
-
+            SupplierDataHelper.WriteIntoLogFile("inside carproductstrategy GetFailureRateForProductSuppliers....");
             var supplierAndFailureRateMapping = new Dictionary<Supplier, string>();
             foreach (Supplier supplier in suppliersList)
             {
                 var supplierStats = _supplierRepository.GetFailureLogs(supplier, minutes);
+                SupplierDataHelper.WriteIntoLogFile(string.Format("supplier stats for {0} ,id: {1} ,total count: {2} failure count :  {3}, failure rate : {4} ",
+                                                      supplier.SupplierName,
+                                                      supplier.SupplierId,
+                                                      supplierStats.TotalCallsCount,
+                                                      supplierStats.TotalFailureCallsCount,
+                                                      supplierStats.FailureRate));
                 if (supplierStats.IsEnabled == 1)
                 {
                     var failureRate = (supplierStats.TotalRate < 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture);

@@ -165,6 +165,7 @@
       <DependentUpon>Suppliers.xml</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
     </None>
+    <Content Include="ApplicationData\Log.txt" />
     <Content Include="ApplicationData\Suppliers.xml">
       <TransformOnBuild>true</TransformOnBuild>
       <SubType>Designer</SubType>

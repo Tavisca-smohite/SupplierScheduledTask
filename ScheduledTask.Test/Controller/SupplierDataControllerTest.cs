@@ -178,5 +178,20 @@ namespace ScheduledTask.Test
             new ResourceDataController().AddResourcesToFile(data);           
             new SupplierDataController().EnableSuppliers();
         }
+
+
+        [TestMethod]
+        public void EnableSuppliers_Test_Successful_TimePAssedIsLessThanThreshholdTimeOfEnablingSuppliers()
+        {
+            var data = new Dictionary<string, string>
+                {
+                    {"Pegasus_9", DateTime.Now.AddMinutes(-25).ToString(CultureInfo.InvariantCulture)},
+                    {"JAcTravel_118", DateTime.Now.AddMinutes(-25).ToString(CultureInfo.InvariantCulture)}
+                };
+            new ResourceDataController().AddResourcesToFile(data);
+            new SupplierDataController().EnableSuppliers();
+        }
+
+
     }
 }

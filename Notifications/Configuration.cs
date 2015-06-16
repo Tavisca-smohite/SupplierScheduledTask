@@ -88,6 +88,11 @@ namespace Tavisca.SupplierScheduledTask.Notifications
         public static string DisableAllSuppliers
         {
             get { return ConfigurationManager.AppSettings["DisableAllSuppliers"]; }
+        }
+
+        public static string LogFile
+        {
+            get { return ConfigurationManager.AppSettings["LogFile"]; }
         } 
         
     }
