@@ -25,7 +25,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 
         public Dictionary<Supplier, string> GetFailureRateForProductSuppliers(List<Supplier> suppliersList)
         {
-            int minutes = (!string.IsNullOrEmpty(Configuration.TimeDiffInMinutes)) ? Convert.ToInt32(Configuration.TimeDiffInMinutes) : 60;
+            int minutes = (string.IsNullOrEmpty(Configuration.TimeDiffInMinutes))==false ? Convert.ToInt32(Configuration.TimeDiffInMinutes) : 60;
             SupplierDataHelper.WriteIntoLogFile("inside carproductstrategy GetFailureRateForProductSuppliers....");
             var supplierAndFailureRateMapping = new Dictionary<Supplier, string>();
             foreach (Supplier supplier in suppliersList)

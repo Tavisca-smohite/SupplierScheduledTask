@@ -40,6 +40,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                                                       supplierStats.TotalCallsCount,
                                                       supplierStats.TotalFailureCallsCount,
                                                       supplierStats.FailureRate));
+                //TODO : move below code in seperate private method
                 if (supplierStats.IsEnabled == 1)
                 {
                     var failureRate = (supplierStats.TotalRate < 100) ? string.Empty : supplierStats.FailureRate.ToString(CultureInfo.InvariantCulture);

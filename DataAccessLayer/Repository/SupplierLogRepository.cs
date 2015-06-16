@@ -47,6 +47,7 @@ namespace Tavisca.SupplierScheduledTask.DataAccessLayer
 
                     perFailureRate = result.PerFailure;
                     perSuccessRate = result.PerSuccess;
+                    //TODO: use tryparse
                     totalCount = (successCount=(result.Success != null) ? Convert.ToInt32(result.Success) : 0) +
                                  (failureCount=(result.Failure != null) ? Convert.ToInt32(result.Failure) : 0);
                     isEnabled = result.IsEnabled;

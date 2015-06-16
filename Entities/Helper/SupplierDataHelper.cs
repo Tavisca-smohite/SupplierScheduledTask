@@ -47,7 +47,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
     public Dictionary<string, List<Supplier>> GetProductWiseSuppliersList()
     {
         var productWiseSuppliersList = new Dictionary<string, List<Supplier>>();
-
+        //TODO: please refactor code by adding seperate private methods
         var suplierList = ParseSuppliers();
         WriteIntoLogFile("got parsed list of supliers...");
         var hotelSuppliersList =
@@ -78,6 +78,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
     public static Dictionary<Supplier, string> CompareThreshhold(Dictionary<Supplier, string> supplierAndFailureRateMapping)
     {
         var suppliersWhoCrossedThreshhold = new Dictionary<Supplier, string>();
+        //TODO:use tryParse for conversion and use 'true' or false insted of '!'
         var threshholdForTotalCount = Convert.ToInt32(Configuration.ThreshholdForTotalCallsCount);
         foreach (var mapping in supplierAndFailureRateMapping)
         {
@@ -100,7 +101,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
         return suppliersWhoCrossedThreshhold;
     }
 
-
+        //TODO: move this method in seperate calss
         public static void WriteIntoLogFile(string data)
         {
 

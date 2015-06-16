@@ -29,6 +29,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                 };
         }
 
+        #region MockConstructors
         public SupplierDataController(IProductSupplier _productSupplier)
         {
             _updateFaresourcesConfig = RuntimeContext.Resolver.Resolve<IUpdateFaresourcesConfig>("UpdateFaresourcesConfig");                
@@ -51,6 +52,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
                     {"Car", _productSupplier}
                 };
         }
+        #endregion
 
 
         public void Invoke()
@@ -185,6 +187,7 @@ namespace Tavisca.SupplierScheduledTask.BusinessLogic
 
         private int RetriveIdFromKey(string key)
         {
+            //TODO: Use tryparse
             var keys = new List<string>();
             var id = 0;
             if (string.IsNullOrEmpty(key))
